@@ -152,7 +152,7 @@ h2.sec{font-size:1.02rem;margin:20px 0 10px;color:#bae6fd;border-bottom:1px soli
 .panel h3{font-size:.92rem;color:#bae6fd;margin-bottom:8px}
 .panel .note{font-size:.78rem;color:#fde9c8;background:#241a08;border-left:3px solid var(--am);border-radius:7px;padding:8px 11px;margin-bottom:9px;line-height:1.5}
 .scoreenc{max-height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;font-size:.8rem;line-height:1.5}
-#narr{width:100%;min-height:140px;resize:vertical;background:#0f1830;border:1px solid var(--line);border-radius:9px;color:var(--ink);font:500 1rem/1.55 'Segoe UI',system-ui,sans-serif;padding:10px 12px}
+#narr,#narrB{width:100%;min-height:140px;resize:vertical;background:#0f1830;border:1px solid var(--line);border-radius:9px;color:var(--ink);font:500 1rem/1.55 'Segoe UI',system-ui,sans-serif;padding:10px 12px}
 .hwrap{overflow-x:auto}
 .htable{width:100%;border-collapse:collapse;font-size:.76rem;white-space:nowrap}
 .htable th{color:#7dd3fc;text-align:left;padding:5px 6px;border-bottom:1px solid var(--line);font-size:.7rem;text-transform:uppercase;letter-spacing:.04em}
@@ -160,6 +160,38 @@ h2.sec{font-size:1.02rem;margin:20px 0 10px;color:#bae6fd;border-bottom:1px soli
 .hclear{font-size:.74rem;color:#f0a6b8}
 .again{display:block;width:100%;background:linear-gradient(135deg,#3a1132,#26102a);border:1px solid var(--pk);color:#fbcfe8;border-radius:13px;padding:14px;font:800 .95rem 'Segoe UI',system-ui;cursor:pointer;margin-top:16px}
 .again:active{transform:scale(.99)}
+/* start-screen mode picker */
+.modepick{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 14px;margin-bottom:16px}
+.mplabel{font-weight:800;font-size:.92rem;color:#bae6fd;margin-bottom:9px}
+.mpdesc{font-size:.8rem;color:var(--mut);line-height:1.5;margin-top:10px}
+.mpdesc b{color:#e2e8f0}
+.mbtn.blindb.on{color:#fff;background:linear-gradient(135deg,#1c2230,#0b0e14);box-shadow:inset 0 0 0 1px #64748b}
+/* blind run panel */
+.blindnote{background:linear-gradient(135deg,#1a1f2b,#0d1017);border:1px solid #3a4a63;border-radius:14px;padding:14px 16px;font-size:.88rem;line-height:1.55;color:#cbd5e1;margin-bottom:14px}
+.blindnote b{color:#e2e8f0}
+.doneBtn{display:block;width:100%;background:linear-gradient(135deg,#164a38,#0f3527);border:1px solid var(--gd);color:#a7f3d0;border-radius:13px;padding:15px;font:800 1rem 'Segoe UI',system-ui;cursor:pointer}
+.doneBtn:active{transform:scale(.99)}
+/* blind reveal / self-score */
+.padecho{white-space:pre-wrap;word-break:break-word;background:#f7f1df;color:#2b2410;border:1px solid #cdbe98;border-radius:8px;padding:10px 12px;font:600 .95rem/1.5 'Segoe Print','Bradley Hand','Comic Sans MS',cursive,system-ui;max-height:230px;overflow:auto;min-height:44px}
+.rvsec{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:11px 13px;margin-bottom:10px}
+.rvhead{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:7px;margin-bottom:3px}
+.rvhead .rvt{font-weight:800;font-size:.95rem;color:#f5eefb}
+.rvhead .rvmn{font-size:.72rem;color:#5eead4;font-weight:800;letter-spacing:.03em}
+.rvhead .rvstat{margin-left:auto;font-size:.74rem;color:var(--mut);font-weight:700}
+.rvitem{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-top:1px solid #1b2740}
+.rvitem:first-of-type{border-top:none}
+.rvitem .rvtext{flex:1;font-size:.85rem;color:#dce4f0;line-height:1.42;padding-top:3px}
+.rvitem .rvtext b{color:#bae6fd}
+.rvitem .rvtext small{display:block;color:var(--mut);font-size:.76rem;margin-top:2px;font-style:italic}
+.rvitem.got .rvtext{color:#a7f3d0}
+.rvitem.miss .rvtext{color:#fcd9a8}
+.mkbtns{flex:0 0 auto;display:flex;gap:6px}
+.mk{width:42px;height:36px;border-radius:9px;border:1.5px solid #3a4d70;background:#16233c;color:#8ea6cc;font-size:1.05rem;font-weight:900;cursor:pointer}
+.mk.got.on{background:var(--gd);border-color:var(--gd);color:#06210f}
+.mk.miss.on{background:var(--am);border-color:var(--am);color:#3a2a06}
+.mk:active{transform:scale(.94)}
+.misslist{margin:0;padding-left:20px}
+.misslist li{font-size:.82rem;color:#fcd9a8;padding:3px 0;line-height:1.4}
 .wm{position:fixed;bottom:6px;right:10px;font-size:9px;color:rgba(255,255,255,.22);pointer-events:none;z-index:50}
 </style></head><body>
 <a class="back" href="index.html">&larr; History Taking Hub</a>
@@ -169,6 +201,15 @@ h2.sec{font-size:1.02rem;margin:20px 0 10px;color:#bae6fd;border-bottom:1px soli
 <!-- ================= START SCREEN ================= -->
 <div id="startScreen">
   <div class="notice"><b>Practice scenarios for rehearsal only.</b> These personas are generic training cases &mdash; they are <b>not</b> real exam cases and contain no course-specific facts. Use them to drill the flow, wording, and 10-minute pacing.</div>
+  <div class="modepick">
+    <div class="mplabel">&#127919; Choose your rep &mdash; then pick a case below</div>
+    <div class="mseg">
+      <button class="mbtn exam on" id="sExam" onclick="setStartMode('exam')">&#127891; Exam</button>
+      <button class="mbtn coachb" id="sCoach" onclick="setStartMode('coach')">&#129489;&#8205;&#127979; Coach</button>
+      <button class="mbtn blindb" id="sBlind" onclick="setStartMode('blind')">&#128374;&#65039; Blind</button>
+    </div>
+    <div class="mpdesc" id="mpDesc"></div>
+  </div>
   <h2 class="sec">&#128100; Pick a case to rehearse</h2>
   <div class="cases" id="caseGrid"></div>
   <div class="dress">&#127891; <b>Exam Mode is the default:</b> you get the case, the clock, a sheet of paper, and the bare rubric &mdash; just like the real room. Flip to <b>Coach Mode</b> (or tap &#128065; Reveal inside a section) any time you need the answer key. Peeks are counted on your scorecard.</div>
@@ -180,8 +221,8 @@ h2.sec{font-size:1.02rem;margin:20px 0 10px;color:#bae6fd;border-bottom:1px soli
   <div class="timerbar">
     <div class="clock" id="clock">10:00</div>
     <button class="tbtn go" id="startBtn" onclick="toggleTimer()">&#9654; Start</button>
-    <button class="tbtn fin" onclick="finish('manual')">&#9873; Finish</button>
-    <div class="reqmeter">Requirements met: <b id="reqMet">0</b> / 5<span class="dots" id="dots"></span></div>
+    <button class="tbtn fin" id="finishBtn" onclick="finish('manual')">&#9873; Finish</button>
+    <div class="reqmeter" id="reqMeter">Requirements met: <b id="reqMet">0</b> / 5<span class="dots" id="dots"></span></div>
   </div>
 
   <div class="persbar">
@@ -190,7 +231,7 @@ h2.sec{font-size:1.02rem;margin:20px 0 10px;color:#bae6fd;border-bottom:1px soli
     <div class="o" id="pOpener"></div>
   </div>
 
-  <div class="modebar">
+  <div class="modebar" id="modeBar">
     <div class="mseg">
       <button class="mbtn exam on" id="mExam" onclick="setMode('exam')">&#127891; Exam Mode</button>
       <button class="mbtn coachb" id="mCoach" onclick="setMode('coach')">&#129489;&#8205;&#127979; Coach Mode</button>
@@ -208,18 +249,23 @@ h2.sec{font-size:1.02rem;margin:20px 0 10px;color:#bae6fd;border-bottom:1px soli
 
   <div class="padwrap">
     <div class="padhead"><span class="grow">&#128466;&#65039; Your sheet of paper &mdash; write anything, just like the real room.</span>
-      <button class="pbtn" onclick="stampPad()">&#128203; Stamp LOPQRST + FAOMASH skeleton</button>
+      <button class="pbtn" id="stampBtn" onclick="stampPad()">&#128203; Stamp LOPQRST + FAOMASH skeleton</button>
       <button class="pbtn" onclick="clearPad()">&#128465;&#65039; Clear</button>
     </div>
     <textarea id="pad" placeholder="Blank on purpose &mdash; jot your skeleton, the patient&rsquo;s answers, anything." spellcheck="false"></textarea>
   </div>
 
-  <div class="encwrap">
+  <div class="encwrap" id="encWrap">
     <div class="enchead">&#128483;&#65039; Encounter <span class="encsub">the patient answers as you cover each item</span></div>
     <div class="enc" id="enc"></div>
   </div>
 
   <div id="checklist"></div>
+
+  <div id="blindPanel" style="display:none">
+    <div class="blindnote">&#128374;&#65039; <b>Blind rep &mdash; no checklist, no hints, no feedback.</b> Take the whole history from memory, out loud, and write everything on your paper above. When you&rsquo;ve finished the interview, reveal the answer key and grade yourself.</div>
+    <button class="doneBtn" onclick="finish('manual')">&#10004; I&rsquo;m done &mdash; reveal the answer key</button>
+  </div>
 </div>
 
 <!-- ================= SCORE SCREEN ================= -->
@@ -237,10 +283,33 @@ h2.sec{font-size:1.02rem;margin:20px 0 10px;color:#bae6fd;border-bottom:1px soli
     <textarea id="narr" spellcheck="false"></textarea>
     <div style="display:flex;align-items:center;gap:10px;margin-top:8px">
       <div style="flex:1;font-size:.72rem;color:var(--mut)">Pre-filled with your sheet of paper &mdash; now rewrite it as flowing paragraphs.</div>
-      <button class="pbtn" id="copyBtn" onclick="copyNarr()">&#128203; Copy</button>
+      <button class="pbtn" id="copyBtn" onclick="copyText('narr','copyBtn')">&#128203; Copy</button>
     </div>
   </div>
   <div class="panel"><h3>&#128200; Run history</h3><div id="histWrap"></div></div>
+  <button class="again" onclick="reset()">&#128260; Run again / new case</button>
+</div>
+
+<!-- ================= BLIND REVEAL / SELF-SCORE SCREEN ================= -->
+<div id="revealScreen" class="hidden">
+  <div class="scorehead">
+    <div class="bigscore" id="bigScoreB">0 / 5</div>
+    <div class="scoresub" id="scoreSubB"></div>
+  </div>
+  <div class="statrow" id="revealStat"></div>
+  <div class="panel"><h3>&#128466;&#65039; Your sheet of paper (what you wrote)</h3><div class="padecho" id="padEcho"></div></div>
+  <div class="panel"><div class="note" style="border-left-color:var(--ac);background:#0c2233;color:#dbeafe">&#128374;&#65039; Here is the full key of everything you could have covered. Go down it honestly and mark each item &#10003; Got it or &#10007; Missed &mdash; your X / 5 updates as you grade.</div></div>
+  <div id="revealKey"></div>
+  <div class="panel"><h3>&#10007; Marked missed</h3><div id="revealMissed"></div></div>
+  <div class="panel"><h3>&#128221; Narrative practice (for the 8/13 write-up)</h3>
+    <div class="note">A narrative is the patient&rsquo;s history written in paragraph form (not bullet points), logically composed and coherent.</div>
+    <textarea id="narrB" spellcheck="false"></textarea>
+    <div style="display:flex;align-items:center;gap:10px;margin-top:8px">
+      <div style="flex:1;font-size:.72rem;color:var(--mut)">Pre-filled with your sheet of paper &mdash; now rewrite it as flowing paragraphs.</div>
+      <button class="pbtn" id="copyBtnB" onclick="copyText('narrB','copyBtnB')">&#128203; Copy</button>
+    </div>
+  </div>
+  <div class="panel"><h3>&#128200; Run history</h3><div id="histWrapB"></div></div>
   <button class="again" onclick="reset()">&#128260; Run again / new case</button>
 </div>
 
@@ -347,6 +416,8 @@ var PAD_SKELETON="L:\nO:\nP:\nQ:\nR:\nS:\nT:\n\nF:\nA:\nO:\nM:\nA:\nS:\nH:\n\nSo
 
 /* ---------- state ---------- */
 var caseIdx=0,mode='exam',coachUsed=false,peeks=0;
+var startMode='exam';try{var _sm=localStorage.getItem('hxsim_startmode');if(_sm==='exam'||_sm==='coach'||_sm==='blind')startMode=_sm;}catch(e){}
+var selfLop=[],selfFao=[],selfSoc=[],selfSex=[],selfRos=[],blindRunId=null;
 var peekOpen={lop:false,fao:false,soc:false,sex:false,ros:false};
 var lopChk=[],faoChk=[],socChk=[],sexChk=[],rosChk=[];
 var secs=600,timer=null,running=false,started=false,finished=false,usedSecs=0;
@@ -376,8 +447,11 @@ function startCase(i){
   sexChk=SS.sexual.map(function(){return false;});
   rosChk=ROS.map(function(){return false;});
   secs=600;running=false;started=false;finished=false;usedSecs=0;
-  mode='exam';coachUsed=false;peeks=0;
+  mode=startMode;coachUsed=(startMode==='coach');peeks=0;
   peekOpen={lop:false,fao:false,soc:false,sex:false,ros:false};
+  selfLop=LOP.map(function(){return 0;});selfFao=FAO.map(function(){return 0;});
+  selfSoc=SS.social.map(function(){return 0;});selfSex=SS.sexual.map(function(){return 0;});
+  selfRos=ROS.map(function(){return 0;});blindRunId=null;
   transcript=[];
   var c=CASES[i];
   document.getElementById('pCC').textContent=c.cc;
@@ -387,15 +461,17 @@ function startCase(i){
   document.getElementById('clock').className='clock';
   document.getElementById('startBtn').innerHTML='&#9654; Start';
   document.getElementById('startBtn').classList.add('go');
-  /* the sheet of paper: restore once after a reload, otherwise start blank */
+  /* the sheet of paper: Blind always starts blank; otherwise restore once after a reload */
   var pad=document.getElementById('pad');
-  if(firstRunAfterLoad&&padSaved){pad.value=padSaved;}
+  if(mode==='blind'){pad.value='';try{localStorage.removeItem('hxsim_pad');}catch(e){}}
+  else if(firstRunAfterLoad&&padSaved){pad.value=padSaved;}
   else{pad.value='';try{localStorage.removeItem('hxsim_pad');}catch(e){}}
   firstRunAfterLoad=false;
   document.getElementById('startScreen').classList.add('hidden');
   document.getElementById('scoreScreen').classList.add('hidden');
+  document.getElementById('revealScreen').classList.add('hidden');
   document.getElementById('runScreen').classList.remove('hidden');
-  syncModeUI();syncVoiceUI();
+  syncModeUI();syncVoiceUI();applyRunLayout();
   renderChecklist();updProg();updHint();renderEnc();
   window.scrollTo(0,0);
 }
@@ -403,6 +479,7 @@ function startCase(i){
 /* ---------- checklist render ---------- */
 function renderChecklist(){
   var w=document.getElementById('checklist');w.innerHTML='';
+  if(mode==='blind')return; // Blind hides the whole rubric — render nothing (no peeks/hints in the DOM)
   var c=CASES[caseIdx];
   var coachOn=(mode==='coach');
 
@@ -744,6 +821,7 @@ function finish(reason){
   if(timer){clearInterval(timer);}running=false;
   if(secs>0)usedSecs=600-secs;else usedSecs=600;
   if('speechSynthesis' in window)speechSynthesis.cancel();
+  if(mode==='blind'){openReveal(reason);return;}
   var m=secMet();
   var defs=[
     {key:'lop',ico:'&#129504;',t:'HPI complete (LOPQRST)',need:'all 7 elements',got:count(lopChk)+' / 7',ok:m.lop,miss:LOP.filter(function(_,k){return !lopChk[k];}).map(function(it){return it.code+' '+it.label;})},
@@ -786,32 +864,138 @@ function finish(reason){
 function loadHist(){try{var h=JSON.parse(localStorage.getItem('hxsim_history')||'[]');return Array.isArray(h)?h:[];}catch(e){return [];}}
 function saveHist(h){try{localStorage.setItem('hxsim_history',JSON.stringify(h));}catch(e){}}
 function fmtClock12(d){var h=d.getHours(),mm=d.getMinutes(),ap=h>=12?'PM':'AM';h=h%12;if(h===0)h=12;return h+':'+(mm<10?'0':'')+mm+' '+ap;}
-function renderHist(){
-  var w=document.getElementById('histWrap');if(!w)return;
+function renderHist(){renderHistInto('histWrap');renderHistInto('histWrapB');}
+function renderHistInto(id){
+  var w=document.getElementById(id);if(!w)return;
   var h=loadHist();
   if(!h.length){w.innerHTML='<div class="encempty">No runs recorded yet — finish a run and it lands here.</div>';return;}
   var rows=h.map(function(r){
     var d=new Date(r.t);var ds=(d.getMonth()+1)+'/'+d.getDate()+' '+fmtClock12(d);
-    return '<tr><td>'+ds+'</td><td>'+esc(r.c)+'</td><td>'+esc(r.m)+'</td><td><b>'+r.s+' / 5</b></td><td>'+r.p+'</td><td>'+fmt(r.u)+'</td></tr>';
+    return '<tr><td>'+ds+'</td><td>'+esc(r.c)+'</td><td>'+esc(r.m)+'</td><td><b>'+r.s+' / 5</b></td><td>'+esc(String(r.p))+'</td><td>'+fmt(r.u)+'</td></tr>';
   }).join('');
   w.innerHTML='<div class="hwrap"><table class="htable"><thead><tr><th>Date</th><th>Case</th><th>Mode</th><th>Score</th><th>Peeks</th><th>Time</th></tr></thead><tbody>'+rows+'</tbody></table></div><div style="text-align:right;margin-top:7px"><a href="#" class="hclear" onclick="clearHist();return false;">&#128465;&#65039; clear history</a></div>';
 }
 function clearHist(){try{localStorage.removeItem('hxsim_history');}catch(e){}renderHist();}
 
 /* ---------- narrative copy ---------- */
-function copyNarr(){
-  var t=document.getElementById('narr'),b=document.getElementById('copyBtn');
+function copyText(taId,btnId){
+  var t=document.getElementById(taId),b=document.getElementById(btnId);
   var done=function(){if(b){b.innerHTML='&#10003; Copied';setTimeout(function(){b.innerHTML='&#128203; Copy';},1500);}};
   var fallback=function(){try{t.focus();t.select();document.execCommand('copy');done();}catch(e){}};
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,fallback);}
   else fallback();
 }
 
+/* ---------- start-screen mode picker ---------- */
+var START_DESC={
+  exam:'&#127891; <b>Exam</b> — only what you&rsquo;ll really have in the room: the clock, the paper, and the bare rubric. Peek at the key if you must (peeks are counted).',
+  coach:'&#129489;&#8205;&#127979; <b>Coach</b> — training wheels on: hints, verbatim example questions, and read-aloud on every element. Switchable to Exam mid-run.',
+  blind:'&#128374;&#65039; <b>Blind (straight-through)</b> — a cold rep. Just the patient, the clock, and a <b>blank</b> page (no skeleton stamp). Do the whole interview from memory, out loud; reveal the answer key and grade yourself only when you&rsquo;re done.'
+};
+function setStartMode(m){startMode=m;try{localStorage.setItem('hxsim_startmode',m);}catch(e){}syncStartPicker();}
+function syncStartPicker(){
+  [['sExam','exam'],['sCoach','coach'],['sBlind','blind']].forEach(function(p){var b=document.getElementById(p[0]);if(b)b.classList.toggle('on',startMode===p[1]);});
+  var d=document.getElementById('mpDesc');if(d)d.innerHTML=START_DESC[startMode]||'';
+}
+
+/* ---------- run-screen layout per mode ---------- */
+function applyRunLayout(){
+  var blind=(mode==='blind');
+  var setD=function(id,show){var e=document.getElementById(id);if(e)e.style.display=show?'':'none';};
+  setD('reqMeter',!blind);
+  setD('modeBar',!blind);
+  setD('modeHint',!blind);
+  setD('encWrap',!blind);
+  setD('checklist',!blind);
+  setD('finishBtn',!blind);
+  setD('stampBtn',!blind);
+  setD('blindPanel',blind);
+}
+
+/* ---------- BLIND: reveal + self-score ---------- */
+function cnt1(a){var n=0;for(var i=0;i<a.length;i++)if(a[i]===1)n++;return n;}
+function trunc(s){s=String(s);return s.length>46?s.slice(0,44)+'…':s;}
+function openReveal(reason){
+  document.getElementById('padEcho').textContent=document.getElementById('pad').value||'(You didn’t write anything on the paper.)';
+  document.getElementById('narrB').value=document.getElementById('pad').value;
+  document.getElementById('scoreSubB').innerHTML='You ran it cold &mdash; now reveal the key and grade yourself.<br>'+(reason==='time'?'&#9200; Time expired at 10:00.':'Finished when you tapped &ldquo;I’m done.&rdquo;');
+  document.getElementById('revealStat').innerHTML='&#128374;&#65039; Mode: <b>Blind</b> &middot; &#9201; Time used: <b>'+fmt(usedSecs)+'</b> of 10:00';
+  logBlindStart(usedSecs);
+  renderRevealKey();
+  document.getElementById('runScreen').classList.add('hidden');
+  document.getElementById('scoreScreen').classList.add('hidden');
+  document.getElementById('revealScreen').classList.remove('hidden');
+  window.scrollTo(0,0);
+}
+function rvItem(sec,k,main,sub,state){
+  return '<div class="rvitem'+(state===1?' got':state===-1?' miss':'')+'"><div class="rvtext">'+main+(sub?'<small>'+sub+'</small>':'')+
+    '</div><div class="mkbtns"><button class="mk got'+(state===1?' on':'')+'" title="Got it" onclick="selfMark(\''+sec+'\','+k+',1)">&#10003;</button>'+
+    '<button class="mk miss'+(state===-1?' on':'')+'" title="Missed" onclick="selfMark(\''+sec+'\','+k+',-1)">&#10007;</button></div></div>';
+}
+function rvSection(title,mn,stat,items){
+  return '<div class="rvsec"><div class="rvhead"><span class="rvt">'+title+'</span><span class="rvmn">'+mn+'</span><span class="rvstat">'+stat+'</span></div>'+items+'</div>';
+}
+function renderRevealKey(){
+  var lop=LOP.map(function(it,k){return rvItem('lop',k,'<b>'+it.code+'</b> &mdash; '+esc(it.label),'e.g. “'+esc(it.ex)+'”',selfLop[k]);}).join('');
+  var fao=FAO.map(function(it,k){return rvItem('fao',k,'<b>'+it.code+'</b> &mdash; '+esc(it.label),'e.g. “'+esc(it.ex)+'”',selfFao[k]);}).join('');
+  var soc=SS.social.map(function(q,k){return rvItem('soc',k,'“'+esc(q)+'”','',selfSoc[k]);}).join('');
+  var sex=SS.sexual.map(function(q,k){return rvItem('sex',k,'“'+esc(q)+'”','',selfSex[k]);}).join('');
+  var ros=ROS.map(function(s,k){return rvItem('ros',k,esc(s.system),esc(s.screening_questions.join('  ·  ')),selfRos[k]);}).join('');
+  var html='';
+  html+=rvSection('HPI &mdash; the story','LOPQRST',cnt1(selfLop)+'/7 got &middot; need all 7',lop);
+  html+=rvSection('Past Medical History','FAOMASH',cnt1(selfFao)+'/7 got &middot; need all 7',fao);
+  html+=rvSection('Social History','&ge; 3',cnt1(selfSoc)+' got &middot; need &ge;3',soc);
+  html+=rvSection('Sexual History','&ge; 2',cnt1(selfSex)+' got &middot; need &ge;2',sex);
+  html+=rvSection('Review of Systems','&ge; 3 systems',cnt1(selfRos)+' systems &middot; need &ge;3',ros);
+  document.getElementById('revealKey').innerHTML=html;
+  updateRevealTally();
+}
+function updateRevealTally(){
+  var met={
+    lop:selfLop.length>0&&selfLop.every(function(v){return v===1;}),
+    fao:selfFao.length>0&&selfFao.every(function(v){return v===1;}),
+    soc:cnt1(selfSoc)>=3,sex:cnt1(selfSex)>=2,ros:cnt1(selfRos)>=3
+  };
+  var n=['lop','fao','soc','sex','ros'].reduce(function(a,k){return a+(met[k]?1:0);},0);
+  var big=document.getElementById('bigScoreB');big.textContent=n+' / 5';big.className='bigscore '+(n===5?'pass':'fail');
+  var miss=[];
+  selfLop.forEach(function(v,k){if(v===-1)miss.push('LOPQRST &middot; '+LOP[k].code+' '+esc(LOP[k].label));});
+  selfFao.forEach(function(v,k){if(v===-1)miss.push('FAOMASH &middot; '+FAO[k].code+' '+esc(FAO[k].label));});
+  selfSoc.forEach(function(v,k){if(v===-1)miss.push('Social &middot; '+esc(trunc(SS.social[k])));});
+  selfSex.forEach(function(v,k){if(v===-1)miss.push('Sexual &middot; '+esc(trunc(SS.sexual[k])));});
+  selfRos.forEach(function(v,k){if(v===-1)miss.push('ROS &middot; '+esc(ROS[k].system));});
+  var mw=document.getElementById('revealMissed');
+  if(miss.length)mw.innerHTML='<ul class="misslist"><li>'+miss.join('</li><li>')+'</li></ul>';
+  else mw.innerHTML='<div class="encempty">'+(n===5?'Nothing marked missed &mdash; clean sweep! &#127881;':'Nothing marked missed yet &mdash; mark the items you didn’t cover.')+'</div>';
+  updateBlindHist(n);
+}
+function selfMark(sec,k,val){
+  var arr=sec==='lop'?selfLop:sec==='fao'?selfFao:sec==='soc'?selfSoc:sec==='sex'?selfSex:selfRos;
+  arr[k]=(arr[k]===val)?0:val;
+  renderRevealKey();
+}
+function logBlindStart(u){
+  var hist=loadHist();
+  blindRunId='b'+Date.now()+'_'+Math.floor(Math.random()*1000);
+  hist.unshift({id:blindRunId,t:new Date().toISOString(),c:CASES[caseIdx].cc,m:'Blind',s:0,p:'—',u:u});
+  if(hist.length>40)hist.length=40;
+  saveHist(hist);
+}
+function updateBlindHist(n){
+  if(!blindRunId)return;
+  var hist=loadHist(),found=false;
+  for(var i=0;i<hist.length;i++){if(hist[i].id===blindRunId){hist[i].s=n;found=true;break;}}
+  if(found)saveHist(hist);
+  renderHist();
+}
+
 function reset(){
   if('speechSynthesis' in window){try{speechSynthesis.cancel();}catch(e){}}
   document.getElementById('scoreScreen').classList.add('hidden');
+  document.getElementById('revealScreen').classList.add('hidden');
   document.getElementById('runScreen').classList.add('hidden');
   document.getElementById('startScreen').classList.remove('hidden');
+  syncStartPicker();
   window.scrollTo(0,0);
 }
 
@@ -819,6 +1003,7 @@ function reset(){
 if(localStorage.getItem('dcDavidView')==='1'){var wm=document.getElementById('wm');if(wm)wm.style.display='none';}
 
 renderCases();
+syncStartPicker();
 syncVoiceUI();
 document.getElementById('pad').addEventListener('input',savePad);
 </script>
