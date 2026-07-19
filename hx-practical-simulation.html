@@ -1,0 +1,464 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>History Taking — Practical Simulation (10-min OSCE rehearsal)</title>
+<style>
+:root{--bg:#0a0e1a;--card:#111a2e;--line:#22304d;--ink:#e6ecf5;--mut:#9fb0cc;--ac:#38bdf8;--gd:#34d399;--am:#fbbf24;--pk:#f472b6;--rd:#f87171}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(1100px 560px at 50% -8%,#132038,#0a0e1a),#0a0e1a;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.5;padding:14px 12px 90px;max-width:900px;margin:0 auto}
+a.back{display:inline-block;background:#16233c;color:#bcd3f0;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font:800 .78rem 'Segoe UI',system-ui;text-decoration:none;margin-bottom:12px}
+a.back:hover{background:#20334f;color:#fff}
+h1{font-size:1.32rem;text-align:center;color:var(--pk);margin-bottom:3px;line-height:1.22}
+.sub{text-align:center;color:var(--mut);font-size:.84rem;margin-bottom:14px}
+.sub b{color:#7dd3fc}
+.hidden{display:none!important}
+/* start screen */
+.notice{background:linear-gradient(135deg,#3a2a0c,#241a08);border:1px solid var(--am);border-radius:13px;padding:11px 14px;font-size:.82rem;color:#fde9c8;margin-bottom:16px;line-height:1.5}
+.notice b{color:#fff}
+h2.sec{font-size:1.02rem;margin:20px 0 10px;color:#bae6fd;border-bottom:1px solid var(--line);padding-bottom:6px}
+.cases{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.cases{grid-template-columns:1fr}}
+.case{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 15px;cursor:pointer;transition:border-color .12s,transform .12s;text-align:left}
+.case:hover{border-color:var(--pk);transform:translateY(-2px)}
+.case .cc{font-size:.66rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#fbcfe8;background:rgba(244,114,182,.15);border-radius:999px;padding:2px 9px;display:inline-block;margin-bottom:7px}
+.case .persona{font-weight:800;font-size:1rem;margin-bottom:4px;color:#f5eefb}
+.case .opener{font-size:.83rem;color:var(--mut);font-style:italic;line-height:1.45}
+.dress{font-size:.8rem;color:#9fb0cc;background:#0f1830;border-left:3px solid var(--ac);border-radius:7px;padding:9px 12px;margin-top:16px;line-height:1.5}
+.dress b{color:#bae6fd}
+/* run screen */
+.timerbar{position:sticky;top:0;z-index:20;background:#0d1526;border:1px solid var(--line);border-radius:13px;padding:10px 13px;display:flex;align-items:center;gap:11px;margin-bottom:14px;flex-wrap:wrap}
+.clock{font-size:1.85rem;font-weight:900;font-variant-numeric:tabular-nums;color:#fff;min-width:96px}
+.clock.warn{color:var(--am)}.clock.over{color:var(--rd);animation:flash .7s steps(1) infinite}
+@keyframes flash{50%{opacity:.35}}
+.tbtn{background:#16233c;color:#bcd3f0;border:1px solid var(--line);border-radius:10px;padding:8px 13px;font:800 .8rem 'Segoe UI',system-ui;cursor:pointer}
+.tbtn.go{background:#164a38;color:#a7f3d0;border-color:var(--gd)}
+.tbtn.fin{background:#3a1132;color:#fbcfe8;border-color:var(--pk)}
+.tbtn:active{transform:scale(.97)}
+.reqmeter{flex:1;min-width:150px;font-size:.82rem;color:var(--mut);text-align:right}
+.reqmeter b{color:#a7f3d0;font-size:1.05rem}
+.dots{display:inline-flex;gap:4px;margin-left:8px;vertical-align:middle}
+.dot{width:11px;height:11px;border-radius:50%;background:#2a3a58;border:1px solid #3a4d70}
+.dot.on{background:var(--gd);border-color:var(--gd)}
+.persbar{background:var(--card);border:1px solid var(--pk);border-radius:12px;padding:11px 14px;margin-bottom:12px}
+.persbar .cc{font-size:.64rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#fbcfe8;margin-bottom:3px}
+.persbar .p{font-weight:800;font-size:.98rem;color:#f5eefb}
+.persbar .o{font-size:.82rem;color:var(--mut);font-style:italic;margin-top:2px}
+/* coaching toggle */
+.ctrls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.toggle{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:#cbd5e1;cursor:pointer;user-select:none}
+.toggle .sw{width:40px;height:22px;border-radius:999px;background:#2a3a58;position:relative;transition:background .15s;flex:0 0 auto}
+.toggle .sw::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#8ea6cc;transition:transform .15s}
+.toggle.on .sw{background:var(--ac)}
+.toggle.on .sw::after{transform:translateX(18px);background:#fff}
+.hintbox{background:#0f1830;border-left:3px solid var(--ac);border-radius:8px;padding:10px 13px;margin-bottom:13px;font-size:.84rem;line-height:1.5;color:#dbeafe}
+.hintbox b{color:#7dd3fc}
+.hintbox .ex{display:block;color:#cbd5e1;font-style:italic;margin-top:5px}
+.hintbox .pa{display:block;color:#a7f3d0;margin-top:5px;font-size:.81rem}
+.ttsbtn{background:#1a2a1e;color:#a7f3d0;border:1px solid var(--gd);border-radius:9px;padding:7px 12px;font:800 .78rem 'Segoe UI',system-ui;cursor:pointer;margin-top:8px}
+/* sections */
+.step{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:11px;overflow:hidden}
+.step.done{border-color:var(--gd)}
+.step-h{display:flex;align-items:center;gap:10px;padding:11px 14px;cursor:pointer;user-select:none}
+.step-h .n{flex:0 0 auto;width:26px;height:26px;border-radius:8px;background:#16233c;color:#bcd3f0;font-weight:900;font-size:.82rem;display:grid;place-items:center;border:1px solid var(--line)}
+.step.done .step-h .n{background:#164a38;color:#a7f3d0;border-color:var(--gd)}
+.step-h .t{flex:1;font-weight:800;font-size:.96rem}
+.step-h .mn{font-size:.72rem;color:#5eead4;font-weight:800;letter-spacing:.03em}
+.step-h .cnt{font-size:.72rem;color:var(--mut);font-weight:700}
+.step-h .chev{color:#5b6f92;font-size:.8rem;margin-left:2px}
+.step-b{padding:0 14px 12px;display:none}
+.step.open .step-b{display:block}
+.req{display:flex;align-items:flex-start;gap:9px;padding:7px 0;border-top:1px solid #1b2740;cursor:pointer}
+.req:first-child{border-top:none}
+.req .box{flex:0 0 auto;width:19px;height:19px;border-radius:5px;border:1.5px solid #3a4d70;margin-top:1px;display:grid;place-items:center;font-size:.72rem;color:transparent}
+.req.on .box{background:var(--gd);border-color:var(--gd);color:#06210f}
+.req .rt{flex:1;font-size:.87rem;color:#dce4f0;line-height:1.42}
+.req.on .rt{color:#a7f3d0}
+.req .rt small{display:block;color:var(--mut);font-size:.77rem;margin-top:2px}
+/* social/sexual counters */
+.cbank li{list-style:none;font-size:.83rem;color:#cbd5e1;padding:6px 0 6px 24px;position:relative;line-height:1.42;cursor:pointer;border-top:1px solid #1b2740}
+.cbank li:first-child{border-top:none}
+.cbank li::before{content:"\2610";position:absolute;left:2px;color:#5b6f92;font-size:.95rem;top:5px}
+.cbank li.on{color:#a7f3d0}
+.cbank li.on::before{content:"\2611";color:var(--gd)}
+/* ROS picker */
+.roswrap{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px}
+.chip{font-size:.76rem;padding:6px 11px;border-radius:999px;background:#16233c;border:1px solid var(--line);color:#bcd3f0;cursor:pointer;user-select:none;transition:all .1s}
+.chip.on{background:var(--gd);border-color:var(--gd);color:#06210f;font-weight:800}
+.rosq{font-size:.8rem;color:var(--mut);background:#0f1830;border-radius:8px;padding:9px 12px;margin-top:10px;line-height:1.5;display:none}
+.rosq.show{display:block}
+.rosq b{color:#7dd3fc}
+/* score screen */
+.scorehead{text-align:center;margin-bottom:16px}
+.bigscore{font-size:2.6rem;font-weight:900;line-height:1}
+.bigscore.pass{color:var(--gd)}.bigscore.fail{color:var(--am)}
+.scoresub{color:var(--mut);font-size:.86rem;margin-top:6px}
+.scard{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:13px 15px;margin-bottom:10px;display:flex;align-items:center;gap:12px}
+.scard.met{border-color:var(--gd)}
+.scard.miss{border-color:var(--am)}
+.scard .ico{font-size:1.4rem;flex:0 0 auto}
+.scard .body{flex:1}
+.scard .st{font-weight:800;font-size:.95rem}
+.scard .sd{font-size:.8rem;color:var(--mut);margin-top:2px}
+.scard .mc{font-size:.78rem;color:#fcd9a8;margin-top:4px}
+.scard .val{font-weight:900;font-size:1.05rem}
+.scard.met .val{color:var(--gd)}.scard.miss .val{color:var(--am)}
+.tstat{text-align:center;color:var(--mut);font-size:.85rem;margin:14px 0}
+.tstat b{color:#e6ecf5}
+.again{display:block;width:100%;background:linear-gradient(135deg,#3a1132,#26102a);border:1px solid var(--pk);color:#fbcfe8;border-radius:13px;padding:14px;font:800 .95rem 'Segoe UI',system-ui;cursor:pointer;margin-top:16px}
+.again:active{transform:scale(.99)}
+.wm{position:fixed;bottom:6px;right:10px;font-size:9px;color:rgba(255,255,255,.22);pointer-events:none;z-index:50}
+</style></head><body>
+<a class="back" href="index.html">&larr; History Taking Hub</a>
+<h1>&#127908; History Taking &mdash; Practical Simulation</h1>
+<div class="sub">10-min OSCE rehearsal &middot; take an SP history against the graded rubric &middot; <b>self-score</b></div>
+
+<!-- ================= START SCREEN ================= -->
+<div id="startScreen">
+  <div class="notice"><b>Practice scenarios for rehearsal only.</b> These personas are generic training cases &mdash; they are <b>not</b> real exam cases and contain no course-specific facts. Use them to drill the flow, wording, and 10-minute pacing.</div>
+  <h2 class="sec">&#128100; Pick a case to rehearse</h2>
+  <div class="cases" id="caseGrid"></div>
+  <div class="dress">&#128084; <b>Reminder (not scored here):</b> the real practical is in person in <b>business-casual dress</b>. Open with a professional intro and build rapport before you dive in.</div>
+</div>
+
+<!-- ================= RUN SCREEN ================= -->
+<div id="runScreen" class="hidden">
+  <div class="timerbar">
+    <div class="clock" id="clock">10:00</div>
+    <button class="tbtn go" id="startBtn" onclick="toggleTimer()">&#9654; Start</button>
+    <button class="tbtn fin" onclick="finish('manual')">&#9873; Finish</button>
+    <div class="reqmeter">Requirements met: <b id="reqMet">0</b> / 5<span class="dots" id="dots"></span></div>
+  </div>
+
+  <div class="persbar">
+    <div class="cc" id="pCC"></div>
+    <div class="p" id="pPersona"></div>
+    <div class="o" id="pOpener"></div>
+  </div>
+
+  <div class="ctrls">
+    <div class="toggle on" id="coachToggle" onclick="toggleCoach()"><span class="sw"></span><span>Coaching prompts</span></div>
+  </div>
+
+  <div class="hintbox" id="hintBox">
+    <b>Next suggested area:</b> <span id="hintArea"></span>
+    <span class="ex" id="hintEx"></span>
+    <span class="pa" id="hintPa"></span>
+    <button class="ttsbtn" onclick="speakHint()">&#127911; Read this prompt aloud</button>
+  </div>
+
+  <div id="checklist"></div>
+</div>
+
+<!-- ================= SCORE SCREEN ================= -->
+<div id="scoreScreen" class="hidden">
+  <div class="scorehead">
+    <div class="bigscore" id="bigScore">0 / 5</div>
+    <div class="scoresub" id="scoreSub"></div>
+  </div>
+  <div id="scoreCards"></div>
+  <div class="tstat" id="tstat"></div>
+  <button class="again" onclick="reset()">&#128260; Run again / new case</button>
+</div>
+
+<div class="wm" id="wm">DC Study Supply &mdash; Dr. David Gramling, PhD</div>
+<script>
+/* ---------- reference data (verbatim from content_combined.json) ---------- */
+var ROS=[{"system":"Constitutional / General","screening_questions":["Have you had any unintentional weight loss or weight gain recently?","Have you noticed any weakness or fatigue?","Any fevers or night sweats?","Have you had any change in your sleep patterns?"]},{"system":"Skin / Integumentary","screening_questions":["Have you noticed any rashes, lumps, sores, itching, or dryness of your skin?","Any change in the color of your skin, or any new moles or lesions?","For any mole, have you noticed changes in its asymmetry, borders, color, diameter, or is it evolving (ABCDE)?","Any changes in your hair (growth or loss) or your nails (cracking, spooning, clubbing, color)?"]},{"system":"HEENT - Head","screening_questions":["Do you have any head or face pain?","Have you had any head injuries?"]},{"system":"HEENT - Eyes","screening_questions":["Do you wear corrective lenses - glasses, reading glasses, or contacts?","Any visual changes such as blurry vision, floaters, halos, double vision, or light sensitivity?","Any eye pain, redness, tearing, dryness, or discharge?","When was your last eye exam?"]},{"system":"HEENT - Ears","screening_questions":["Do you use hearing aids, or have you noticed any changes in your hearing?","Any ringing in your ears (tinnitus) or dizziness/vertigo?","Any ear pain, discharge, itchiness, or history of ear infections?"]},{"system":"HEENT - Nose & Sinuses","screening_questions":["Do you get frequent colds or sinus infections?","Any runny nose, congestion, pain, itchiness, or nosebleeds?","Have you noticed any change in your sense of smell?"]},{"system":"HEENT - Mouth & Throat","screening_questions":["Any bleeding or irritation of your gums, or difficulty chewing or swallowing?","Do you have frequent sore throats, hoarseness, or dry mouth?","Any change or loss of taste?","When was your last dental appointment?"]},{"system":"HEENT - Neck","screening_questions":["Any swollen glands or lymph nodes in your neck?","Any neck pain, stiffness, or lumps?","Any history of thyroid problems or goiter?"]},{"system":"Cardiovascular","screening_questions":["Do you have any history of heart trouble - murmurs, high blood pressure, heart failure, heart attack, or atrial fibrillation?","Any chest pain, palpitations, or shortness of breath with exertion?","Do you get short of breath when lying flat, or need extra pillows to sleep?","Any swelling in your hands, ankles, or feet?"]},{"system":"Respiratory","screening_questions":["Do you have a cough? If so, do you bring up any sputum, and what color?","Have you ever coughed up blood?","Any shortness of breath or wheezing?","Any history of asthma, COPD, pneumonia, or TB?"]},{"system":"Gastrointestinal","screening_questions":["Any difficulty swallowing, heartburn, nausea, or regurgitation?","Any change in your appetite, belching, gas, or abdominal pain?","Any change in your stool color, size, or consistency, or constipation or diarrhea?","Have you seen any blood in your stool? When was your last colonoscopy?"]},{"system":"Genitourinary - Urinary","screening_questions":["How often are you urinating - any increased frequency or getting up at night to urinate?","Any painful or difficult urination (dysuria)?","Any decreased strength of your urine stream, dribbling, or hesitancy?","Any blood in your urine, or flank or lower-belly pain?"]},{"system":"Genitourinary - Genital","screening_questions":["Any history of sexually transmitted infections?","Any genital lesions, ulcerations, discharge, or pain?","(For patients who menstruate) At what age did your periods start, and are they regular in frequency and duration? Any bleeding between periods?","(For patients who menstruate) When was your last Pap, and have you had any pregnancies?"]},{"system":"Musculoskeletal","screening_questions":["Any muscle, joint, or bone pain, stiffness, weakness, or instability?","Any neck or back pain, or recent injury?","Any restricted range of motion - do you use a cane, walker, wheelchair, or prosthetic?","Any joint pain with systemic symptoms like fever, chills, rash, or weight loss?"]},{"system":"Peripheral Vascular","screening_questions":["Any muscle pain or leg cramps when you walk (intermittent claudication)?","Any varicose veins, or have you ever had clots in your veins?","Any swelling in your calves, legs, or feet?","Any change in the color of your fingertips or toes in cold weather?"]},{"system":"Neurologic","screening_questions":["Any changes in your mental status?","Any fainting, lightheadedness, or recurrent falls?","Any headaches, dizziness, numbness, or 'pins and needles' (paresthesia)?","Any tremors, involuntary movements, or seizures?"]},{"system":"Psychiatric","screening_questions":["Any changes in your mood - feeling depressed, anxious, or tense?","Any difficulty concentrating or memory changes?","Any insomnia or sleep disturbances?","Have you had any thoughts of suicide, a plan, or previous attempts?"]},{"system":"Endocrine","screening_questions":["Any intolerance to heat or cold?","Any excessive sweating, unusual hunger, or thirst?","Any unexplained weight changes or changes in your energy level?","Any change in your face or body hair or fat distribution?"]},{"system":"Hematologic / Lymphatic","screening_questions":["Have you ever been told you have anemia?","Do you bruise or bleed easily?","Any history of blood clots?","Are you on a blood thinner (anticoagulation therapy)? If so, why - a clot, atrial fibrillation, or stroke?"]}];
+var SS={"social":["Do you feel safe in your current relationships?","How do you cope with stressful experiences or the fact that life can be unfair?","Who do you turn to when you need support - family, friends, or the community?","What brings you joy?","Sometimes people are deeply affected by stressful experiences and may feel depressed, anxious, or use drugs or alcohol to feel better. Has this ever happened to you?","Are you engaging in sex for money, housing, drugs, or any other service?"],"sexual":["Would it be okay if I asked you some questions about your sexual health? I ask all my patients so I can take the best care of you.","Do you have preferred language that you use to refer to your body, such as your genitals?","Are you currently sexually active, and what kinds of sex do you engage in?","Are you sexually active with one partner or more than one? How would your partners identify themselves in terms of gender?","Are there some kinds of sex where you do not use barriers? If so, why?","Have you ever been diagnosed with a sexually transmitted infection? If so, do you remember the site?","When you are having sex, is there any exposure to sperm or chance of pregnancy?","Has anyone ever forced or compelled you to do anything sexually that you did not want to do? Do you feel safe at home?"]};
+
+/* ---------- practice cases (generic personas, plausible generic answers) ---------- */
+var CASES=[
+ {cc:"Low-back pain",persona:"38-year-old with 3 weeks of low-back pain",
+  opener:"“My lower back has been aching for about three weeks and it’s not letting up.”",
+  lopqrst:["Lower back, mostly on the right side, no lower.","Started about 3 weeks ago after a long day of lifting boxes.","Had a milder episode a year ago; rest helps, bending forward makes it worse; it’s been slowly improving.","A deep, dull ache that stiffens up in the morning.","No, it stays in my back — it doesn’t shoot down my legs.","About a 5 out of 10 right now, up to a 7 when I bend.","Worse in the mornings and after sitting a long time; eases as I move around."],
+  pmh:["No major family history — parents both healthy.","No known drug allergies.","Otherwise healthy, no chronic conditions.","Just occasional ibuprofen for the back.","No accidents or falls recently.","No surgeries.","Never been hospitalized."]},
+ {cc:"Chest tightness",persona:"52-year-old with intermittent chest tightness",
+  opener:"“Now and then I get this tightness in my chest and it worries me.”",
+  lopqrst:["Right in the center of my chest, behind the breastbone.","It started a couple of months ago, comes and goes.","Never had this before; resting makes it ease, walking uphill brings it on; about the same over the weeks.","A squeezing, tight pressure — not sharp.","Sometimes I feel it a little in my left shoulder.","Maybe a 4 out of 10 when it happens.","It lasts a few minutes at a time, a few times a week."],
+  pmh:["Father had high blood pressure.","No known allergies.","I was told my blood pressure runs a little high.","I take a daily multivitamin, nothing prescribed.","No accidents.","No surgeries.","No hospital stays."]},
+ {cc:"Recurrent headaches",persona:"24-year-old with recurrent headaches",
+  opener:"“I keep getting these headaches and I’d like to figure out why.”",
+  lopqrst:["Usually across my forehead and both temples.","They’ve been happening on and off for a couple of months.","I’ve had headaches before but not this often; a dark quiet room helps, bright screens make it worse; about the same lately.","A tight, band-like pressure around my head.","No, it doesn’t really move anywhere.","Around a 4 or 5 out of 10, sometimes a 6.","They come a few times a week, usually late afternoon, and last a few hours."],
+  pmh:["My mom gets migraines.","No known allergies.","Otherwise I’m healthy.","Just acetaminophen when a headache hits.","No head injuries or accidents.","No surgeries.","Never hospitalized."]},
+ {cc:"Persistent cough",persona:"45-year-old with a lingering cough",
+  opener:"“I’ve had this nagging cough that just won’t go away.”",
+  lopqrst:["It’s in my chest and throat — a chest cough.","Started about four weeks ago after a cold.","Never lasted this long before; warm tea helps a bit, cold air makes it worse; slowly getting better.","A dry, tickly cough, only a little clear mucus.","No, it stays in my chest.","Not painful really — maybe a 3 out of 10 for how much it bugs me.","Worse at night and first thing in the morning; comes in fits."],
+  pmh:["No lung problems in the family.","No known allergies.","Otherwise healthy.","I tried some over-the-counter cough syrup.","No accidents.","No surgeries.","No hospitalizations."]}
+];
+
+/* ---------- checklist definition ---------- */
+var LOP=[
+ {code:"L",label:"Location",q:"where is it?",ex:"Can you point to exactly where you feel it?"},
+ {code:"O",label:"Onset",q:"when / how did it start?",ex:"When did this first start, and what were you doing when it began?"},
+ {code:"P",label:"Prior · Palliative · Provocative · Progression",q:"had it before? better/worse? trend?",ex:"Have you had this before? What makes it better or worse, and is it improving or getting worse?"},
+ {code:"Q",label:"Quality",q:"what does it feel like?",ex:"How would you describe it — sharp, dull, burning, aching?"},
+ {code:"R",label:"Radiation",q:"does it travel anywhere?",ex:"Does it stay in one place, or does it spread or travel anywhere?"},
+ {code:"S",label:"Severity",q:"0–10 scale",ex:"On a scale of 0 to 10, how bad is it right now?"},
+ {code:"T",label:"Timing",q:"constant vs intermittent, frequency, duration",ex:"Is it constant or does it come and go? How often, and how long does it last?"}
+];
+var FAO=[
+ {code:"F",label:"Family history",ex:"Are your parents and siblings healthy? Any conditions that run in the family?"},
+ {code:"A",label:"Allergies",ex:"Do you have any allergies to medications, foods, or anything in the environment — and what reaction?"},
+ {code:"O",label:"Other illness (chronic conditions)",ex:"Do you have any ongoing health conditions or see other doctors regularly?"},
+ {code:"M",label:"Medications",ex:"What medications do you take — prescription, over-the-counter, or supplements — and the doses?"},
+ {code:"A",label:"Accidents / trauma",ex:"Have you had any significant accidents or injuries?"},
+ {code:"S",label:"Surgeries",ex:"Have you had any surgeries or procedures?"},
+ {code:"H",label:"Hospitalizations",ex:"Have you ever been hospitalized for anything?"}
+];
+
+/* ---------- state ---------- */
+var caseIdx=0,coach=true;
+var lopChk=[],faoChk=[],socChk=[],sexChk=[],rosChk=[];
+var secs=600,timer=null,running=false,started=false,finished=false,usedSecs=0;
+
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+/* ---------- start screen ---------- */
+function renderCases(){
+  var g=document.getElementById('caseGrid');g.innerHTML='';
+  CASES.forEach(function(c,i){
+    var d=document.createElement('div');d.className='case';d.onclick=function(){startCase(i);};
+    d.innerHTML='<span class="cc">'+esc(c.cc)+'</span><div class="persona">'+esc(c.persona)+'</div><div class="opener">'+esc(c.opener)+'</div>';
+    g.appendChild(d);
+  });
+}
+
+function startCase(i){
+  caseIdx=i;
+  lopChk=LOP.map(function(){return false;});
+  faoChk=FAO.map(function(){return false;});
+  socChk=SS.social.map(function(){return false;});
+  sexChk=SS.sexual.map(function(){return false;});
+  rosChk=ROS.map(function(){return false;});
+  secs=600;running=false;started=false;finished=false;usedSecs=0;
+  var c=CASES[i];
+  document.getElementById('pCC').textContent=c.cc;
+  document.getElementById('pPersona').textContent=c.persona;
+  document.getElementById('pOpener').textContent=c.opener;
+  document.getElementById('clock').textContent='10:00';
+  document.getElementById('clock').className='clock';
+  document.getElementById('startBtn').innerHTML='&#9654; Start';
+  document.getElementById('startBtn').classList.add('go');
+  document.getElementById('startScreen').classList.add('hidden');
+  document.getElementById('scoreScreen').classList.add('hidden');
+  document.getElementById('runScreen').classList.remove('hidden');
+  renderChecklist();updProg();updHint();
+  window.scrollTo(0,0);
+}
+
+/* ---------- checklist render ---------- */
+function renderChecklist(){
+  var w=document.getElementById('checklist');w.innerHTML='';
+  var c=CASES[caseIdx];
+
+  // 1. Open + CC (not one of the 5 scored sections, but a rubric reminder)
+  w.appendChild(stepEl(0,'Open + Chief Complaint','',
+    '<div class="req" id="ocReq" onclick="toggleGeneric(this)"><div class="box">&#10003;</div><div class="rt">Greet, introduce yourself, confirm name &amp; wash-in; elicit the Chief Complaint<small>professional, warm opening &mdash; not one of the 5 scored sections, but always do it</small></div></div>'));
+
+  // 2. LOPQRST
+  var lop=LOP.map(function(it,k){
+    var pa=coach?('<small style="color:#7fdcc0">Patient: “'+esc(c.lopqrst[k])+'”</small>'):'';
+    return '<div class="req'+(lopChk[k]?' on':'')+'" onclick="tog(\'lop\','+k+',this)"><div class="box">&#10003;</div><div class="rt"><b>'+it.code+'</b> — '+esc(it.label)+'<small>'+esc(it.q)+'</small>'+pa+'</div></div>';
+  }).join('');
+  w.appendChild(stepEl(1,'HPI — the story','LOPQRST',lop,'lopqrst'));
+
+  // 3. FAOMASH
+  var fao=FAO.map(function(it,k){
+    var pa=coach?('<small style="color:#7fdcc0">Patient: “'+esc(c.pmh[k])+'”</small>'):'';
+    return '<div class="req'+(faoChk[k]?' on':'')+'" onclick="tog(\'fao\','+k+',this)"><div class="box">&#10003;</div><div class="rt"><b>'+it.code+'</b> — '+esc(it.label)+pa+'</div></div>';
+  }).join('');
+  w.appendChild(stepEl(2,'Past Medical History','FAOMASH',fao,'faomash'));
+
+  // 4. Social (>=3)
+  var soc=SS.social.map(function(q,k){return '<li class="'+(socChk[k]?'on':'')+'" onclick="togList(\'soc\','+k+',this)">'+esc(q)+'</li>';}).join('');
+  w.appendChild(stepEl(3,'Social History','≥ 3','<div class="cbank" id="socBank"><ul style="margin:0;padding:0">'+soc+'</ul></div>','social'));
+
+  // 5. Sexual (>=2)
+  var sex=SS.sexual.map(function(q,k){return '<li class="'+(sexChk[k]?'on':'')+'" onclick="togList(\'sex\','+k+',this)">'+esc(q)+'</li>';}).join('');
+  w.appendChild(stepEl(4,'Sexual History','≥ 2','<div class="cbank" id="sexBank"><ul style="margin:0;padding:0">'+sex+'</ul></div>','sexual'));
+
+  // 6. ROS picker (>=3 systems)
+  var chips=ROS.map(function(s,k){return '<span class="chip'+(rosChk[k]?' on':'')+'" onclick="togRos('+k+',this)">'+esc(s.system)+'</span>';}).join('');
+  var rosBody='<div style="font-size:.8rem;color:var(--mut);margin-bottom:8px">Tap each system as you actually screen it out loud. Need &ge;3.</div><div class="roswrap">'+chips+'</div><div class="rosq" id="rosQ"></div>';
+  w.appendChild(stepEl(5,'Review of Systems','≥ 3 systems',rosBody,'ros'));
+
+  // 7. Close
+  w.appendChild(stepEl(6,'Close','',
+    '<div class="req" id="closeReq" onclick="toggleGeneric(this)"><div class="box">&#10003;</div><div class="rt">Summarize, ask “is there anything else?”, and thank the patient<small>not one of the 5 scored sections</small></div></div>'));
+}
+function stepEl(i,title,mn,body,cntKey){
+  var d=document.createElement('div');d.className='step open';d.id='step'+i;
+  var cnt=cntKey?'<div class="cnt" id="cnt-'+cntKey+'"></div>':'';
+  d.innerHTML='<div class="step-h" onclick="toggleStep('+i+')"><div class="n">'+(i+1)+'</div><div class="t">'+esc(title)+'</div>'+(mn?'<div class="mn">'+esc(mn)+'</div>':'')+cnt+'<div class="chev">&#9662;</div></div><div class="step-b">'+body+'</div>';
+  return d;
+}
+function toggleStep(i){document.getElementById('step'+i).classList.toggle('open');}
+function toggleGeneric(el){el.classList.toggle('on');}
+
+/* ---------- toggles ---------- */
+function tog(kind,k,el){
+  var arr=kind==='lop'?lopChk:faoChk;arr[k]=!arr[k];el.classList.toggle('on',arr[k]);updProg();updHint();
+}
+function togList(kind,k,el){
+  var arr=kind==='soc'?socChk:sexChk;arr[k]=!arr[k];el.classList.toggle('on',arr[k]);updProg();updHint();
+}
+function togRos(k,el){
+  rosChk[k]=!rosChk[k];el.classList.toggle('on',rosChk[k]);
+  // show a sample screening question for the tapped system
+  var q=document.getElementById('rosQ');var s=ROS[k];
+  if(rosChk[k]&&s.screening_questions&&s.screening_questions.length){
+    q.innerHTML='<b>'+esc(s.system)+':</b> “'+esc(s.screening_questions[0])+'”';q.classList.add('show');
+  }
+  updProg();updHint();
+}
+
+/* ---------- progress / requirements ---------- */
+function count(a){var n=0;for(var i=0;i<a.length;i++)if(a[i])n++;return n;}
+function secMet(){
+  return {
+    lop:lopChk.every(Boolean),
+    fao:faoChk.every(Boolean),
+    soc:count(socChk)>=3,
+    sex:count(sexChk)>=2,
+    ros:count(rosChk)>=3
+  };
+}
+function updProg(){
+  var m=secMet();
+  var order=['lop','fao','soc','sex','ros'];
+  var n=order.reduce(function(a,k){return a+(m[k]?1:0);},0);
+  document.getElementById('reqMet').textContent=n;
+  var dots='';order.forEach(function(k){dots+='<span class="dot'+(m[k]?' on':'')+'"></span>';});
+  document.getElementById('dots').innerHTML=dots;
+  // section counters + done borders
+  setCnt('lopqrst',count(lopChk)+'/7');setDone(1,m.lop);
+  setCnt('faomash',count(faoChk)+'/7');setDone(2,m.fao);
+  setCnt('social',count(socChk)+'/3+');setDone(3,m.soc);
+  setCnt('sexual',count(sexChk)+'/2+');setDone(4,m.sex);
+  setCnt('ros',count(rosChk)+'/3+ systems');setDone(5,m.ros);
+}
+function setCnt(k,v){var e=document.getElementById('cnt-'+k);if(e)e.textContent=v;}
+function setDone(i,on){var e=document.getElementById('step'+i);if(e)e.classList.toggle('done',on);}
+
+/* ---------- coaching hint (next suggested area) ---------- */
+function toggleCoach(){coach=!coach;document.getElementById('coachToggle').classList.toggle('on',coach);
+  document.getElementById('hintBox').style.display=coach?'block':'none';renderChecklist();updProg();updHint();}
+var curHintText='';
+function updHint(){
+  var m=secMet();
+  var area='',ex='',pa='';
+  var c=CASES[caseIdx];
+  if(!m.lop){
+    var k=lopChk.findIndex(function(x){return !x;});
+    area='HPI · LOPQRST — '+LOP[k].label+' ('+LOP[k].code+')';ex=LOP[k].ex;pa='Patient: “'+c.lopqrst[k]+'”';
+  }else if(!m.fao){
+    var k2=faoChk.findIndex(function(x){return !x;});
+    area='Past Medical History · FAOMASH — '+FAO[k2].label+' ('+FAO[k2].code+')';ex=FAO[k2].ex;pa='Patient: “'+c.pmh[k2]+'”';
+  }else if(!m.soc){
+    area='Social History (need '+(3-count(socChk))+' more)';ex=SS.social[Math.min(count(socChk),SS.social.length-1)];
+  }else if(!m.sex){
+    area='Sexual History (need '+(2-count(sexChk))+' more)';ex=SS.sexual[Math.min(count(sexChk),SS.sexual.length-1)];
+  }else if(!m.ros){
+    area='Review of Systems (need '+(3-count(rosChk))+' more systems)';
+    var ri=rosChk.findIndex(function(x){return !x;});ex=ROS[ri].system+': '+ROS[ri].screening_questions[0];
+  }else{
+    area='All 5 required sections met! Close the encounter and tap Finish.';ex='Is there anything else you would like to tell me today?';
+  }
+  document.getElementById('hintArea').textContent=area;
+  document.getElementById('hintEx').textContent=ex?('Try: “'+ex+'”'):'';
+  document.getElementById('hintPa').textContent=(coach&&pa)?pa:'';
+  document.getElementById('hintPa').style.display=(coach&&pa)?'block':'none';
+  curHintText=(area.replace(/·/g,',')+'. '+(ex||''));
+}
+
+/* ---------- TTS ---------- */
+var voice=null;
+function pickVoice(){
+  var vs=speechSynthesis.getVoices()||[];
+  var pref=['Microsoft Ava','Microsoft Emma','Ava (Natural)','Emma (Natural)','Google US English','Samantha'];
+  for(var p=0;p<pref.length;p++){for(var i=0;i<vs.length;i++){if(vs[i].name.indexOf(pref[p])>=0){voice=vs[i];return;}}}
+  for(var j=0;j<vs.length;j++){if((vs[j].lang||'').indexOf('en-US')===0){voice=vs[j];return;}}
+  if(vs.length)voice=vs[0];
+}
+if('speechSynthesis' in window){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
+function speakHint(){
+  if(!('speechSynthesis' in window)){alert('Speech synthesis not supported in this browser.');return;}
+  speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(curHintText||'No prompt available.');
+  if(voice)u.voice=voice;u.rate=1;u.pitch=1;
+  speechSynthesis.speak(u);
+}
+
+/* ---------- timer ---------- */
+function fmt(s){var neg=s<0;s=Math.abs(s);var m=Math.floor(s/60),ss=s%60;return (neg?'-':'')+m+':'+(ss<10?'0':'')+ss;}
+function tick(){
+  secs--;usedSecs=600-secs;
+  var c=document.getElementById('clock');c.textContent=fmt(secs);
+  c.className='clock'+(secs<=0?' over':(secs<=120?' warn':''));
+  if(secs<=0){clearInterval(timer);running=false;chime();finish('time');}
+}
+function toggleTimer(){
+  var b=document.getElementById('startBtn');
+  if(running){clearInterval(timer);running=false;b.innerHTML='&#9654; Resume';b.classList.add('go');}
+  else{if(secs<=0)secs=600;started=true;running=true;timer=setInterval(tick,1000);b.innerHTML='&#9208; Pause';b.classList.remove('go');
+    // prime speech engine on first user gesture
+    if('speechSynthesis' in window){try{var w=new SpeechSynthesisUtterance('');speechSynthesis.speak(w);}catch(e){}}
+  }
+}
+function chime(){
+  try{
+    var Ctx=window.AudioContext||window.webkitAudioContext;if(!Ctx)return;
+    var ctx=new Ctx();var t=ctx.currentTime;
+    [880,660,880].forEach(function(f,i){
+      var o=ctx.createOscillator(),g=ctx.createGain();o.frequency.value=f;o.type='sine';
+      o.connect(g);g.connect(ctx.destination);
+      var s=t+i*0.28;g.gain.setValueAtTime(0.0001,s);g.gain.exponentialRampToValueAtTime(0.3,s+0.03);
+      g.gain.exponentialRampToValueAtTime(0.0001,s+0.25);o.start(s);o.stop(s+0.26);
+    });
+  }catch(e){}
+}
+
+/* ---------- finish / score ---------- */
+function finish(reason){
+  if(finished)return;finished=true;
+  if(timer){clearInterval(timer);}running=false;
+  if(secs>0)usedSecs=600-secs;else usedSecs=600;
+  if('speechSynthesis' in window)speechSynthesis.cancel();
+  var m=secMet();
+  var defs=[
+    {key:'lop',ico:'&#129504;',t:'HPI complete (LOPQRST)',need:'all 7 elements',got:count(lopChk)+' / 7',ok:m.lop,miss:LOP.filter(function(_,k){return !lopChk[k];}).map(function(it){return it.code+' '+it.label;})},
+    {key:'fao',ico:'&#128203;',t:'Past Medical History (FAOMASH)',need:'all 7 elements',got:count(faoChk)+' / 7',ok:m.fao,miss:FAO.filter(function(_,k){return !faoChk[k];}).map(function(it){return it.code+' '+it.label;})},
+    {key:'soc',ico:'&#128172;',t:'Social History',need:'≥ 3 questions',got:count(socChk)+' asked',ok:m.soc,miss:m.soc?[]:['need '+(3-count(socChk))+' more social question(s)']},
+    {key:'sex',ico:'&#10084;️',t:'Sexual History',need:'≥ 2 questions',got:count(sexChk)+' asked',ok:m.sex,miss:m.sex?[]:['need '+(2-count(sexChk))+' more sexual-history question(s)']},
+    {key:'ros',ico:'&#129658;',t:'Review of Systems',need:'≥ 3 systems',got:count(rosChk)+' systems',ok:m.ros,miss:m.ros?[]:['need '+(3-count(rosChk))+' more system(s) screened']}
+  ];
+  var n=defs.reduce(function(a,d){return a+(d.ok?1:0);},0);
+  var big=document.getElementById('bigScore');big.textContent=n+' / 5';
+  big.className='bigscore '+(n===5?'pass':'fail');
+  document.getElementById('scoreSub').innerHTML=(n===5?'All required sections covered — clean sweep! &#127881;':'Sections still missing — see below.')+
+    '<br>'+(reason==='time'?'&#9200; Time expired at 10:00.':'Finished manually.');
+  var w=document.getElementById('scoreCards');w.innerHTML='';
+  defs.forEach(function(d){
+    var el=document.createElement('div');el.className='scard '+(d.ok?'met':'miss');
+    var mc=(!d.ok&&d.miss.length)?'<div class="mc">Missed: '+esc(d.miss.join(', '))+'</div>':'';
+    el.innerHTML='<div class="ico">'+d.ico+'</div><div class="body"><div class="st">'+d.t+'</div><div class="sd">'+d.need+'</div>'+mc+'</div><div class="val">'+(d.ok?'&#10003;':'&#10007;')+'<div style="font-size:.72rem;color:var(--mut);font-weight:600">'+d.got+'</div></div>';
+    w.appendChild(el);
+  });
+  document.getElementById('tstat').innerHTML='&#9201; Time used: <b>'+fmt(usedSecs)+'</b> of 10:00'+(usedSecs<600?' &middot; finished with <b>'+fmt(600-usedSecs)+'</b> to spare':'');
+  document.getElementById('runScreen').classList.add('hidden');
+  document.getElementById('scoreScreen').classList.remove('hidden');
+  window.scrollTo(0,0);
+}
+
+function reset(){
+  document.getElementById('scoreScreen').classList.add('hidden');
+  document.getElementById('runScreen').classList.add('hidden');
+  document.getElementById('startScreen').classList.remove('hidden');
+  window.scrollTo(0,0);
+}
+
+/* ---------- watermark ---------- */
+if(localStorage.getItem('dcDavidView')==='1'){var wm=document.getElementById('wm');if(wm)wm.style.display='none';}
+
+renderCases();
+</script>
+</body></html>
