@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Practical Interview Coach — History Taking</title>
+<style>
+:root{--bg:#0a0e1a;--card:#141122;--line:#2c2440;--ink:#f0ecfa;--mut:#b3a9cf;--pk:#f472b6;--ac:#a78bfa;--gd:#34d399;--am:#fbbf24}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(1000px 500px at 50% -10%,#241634,#0a0e1a),#0a0e1a;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.5;padding:14px 12px 90px;max-width:820px;margin:0 auto}
+.hubbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.hubbtn{display:inline-block;background:#1e1733;color:#d6c9f5;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font:800 .78rem 'Segoe UI',system-ui;text-decoration:none}
+.hubbtn:hover{background:#2a2047;color:#fff}
+h1{font-size:1.3rem;text-align:center;color:var(--pk);margin-bottom:3px}
+.sub{text-align:center;color:var(--mut);font-size:.83rem;margin-bottom:12px}
+/* timer bar */
+.timerbar{position:sticky;top:0;z-index:10;background:#160f28;border:1px solid var(--line);border-radius:13px;padding:10px 14px;display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.clock{font-size:1.7rem;font-weight:900;font-variant-numeric:tabular-nums;color:#fff;min-width:88px}
+.clock.warn{color:var(--am)}.clock.over{color:var(--pk)}
+.tbtn{background:#3a1132;color:#fbcfe8;border:1px solid var(--pk);border-radius:10px;padding:8px 14px;font:800 .8rem 'Segoe UI',system-ui;cursor:pointer}
+.tbtn.go{background:#164a38;color:#a7f3d0;border-color:var(--gd)}
+.prog{flex:1;min-width:120px;font-size:.8rem;color:var(--mut)}
+.prog b{color:#e9d5ff}
+/* checklist */
+.step{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:11px;overflow:hidden}
+.step.done{border-color:var(--gd)}
+.step-h{display:flex;align-items:center;gap:10px;padding:12px 15px;cursor:pointer;user-select:none}
+.step-h .n{flex:0 0 auto;width:26px;height:26px;border-radius:8px;background:#3a1132;color:#fbcfe8;font-weight:900;font-size:.82rem;display:grid;place-items:center;border:1px solid var(--pk)}
+.step.done .step-h .n{background:#164a38;color:#a7f3d0;border-color:var(--gd)}
+.step-h .t{flex:1;font-weight:800;font-size:.98rem}
+.step-h .mn{font-size:.72rem;color:#5eead4;font-weight:800;letter-spacing:.03em}
+.step-h .chev{color:#6b5b8f;font-size:.8rem}
+.step-b{padding:0 15px 13px;display:none}
+.step.open .step-b{display:block}
+.req{display:flex;align-items:flex-start;gap:9px;padding:7px 0;border-top:1px solid #241b3a;cursor:pointer}
+.req:first-child{border-top:none}
+.req .box{flex:0 0 auto;width:19px;height:19px;border-radius:5px;border:1.5px solid #4a3d6b;margin-top:1px;display:grid;place-items:center;font-size:.72rem;color:transparent}
+.req.on .box{background:var(--gd);border-color:var(--gd);color:#06210f}
+.req .rt{flex:1;font-size:.87rem;color:#dcd4ee;line-height:1.45}
+.req.on .rt{color:#a7f3d0}
+.req .rt small{display:block;color:var(--mut);font-size:.78rem;margin-top:2px}
+.hint{font-size:.78rem;color:var(--mut);background:#100b1e;border-left:3px solid var(--ac);border-radius:7px;padding:8px 11px;margin:8px 0 4px;line-height:1.5}
+.hint b{color:#d6c9f5}
+/* reference accordions */
+h2.sec{font-size:1.02rem;margin:22px 0 9px;color:#e9d5ff;border-bottom:1px solid var(--line);padding-bottom:6px}
+.acc{background:var(--card);border:1px solid var(--line);border-radius:11px;margin-bottom:7px;overflow:hidden}
+.acc-h{padding:10px 14px;cursor:pointer;font-weight:700;font-size:.88rem;display:flex;justify-content:space-between;color:#e6def7}
+.acc-b{display:none;padding:0 14px 12px}
+.acc.open .acc-b{display:block}
+.acc-b li{list-style:none;font-size:.85rem;color:#cfc6e6;padding:4px 0 4px 16px;position:relative;line-height:1.45}
+.acc-b li::before{content:"\2022";position:absolute;left:2px;color:var(--pk)}
+.pill{display:inline-block;font-size:.62rem;font-weight:800;background:#3a1132;color:#fbcfe8;border-radius:999px;padding:1px 8px;margin-left:6px}
+.wm{position:fixed;bottom:6px;right:10px;font-size:9px;color:rgba(255,255,255,.22);pointer-events:none}
+</style></head><body>
+<div class="hubbar"><a class="hubbtn" href="index.html">&larr; Study Hub</a></div>
+<h1>&#127908; Practical Interview Coach</h1>
+<div class="sub">Rehearse the 10-minute standardized-patient history. Tick each element as you say it out loud.</div>
+
+<div class="timerbar">
+  <div class="clock" id="clock">10:00</div>
+  <button class="tbtn go" id="startBtn" onclick="toggleTimer()">&#9654; Start 10-min run</button>
+  <div class="prog" id="prog"><b>0</b> / <span id="reqTotal">0</span> required elements</div>
+</div>
+
+<div id="checklist"></div>
+
+<h2 class="sec">&#129658; Review of Systems &mdash; screening questions <span class="pill">need &ge;3</span></h2>
+<div class="sub" style="text-align:left;margin:-4px 0 8px">Ask a real screening question for at least 3 systems. Tap any system for example questions from the ROS deck.</div>
+<div id="rosRef"></div>
+
+<h2 class="sec">&#128172; Social &amp; Sexual History &mdash; question bank</h2>
+<div id="ssRef"></div>
+
+<div class="wm">DC Study Supply &mdash; Dr. David Gramling, PhD</div>
+<script>
+var ROS = [{"system": "Constitutional / General", "screening_questions": ["Have you had any unintentional weight loss or weight gain recently?", "Have you noticed any weakness or fatigue?", "Any fevers or night sweats?", "Have you had any change in your sleep patterns?"]}, {"system": "Skin / Integumentary", "screening_questions": ["Have you noticed any rashes, lumps, sores, itching, or dryness of your skin?", "Any change in the color of your skin, or any new moles or lesions?", "For any mole, have you noticed changes in its asymmetry, borders, color, diameter, or is it evolving (ABCDE)?", "Any changes in your hair (growth or loss) or your nails (cracking, spooning, clubbing, color)?"]}, {"system": "HEENT - Head", "screening_questions": ["Do you have any head or face pain?", "Have you had any head injuries?"]}, {"system": "HEENT - Eyes", "screening_questions": ["Do you wear corrective lenses - glasses, reading glasses, or contacts?", "Any visual changes such as blurry vision, floaters, halos, double vision, or light sensitivity?", "Any eye pain, redness, tearing, dryness, or discharge?", "When was your last eye exam?"]}, {"system": "HEENT - Ears", "screening_questions": ["Do you use hearing aids, or have you noticed any changes in your hearing?", "Any ringing in your ears (tinnitus) or dizziness/vertigo?", "Any ear pain, discharge, itchiness, or history of ear infections?"]}, {"system": "HEENT - Nose & Sinuses", "screening_questions": ["Do you get frequent colds or sinus infections?", "Any runny nose, congestion, pain, itchiness, or nosebleeds?", "Have you noticed any change in your sense of smell?"]}, {"system": "HEENT - Mouth & Throat", "screening_questions": ["Any bleeding or irritation of your gums, or difficulty chewing or swallowing?", "Do you have frequent sore throats, hoarseness, or dry mouth?", "Any change or loss of taste?", "When was your last dental appointment?"]}, {"system": "HEENT - Neck", "screening_questions": ["Any swollen glands or lymph nodes in your neck?", "Any neck pain, stiffness, or lumps?", "Any history of thyroid problems or goiter?"]}, {"system": "Cardiovascular", "screening_questions": ["Do you have any history of heart trouble - murmurs, high blood pressure, heart failure, heart attack, or atrial fibrillation?", "Any chest pain, palpitations, or shortness of breath with exertion?", "Do you get short of breath when lying flat, or need extra pillows to sleep?", "Any swelling in your hands, ankles, or feet?"]}, {"system": "Respiratory", "screening_questions": ["Do you have a cough? If so, do you bring up any sputum, and what color?", "Have you ever coughed up blood?", "Any shortness of breath or wheezing?", "Any history of asthma, COPD, pneumonia, or TB?"]}, {"system": "Gastrointestinal", "screening_questions": ["Any difficulty swallowing, heartburn, nausea, or regurgitation?", "Any change in your appetite, belching, gas, or abdominal pain?", "Any change in your stool color, size, or consistency, or constipation or diarrhea?", "Have you seen any blood in your stool? When was your last colonoscopy?"]}, {"system": "Genitourinary - Urinary", "screening_questions": ["How often are you urinating - any increased frequency or getting up at night to urinate?", "Any painful or difficult urination (dysuria)?", "Any decreased strength of your urine stream, dribbling, or hesitancy?", "Any blood in your urine, or flank or lower-belly pain?"]}, {"system": "Genitourinary - Genital", "screening_questions": ["Any history of sexually transmitted infections?", "Any genital lesions, ulcerations, discharge, or pain?", "(For patients who menstruate) At what age did your periods start, and are they regular in frequency and duration? Any bleeding between periods?", "(For patients who menstruate) When was your last Pap, and have you had any pregnancies?"]}, {"system": "Musculoskeletal", "screening_questions": ["Any muscle, joint, or bone pain, stiffness, weakness, or instability?", "Any neck or back pain, or recent injury?", "Any restricted range of motion - do you use a cane, walker, wheelchair, or prosthetic?", "Any joint pain with systemic symptoms like fever, chills, rash, or weight loss?"]}, {"system": "Peripheral Vascular", "screening_questions": ["Any muscle pain or leg cramps when you walk (intermittent claudication)?", "Any varicose veins, or have you ever had clots in your veins?", "Any swelling in your calves, legs, or feet?", "Any change in the color of your fingertips or toes in cold weather?"]}, {"system": "Neurologic", "screening_questions": ["Any changes in your mental status?", "Any fainting, lightheadedness, or recurrent falls?", "Any headaches, dizziness, numbness, or 'pins and needles' (paresthesia)?", "Any tremors, involuntary movements, or seizures?"]}, {"system": "Psychiatric", "screening_questions": ["Any changes in your mood - feeling depressed, anxious, or tense?", "Any difficulty concentrating or memory changes?", "Any insomnia or sleep disturbances?", "Have you had any thoughts of suicide, a plan, or previous attempts?"]}, {"system": "Endocrine", "screening_questions": ["Any intolerance to heat or cold?", "Any excessive sweating, unusual hunger, or thirst?", "Any unexplained weight changes or changes in your energy level?", "Any change in your face or body hair or fat distribution?"]}, {"system": "Hematologic / Lymphatic", "screening_questions": ["Have you ever been told you have anemia?", "Do you bruise or bleed easily?", "Any history of blood clots?", "Are you on a blood thinner (anticoagulation therapy)? If so, why - a clot, atrial fibrillation, or stroke?"]}];
+var SS = {"social": ["Do you feel safe in your current relationships?", "How do you cope with stressful experiences or the fact that life can be unfair?", "Who do you turn to when you need support - family, friends, or the community?", "What brings you joy?", "Sometimes people are deeply affected by stressful experiences and may feel depressed, anxious, or use drugs or alcohol to feel better. Has this ever happened to you?", "Are you engaging in sex for money, housing, drugs, or any other service?"], "sexual": ["Would it be okay if I asked you some questions about your sexual health? I ask all my patients so I can take the best care of you.", "Do you have preferred language that you use to refer to your body, such as your genitals?", "Are you currently sexually active, and what kinds of sex do you engage in?", "Are you sexually active with one partner or more than one? How would your partners identify themselves in terms of gender?", "Are there some kinds of sex where you do not use barriers? If so, why?", "Have you ever been diagnosed with a sexually transmitted infection? If so, do you remember the site?", "When you are having sex, is there any exposure to sperm or chance of pregnancy?", "Has anyone ever forced or compelled you to do anything sexually that you did not want to do? Do you feel safe at home?"]};
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+// ---- the grounded checklist (LOPQRST + FAOMASH from the slides) ----
+var STEPS=[
+ {t:"Open + Chief Complaint",mn:"",reqs:[
+   {r:"Greet, introduce yourself, confirm the patient's name & wash-in",s:"professional, warm opening"},
+   {r:"Elicit the Chief Complaint (CC)",s:"the patient's main reason for the visit, in their words"} ]},
+ {t:"HPI — the story of the complaint",mn:"LOPQRST",reqs:[
+   {r:"L — Location",s:"where is it?"},
+   {r:"O — Onset",s:"when/how did it start?"},
+   {r:"P — Prior, Palliative, Provocative, Progression",s:"had it before? what makes it better/worse? getting better or worse?"},
+   {r:"Q — Quality",s:"what does it feel like (sharp, dull, burning)?"},
+   {r:"R — Radiation",s:"does it travel anywhere?"},
+   {r:"S — Severity",s:"0–10 scale"},
+   {r:"T — Timing",s:"constant vs intermittent, frequency, duration"} ]},
+ {t:"Past Medical History",mn:"FAOMASH",reqs:[
+   {r:"F — Family history",s:"health/age of parents, siblings, children; cause of death if deceased"},
+   {r:"A — Allergies",s:"drug/food/environmental + the reaction"},
+   {r:"O — Other illness (chronic conditions) / other doctors seen",s:""},
+   {r:"M — Medications",s:"prescription, OTC, supplements + doses"},
+   {r:"A — Accidents / trauma",s:""},
+   {r:"S — Surgeries",s:""},
+   {r:"H — Hospitalizations",s:""} ]},
+ {t:"Social History",mn:"≥ 3 questions",reqs:[
+   {r:"Ask 3+ social-history questions",s:"see the Social bank below (occupation, living situation, tobacco/alcohol/drugs, diet/exercise, stress/support)"} ]},
+ {t:"Sexual History",mn:"≥ 2 questions",reqs:[
+   {r:"Ask 2+ sexual-history questions",s:"non-judgmental; see the Sexual bank below (the CDC 5 Ps / Fenway 8 Ps)"} ]},
+ {t:"Review of Systems",mn:"≥ 3 systems",reqs:[
+   {r:"Screen ≥ 3 systems with a real question each",s:"e.g. “Any GI issues — bloating, burping, hiccupping?”"} ]},
+ {t:"Close",mn:"",reqs:[
+   {r:"Summarize + ask “is there anything else?” + thank the patient",s:""} ]}
+];
+var checked={},reqTotal=0;
+STEPS.forEach(function(s,si){s.reqs.forEach(function(_,ri){reqTotal++;});});
+document.getElementById('reqTotal').textContent=reqTotal;
+function countChecked(){var n=0;for(var k in checked)if(checked[k])n++;return n;}
+function updProg(){document.querySelector('#prog b').textContent=countChecked();
+  STEPS.forEach(function(s,si){var all=s.reqs.every(function(_,ri){return checked[si+'-'+ri];});var el=document.getElementById('step'+si);if(el)el.classList.toggle('done',all);});}
+function renderChecklist(){
+  var w=document.getElementById('checklist');w.innerHTML='';
+  STEPS.forEach(function(s,si){
+    var d=document.createElement('div');d.className='step open';d.id='step'+si;
+    var reqs=s.reqs.map(function(rq,ri){return '<div class="req" data-k="'+si+'-'+ri+'" onclick="toggleReq(this)"><div class="box">&#10003;</div><div class="rt">'+esc(rq.r)+(rq.s?('<small>'+esc(rq.s)+'</small>'):'')+'</div></div>';}).join('');
+    d.innerHTML='<div class="step-h" onclick="toggleStep('+si+')"><div class="n">'+(si+1)+'</div><div class="t">'+esc(s.t)+'</div>'+(s.mn?'<div class="mn">'+esc(s.mn)+'</div>':'')+'<div class="chev">&#9662;</div></div><div class="step-b">'+reqs+'</div>';
+    w.appendChild(d);
+  });
+}
+function toggleStep(si){document.getElementById('step'+si).classList.toggle('open');}
+function toggleReq(el){var k=el.getAttribute('data-k');checked[k]=!checked[k];el.classList.toggle('on',checked[k]);updProg();}
+// ROS reference
+function renderRos(){
+  var w=document.getElementById('rosRef');
+  ROS.forEach(function(s){
+    var qs=(s.screening_questions||[]).map(function(q){return '<li>'+esc(q)+'</li>';}).join('');
+    var a=document.createElement('div');a.className='acc';
+    a.innerHTML='<div class="acc-h" onclick="this.parentNode.classList.toggle(\'open\')"><span>'+esc(s.system)+'</span><span style="color:#6b5b8f">&#9662;</span></div><div class="acc-b"><ul>'+qs+'</ul></div>';
+    w.appendChild(a);
+  });
+}
+// social/sexual reference
+function renderSS(){
+  var w=document.getElementById('ssRef');
+  function block(title,arr,pill){
+    var qs=(arr||[]).map(function(q){return '<li>'+esc(q)+'</li>';}).join('');
+    var a=document.createElement('div');a.className='acc open';
+    a.innerHTML='<div class="acc-h" onclick="this.parentNode.classList.toggle(\'open\')"><span>'+title+' <span class="pill">'+pill+'</span></span><span style="color:#6b5b8f">&#9662;</span></div><div class="acc-b"><ul>'+qs+'</ul></div>';
+    w.appendChild(a);
+  }
+  block("Social History questions", SS.social, "ask &ge;3");
+  block("Sexual History questions", SS.sexual, "ask &ge;2");
+}
+// timer
+var secs=600,timer=null,running=false;
+function fmt(s){var m=Math.floor(Math.abs(s)/60),ss=Math.abs(s)%60;return (s<0?'-':'')+m+':'+(ss<10?'0':'')+ss;}
+function tick(){secs--;var c=document.getElementById('clock');c.textContent=fmt(secs);c.className='clock'+(secs<=0?' over':(secs<=120?' warn':''));}
+function toggleTimer(){var b=document.getElementById('startBtn');
+  if(running){clearInterval(timer);running=false;b.textContent='▶ Resume';b.classList.add('go');}
+  else{if(secs<=0)secs=600;running=true;timer=setInterval(tick,1000);b.textContent='⏸ Pause';b.classList.remove('go');}
+}
+renderChecklist();renderRos();renderSS();updProg();
+</script>
+</body></html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Medical Abbreviations Drill — History Taking</title>
+<style>
+:root{--bg:#0a0e1a;--card:#111a2e;--line:#22304d;--ink:#e6ecf5;--mut:#9fb0cc;--ac:#38bdf8;--gd:#34d399;--rd:#f87171}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.5;padding:14px 12px 80px;max-width:760px;margin:0 auto}
+.hubbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.hubbtn{display:inline-block;background:#16233c;color:#cbd5e1;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font:800 .78rem 'Segoe UI',system-ui;text-decoration:none}
+.hubbtn:hover{background:#1e2f4d;color:#fff}
+h1{font-size:1.28rem;text-align:center;color:var(--ac);margin-bottom:3px}
+.sub{text-align:center;color:var(--mut);font-size:.82rem;margin-bottom:12px}
+.controls{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-bottom:14px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{background:#131f36;color:#9fb0cc;border:none;padding:7px 13px;font:700 .78rem 'Segoe UI',system-ui;cursor:pointer}
+.seg button.on{background:var(--ac);color:#06121f}
+.btn{background:#16233c;color:#cbd5e1;border:1px solid var(--line);border-radius:10px;padding:7px 13px;font:700 .78rem 'Segoe UI',system-ui;cursor:pointer}
+.btn:hover{border-color:var(--ac);color:#fff}
+.bar{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--mut);margin-bottom:10px;padding:0 4px}
+#fc{background:var(--card);border:1px solid var(--line);border-radius:16px;min-height:210px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:26px 20px;cursor:pointer;text-align:center;position:relative}
+#fc .lab{position:absolute;top:12px;left:16px;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#5b7099}
+#fc .prompt{font-size:2rem;font-weight:800;color:#fff;word-break:break-word}
+#fc .answer{font-size:1.2rem;color:#7dd3fc;margin-top:14px}
+#fc .note{font-size:.82rem;color:var(--mut);margin-top:8px;font-style:italic}
+#fc .hint{position:absolute;bottom:10px;font-size:.7rem;color:#5b7099}
+.fcnav{display:flex;gap:8px;justify-content:center;margin-top:12px}
+.fcnav button{flex:1;max-width:170px}
+.fcnav .known{background:rgba(52,211,153,.14);border-color:var(--gd);color:#6ee7b7}
+.fcnav .review{background:rgba(248,113,113,.12);border-color:var(--rd);color:#fca5a5}
+#qz{display:none}
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 18px}
+.qlab{font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#5b7099;margin-bottom:8px}
+.qprompt{font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:16px;word-break:break-word}
+.choices{display:flex;flex-direction:column;gap:9px}
+.choice{background:#0f1a30;border:1px solid var(--line);border-radius:11px;padding:12px 15px;font-size:.92rem;color:#dbe4f0;cursor:pointer;text-align:left;transition:.1s}
+.choice:hover{border-color:var(--ac)}
+.choice.correct{background:rgba(52,211,153,.16);border-color:var(--gd);color:#a7f3d0}
+.choice.wrong{background:rgba(248,113,113,.15);border-color:var(--rd);color:#fecaca}
+.choice.dim{opacity:.5}
+.qfoot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:.82rem;color:var(--mut)}
+.done{text-align:center;padding:26px 16px}
+.done .pct{font-size:3rem;font-weight:900}
+.done .pct.good{color:var(--gd)}.done .pct.mid{color:#fbbf24}.done .pct.low{color:var(--rd)}
+.missed{text-align:left;margin:16px auto;max-width:560px}
+.missed .m{background:#0f1a30;border:1px solid var(--line);border-left:3px solid var(--rd);border-radius:9px;padding:9px 12px;margin-bottom:7px;font-size:.86rem}
+.missed .m b{color:#fca5a5}
+.wm{position:fixed;bottom:6px;right:10px;font-size:9px;color:rgba(255,255,255,.22);pointer-events:none}
+</style></head><body>
+<div class="hubbar"><a class="hubbtn" href="index.html">&larr; Study Hub</a><a class="hubbtn" href="hx-written-cram.html">&#9889; Cram</a><a class="hubbtn" href="hx-concept-drill.html">&#129504; Concept Drill</a></div>
+<h1>&#128203; Medical Abbreviations Drill</h1>
+<div class="sub">The full handout &mdash; the written final asks these directly. <span id="cnt"></span></div>
+<div class="controls">
+  <div class="seg" id="modeSeg"><button data-m="flash" class="on">&#127183; Flashcards</button><button data-m="quiz">&#129504; Quiz</button></div>
+  <div class="seg" id="dirSeg"><button data-d="a2m" class="on">Abbr &rarr; Meaning</button><button data-d="m2a">Meaning &rarr; Abbr</button><button data-d="mix">Mixed</button></div>
+  <button class="btn" id="shuffleBtn">&#128256; Shuffle</button>
+</div>
+<div class="bar"><span id="posLab"></span><span id="scoreLab"></span></div>
+<div id="fcWrap">
+  <div id="fc" onclick="flip()">
+    <div class="lab" id="fcLab">Abbreviation</div>
+    <div class="prompt" id="fcPrompt"></div>
+    <div class="answer" id="fcAnswer" style="display:none"></div>
+    <div class="note" id="fcNote" style="display:none"></div>
+    <div class="hint" id="fcHint">tap to flip</div>
+  </div>
+  <div class="fcnav">
+    <button class="btn review" onclick="fcMark(false)">&#8635; Review again</button>
+    <button class="btn known" onclick="fcMark(true)">&#10003; Got it</button>
+  </div>
+  <div class="fcnav" style="margin-top:8px"><button class="btn" onclick="fcPrev()">&larr; Prev</button><button class="btn" onclick="fcNext()">Next &rarr;</button></div>
+</div>
+<div id="qz">
+  <div class="qcard" id="qcard">
+    <div class="qlab" id="qlab"></div>
+    <div class="qprompt" id="qprompt"></div>
+    <div class="choices" id="qchoices"></div>
+    <div class="qfoot"><span id="qprog"></span><button class="btn" id="qskip" onclick="qNext()">Skip &rarr;</button></div>
+  </div>
+</div>
+<div class="wm">DC Study Supply &mdash; Dr. David Gramling, PhD</div>
+<script>
+var ABBR = [{"abbr": "Pt / pt / pt.", "meaning": "Patient", "note": ""}, {"abbr": "y.o.", "meaning": "Year-old", "note": ""}, {"abbr": "M", "meaning": "Male", "note": ""}, {"abbr": "F", "meaning": "Female", "note": ""}, {"abbr": "W", "meaning": "White", "note": ""}, {"abbr": "B", "meaning": "Black, African-American", "note": ""}, {"abbr": "H", "meaning": "Hispanic", "note": ""}, {"abbr": "L", "meaning": "Left", "note": "often circled"}, {"abbr": "R", "meaning": "Right", "note": "often circled"}, {"abbr": "LMP", "meaning": "Last menstrual period", "note": ""}, {"abbr": "OB", "meaning": "Obstetrics, obstetrical, obstetrician", "note": ""}, {"abbr": "Gyne / Gyn", "meaning": "Gynecologic, gynecological, gynecology, gynecologist", "note": ""}, {"abbr": "IUD", "meaning": "Intrauterine device", "note": ""}, {"abbr": "BCPs", "meaning": "Birth control pills", "note": ""}, {"abbr": "G", "meaning": "Gravidus (L. pregnancy)", "note": "Obstetric GPA system; e.g. G4P3A1 = 4 pregnancies, 3 births, 1 abortion"}, {"abbr": "P", "meaning": "Paritus (L. parturition, birth)", "note": "Obstetric GPA system; e.g. G4P3A1 = 4 pregnancies, 3 births, 1 abortion"}, {"abbr": "A / Ab", "meaning": "Abortus (L. abortion, which includes miscarriages)", "note": "Obstetric GPA system; e.g. G4P3A1 = 4 pregnancies, 3 births, 1 abortion"}, {"abbr": "G0", "meaning": "Nulligravida (n.), nulligravidous (adj.)", "note": "patient has never been pregnant"}, {"abbr": "P0", "meaning": "Nullipara (n.), nulliparous (adj.)", "note": "patient has never given birth"}, {"abbr": "G1", "meaning": "Primigravida (n.), primigravidous (adj.)", "note": "first pregnancy"}, {"abbr": "P1", "meaning": "Primipara, primip (n.), primiparous (adj.)", "note": "first birth"}, {"abbr": "h/o", "meaning": "History of", "note": ""}, {"abbr": "c/o", "meaning": "Complains of", "note": ""}, {"abbr": "s/p", "meaning": "Status post, after", "note": "usually used following an event like a surgical procedure, injury, or illness; e.g. 6d s/p MI, 1wk s/p appendectomy"}, {"abbr": "D", "meaning": "Day, days", "note": ""}, {"abbr": "Wk / wk. / wks", "meaning": "Week (weeks)", "note": ""}, {"abbr": "Mo / mo. / mos / mos.", "meaning": "Month (months)", "note": ""}, {"abbr": "Yr / yr. / yrs / yrs.", "meaning": "Year (years)", "note": ""}, {"abbr": "Hr / hr. / hrs / hrs.", "meaning": "Hour (hours)", "note": ""}, {"abbr": "c̄", "meaning": "With", "note": "'c' with a bar over it"}, {"abbr": "s̄", "meaning": "Without", "note": "'s' with a bar over it"}, {"abbr": "p̄", "meaning": "After", "note": "'p' with a bar over it"}, {"abbr": "Δ", "meaning": "Change", "note": ""}, {"abbr": "Ø", "meaning": "None", "note": ""}, {"abbr": "N/A", "meaning": "Not applicable", "note": ""}, {"abbr": "Rx", "meaning": "Prescription", "note": ""}, {"abbr": "Sig", "meaning": "Directions", "note": ""}, {"abbr": "BID / b.i.d", "meaning": "Bis in die, twice a day", "note": ""}, {"abbr": "TID / t.i.d", "meaning": "Ter in die, three times a day", "note": ""}, {"abbr": "QID / q.i.d", "meaning": "Quarter in die, four times a day", "note": ""}, {"abbr": "Q", "meaning": "Quaque, every, each, per", "note": ""}, {"abbr": "QD", "meaning": "Every day", "note": "write out 'daily' to avoid confusion; on JCAHO forbidden list"}, {"abbr": "QOD", "meaning": "Every other day", "note": "write out 'every other day' to avoid confusion; on JCAHO forbidden list"}, {"abbr": "Prn", "meaning": "Pro re nata, as needed", "note": ""}, {"abbr": "PO", "meaning": "Per os, by mouth", "note": ""}, {"abbr": "NPO", "meaning": "Nil per os, nothing by mouth", "note": ""}, {"abbr": "NKA", "meaning": "No known allergies", "note": ""}, {"abbr": "NKDA", "meaning": "No known drug allergies", "note": ""}, {"abbr": "OTC", "meaning": "Over-the-counter medications", "note": ""}, {"abbr": "EtOH", "meaning": "Alcohol", "note": ""}, {"abbr": "Tx", "meaning": "Treatment or therapy", "note": ""}, {"abbr": "Hx", "meaning": "History", "note": ""}, {"abbr": "Dx", "meaning": "Diagnosis", "note": ""}, {"abbr": "S/S", "meaning": "Symptoms and signs (or signs and symptoms)", "note": ""}, {"abbr": "R/O", "meaning": "Rule out", "note": ""}, {"abbr": "SOB", "meaning": "Shortness of breath", "note": ""}, {"abbr": "DOB", "meaning": "Date of birth", "note": ""}, {"abbr": "DOE", "meaning": "Dyspnea on exertion", "note": ""}, {"abbr": "DOA", "meaning": "Dead on arrival", "note": ""}, {"abbr": "DNR", "meaning": "Do not resuscitate", "note": ""}, {"abbr": "HA", "meaning": "Headache", "note": ""}, {"abbr": "MI", "meaning": "Myocardial infarction", "note": ""}, {"abbr": "CHF", "meaning": "Congestive heart failure", "note": ""}, {"abbr": "HTN", "meaning": "Hypertension", "note": ""}, {"abbr": "COPD", "meaning": "Chronic obstructive pulmonary disease", "note": ""}, {"abbr": "GERD", "meaning": "Gastroesophageal reflux disease", "note": ""}, {"abbr": "T1D", "meaning": "Type 1 Diabetes", "note": ""}, {"abbr": "T2D", "meaning": "Type 2 Diabetes", "note": ""}, {"abbr": "NAD", "meaning": "No acute distress", "note": ""}, {"abbr": "STD(s)", "meaning": "Sexually transmitted disease(s)", "note": ""}, {"abbr": "STI(s)", "meaning": "Sexually transmitted infection(s)", "note": ""}, {"abbr": "GI", "meaning": "Gastrointestinal", "note": ""}, {"abbr": "GU", "meaning": "Genitourinary", "note": ""}, {"abbr": "RUQ", "meaning": "Right upper quadrant", "note": "of abdomen"}, {"abbr": "LUQ", "meaning": "Left upper quadrant", "note": ""}, {"abbr": "RLQ", "meaning": "Right lower quadrant", "note": ""}, {"abbr": "LLQ", "meaning": "Left lower quadrant", "note": ""}, {"abbr": "N/V", "meaning": "Nausea/vomiting", "note": ""}, {"abbr": "N/V/D", "meaning": "Nausea/vomiting/diarrhea", "note": ""}, {"abbr": "URI", "meaning": "Upper respiratory infection", "note": ""}, {"abbr": "UTI", "meaning": "Urinary tract infection", "note": ""}, {"abbr": "WNL", "meaning": "Within normal limits", "note": ""}];
+document.getElementById('cnt').textContent = ABBR.length + ' abbreviations.';
+var mode='flash', dir='a2m';
+var order=[], idx=0, flipped=false, known={}, score={right:0,total:0}, missed=[], cardDir={};
+var QCARD_HTML=document.getElementById('qcard').innerHTML;
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function dirFor(){return dir==='mix'?(Math.random()<0.5?'a2m':'m2a'):dir;}
+function cd(i){if(cardDir[i]===undefined)cardDir[i]=dirFor();return cardDir[i];}
+function reset(){order=shuffle(ABBR.map(function(_,i){return i;}));idx=0;flipped=false;score={right:0,total:0};missed=[];cardDir={};if(mode==='quiz')document.getElementById('qcard').innerHTML=QCARD_HTML;render();}
+function render(){
+  document.getElementById('fcWrap').style.display=mode==='flash'?'block':'none';
+  document.getElementById('qz').style.display=mode==='quiz'?'block':'none';
+  document.getElementById('posLab').textContent='Card '+(Math.min(idx+1,order.length))+' of '+order.length;
+  document.getElementById('scoreLab').textContent=mode==='quiz'?('Score '+score.right+'/'+score.total):(Object.keys(known).length+' marked known');
+  if(mode==='flash')renderFlash();else renderQuiz();
+}
+function renderFlash(){
+  var a=ABBR[order[idx]],d=cd(order[idx]);
+  document.getElementById('fcLab').textContent=d==='a2m'?'Abbreviation':'Meaning';
+  document.getElementById('fcPrompt').innerHTML=esc(d==='a2m'?a.abbr:a.meaning);
+  var ansEl=document.getElementById('fcAnswer'),noteEl=document.getElementById('fcNote'),hintEl=document.getElementById('fcHint');
+  ansEl.innerHTML=esc(d==='a2m'?a.meaning:a.abbr);noteEl.innerHTML=a.note?('&mdash; '+esc(a.note)):'';
+  ansEl.style.display=flipped?'block':'none';noteEl.style.display=(flipped&&a.note)?'block':'none';hintEl.style.display=flipped?'none':'block';
+}
+function flip(){flipped=!flipped;renderFlash();}
+function fcNext(){idx=(idx+1)%order.length;flipped=false;render();}
+function fcPrev(){idx=(idx-1+order.length)%order.length;flipped=false;render();}
+function fcMark(ok){var gi=order[idx];if(ok)known[gi]=1;else delete known[gi];fcNext();}
+var qAnswered=false;
+function renderQuiz(){
+  if(score.total>=order.length)return renderDone();
+  qAnswered=false;
+  var gi=order[idx],a=ABBR[gi],d=cd(gi);
+  var answerSide=d==='a2m'?a.meaning:a.abbr;
+  document.getElementById('qlab').textContent=d==='a2m'?'What does this abbreviation mean?':'Which abbreviation means this?';
+  document.getElementById('qprompt').innerHTML=esc(d==='a2m'?a.abbr:a.meaning);
+  document.getElementById('qprog').textContent='Question '+(score.total+1)+' of '+order.length;
+  var pool=ABBR.map(function(x){return d==='a2m'?x.meaning:x.abbr;}).filter(function(v){return v!==answerSide;});
+  pool=shuffle(pool).slice(0,3);pool.push(answerSide);pool=shuffle(pool);
+  var box=document.getElementById('qchoices');box.innerHTML='';
+  pool.forEach(function(opt){var b=document.createElement('button');b.className='choice';b.innerHTML=esc(opt);b.onclick=function(){pick(b,opt,answerSide,a);};box.appendChild(b);});
+}
+function pick(btn,opt,correct,a){
+  if(qAnswered)return;qAnswered=true;score.total++;
+  var right=opt===correct;if(right)score.right++;else missed.push(a);
+  [].forEach.call(document.querySelectorAll('#qchoices .choice'),function(c){if(c.textContent===correct)c.classList.add('correct');else if(c===btn)c.classList.add('wrong');else c.classList.add('dim');});
+  document.getElementById('scoreLab').textContent='Score '+score.right+'/'+score.total;
+  setTimeout(qNext,right?650:1400);
+}
+function qNext(){idx++;if(score.total>=order.length||idx>=order.length){renderDone();return;}renderQuiz();}
+function renderDone(){
+  var pct=score.total?Math.round(100*score.right/score.total):0;
+  var cls=pct>=85?'good':(pct>=70?'mid':'low');
+  var h='<div class="done"><div class="pct '+cls+'">'+pct+'%</div><div style="color:#9fb0cc;margin:4px 0 6px">'+score.right+' of '+score.total+' correct</div>';
+  if(missed.length){h+='<button class="btn" onclick="retryMissed()">&#8635; Retry '+missed.length+' missed</button><div class="missed">';
+    missed.forEach(function(m){h+='<div class="m"><b>'+esc(m.abbr)+'</b> = '+esc(m.meaning)+(m.note?(' <i style="color:#9fb0cc">('+esc(m.note)+')</i>'):'')+'</div>';});h+='</div>';}
+  else h+='<div style="color:#6ee7b7;margin-top:8px">Perfect &mdash; every one correct.</div>';
+  h+='<button class="btn" onclick="reset()" style="margin-top:10px">Start over</button></div>';
+  document.getElementById('qcard').innerHTML=h;
+}
+function retryMissed(){var ids=missed.map(function(m){return ABBR.indexOf(m);}).filter(function(i){return i>=0;});document.getElementById('qcard').innerHTML=QCARD_HTML;order=shuffle(ids);idx=0;score={right:0,total:0};missed=[];renderQuiz();}
+document.querySelectorAll('#modeSeg button').forEach(function(b){b.onclick=function(){document.querySelectorAll('#modeSeg button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');mode=b.getAttribute('data-m');reset();};});
+document.querySelectorAll('#dirSeg button').forEach(function(b){b.onclick=function(){document.querySelectorAll('#dirSeg button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');dir=b.getAttribute('data-d');reset();};});
+document.getElementById('shuffleBtn').onclick=reset;
+reset();
+</script>
+</body></html>
