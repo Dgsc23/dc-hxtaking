@@ -129,6 +129,7 @@ function buildOrder(shuf){
 function render(){
   if(!order.length)return;
   var d=DATA[order[idx]];
+  (function(){var oi=order[idx];var host=document.getElementById('hint');var mr=document.getElementById('hxmedia');if(host&&!mr){mr=document.createElement('div');mr.id='hxmedia';mr.className='hx-mrow';host.parentNode.insertBefore(mr,host);}if(mr){mr.innerHTML='';var sb=document.createElement('button');sb.className='hx-mbtn';sb.innerHTML='\uD83C\uDFA7 Hear Q&A';sb.onclick=function(){hxSayQA(d.q,d.a,d.sec);};mr.appendChild(sb);var s=window.HX_SLD&&window.HX_SLD[oi];if(s){var ib=document.createElement('button');ib.className='hx-mbtn sld';ib.innerHTML='\uD83D\uDDBC\uFE0F Slide';ib.onclick=function(){hxSlide(s);};mr.appendChild(ib);}}})();
   document.getElementById('tag').textContent=d.sec;
   document.getElementById('prog').textContent='Card '+(idx+1)+' of '+order.length;
   document.getElementById('secLab').textContent=filter==='__all'?'All sections':filter;
@@ -160,4 +161,61 @@ document.addEventListener('keydown',function(e){
 buildSel();buildOrder(false);
 if(localStorage.getItem('dcDavidView')==='1'){var w=document.querySelector('.wm');if(w)w.style.display='none';}
 </script>
+<!-- ===== HX SHARED MEDIA MODULE (self-contained, global): 🖼️ real slide + 🎧 voiced TTS (Ava/Emma). No recordings exist for HX, so 🎧 speaks the item text. Paste before </body>. ===== -->
+<style>
+#hxbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:1200;background:#0b1220;border-top:2px solid #38bdf8;padding:8px 12px;align-items:center;gap:9px;flex-wrap:wrap}
+#hxbar .hb{background:#132132;color:#bae6fd;border:1px solid #24425c;border-radius:7px;padding:5px 9px;font-size:.72rem;cursor:pointer;font-family:inherit;font-weight:700}
+#hxbar .hb:hover{background:#1c405c;color:#fff}
+.hx-mrow{display:flex;flex-wrap:wrap;gap:7px;margin:9px 0 2px}
+.hx-mbtn{background:rgba(56,189,248,.15);color:#7dd3fc;border:1px solid #38bdf8;border-radius:9px;padding:6px 12px;font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit}
+.hx-mbtn:hover{background:rgba(56,189,248,.32);color:#fff}
+.hx-mbtn.sld{background:rgba(52,211,153,.15);color:#6ee7b7;border-color:#10b981}.hx-mbtn.sld:hover{background:rgba(52,211,153,.3)}
+#hxslide{display:none;position:fixed;inset:0;z-index:1300;background:rgba(0,0,0,.9);align-items:center;justify-content:center;flex-direction:column;padding:14px;cursor:zoom-out}
+#hxslideImg{max-width:100%;max-height:86vh;border-radius:8px;box-shadow:0 12px 44px rgba(0,0,0,.7);background:#fff}
+</style>
+<script id="hx-media-shared">
+(function(){
+ var vl=[],vA=null,vB=null,rate=1.0;
+ function pickA(){return vl.find(function(v){return /microsoft.*ava.*natural/i.test(v.name);})||vl.find(function(v){return /microsoft.*emma.*natural/i.test(v.name);})||vl.find(function(v){return /google us english/i.test(v.name);})||vl.find(function(v){return /en[-_]US/i.test(v.lang);})||vl.find(function(v){return /^en/i.test(v.lang);})||vl[0]||null;}
+ function pickB(){return vl.find(function(v){return /microsoft.*emma.*natural/i.test(v.name);})||vl.find(function(v){return /microsoft.*(aria|jenny).*natural/i.test(v.name);})||vl.find(function(v){return /google uk english female/i.test(v.name);})||vA;}
+ function load(){if(!window.speechSynthesis)return;vl=speechSynthesis.getVoices()||[];vA=pickA();vB=pickB();}
+ if(window.speechSynthesis){load();speechSynthesis.onvoiceschanged=load;var t=0,iv=setInterval(function(){t++;load();if(vA||t>20)clearInterval(iv);},250);}
+ window.hxRate=function(r){rate=r;Array.prototype.forEach.call(document.querySelectorAll(".hx-rate"),function(s){s.textContent=r.toFixed(2)+"x";});};
+ window.hxStop=function(){if(window.speechSynthesis)speechSynthesis.cancel();};
+ window.hxSay=function(text,label){if(!window.speechSynthesis){return;}speechSynthesis.cancel();
+   var bar=document.getElementById("hxbar");if(bar)bar.style.display="flex";
+   var lbl=document.getElementById("hxlabel");if(lbl)lbl.textContent="🎧 "+(label||"Read aloud");
+   var u=new SpeechSynthesisUtterance(String(text).replace(/<[^>]+>/g," ").replace(/\s+/g," "));
+   u.rate=rate;if(vA){u.voice=vA;u.lang=vA.lang||"en-US";}speechSynthesis.speak(u);};
+ window.hxSayQA=function(q,a,label){if(!window.speechSynthesis)return;speechSynthesis.cancel();
+   var bar=document.getElementById("hxbar");if(bar)bar.style.display="flex";
+   var lbl=document.getElementById("hxlabel");if(lbl)lbl.textContent="🎧 "+(label||"Q & A");
+   function strip(x){return String(x).replace(/<[^>]+>/g," ").replace(/\s+/g," ");}
+   var uq=new SpeechSynthesisUtterance(strip(q));uq.rate=rate;if(vA){uq.voice=vA;uq.lang=vA.lang||"en-US";}
+   var ua=new SpeechSynthesisUtterance(strip(a));ua.rate=rate;if(vB){ua.voice=vB;ua.lang=vB.lang||"en-US";}
+   speechSynthesis.speak(uq);speechSynthesis.speak(ua);};
+ window.hxGal=null;window.hxGi=0;
+ window.hxSlide=function(fr){if(!fr)return;var arr=Array.isArray(fr)?fr:[fr];if(!arr.length)return;window.hxGal=arr;window.hxGi=0;
+   document.getElementById("hxslideImg").src=arr[0];document.getElementById("hxslCount").textContent=arr.length>1?("1 / "+arr.length):"";
+   document.getElementById("hxslNav").style.display=arr.length>1?"flex":"none";document.getElementById("hxslide").style.display="flex";};
+ window.hxGalStep=function(d){if(!window.hxGal)return;window.hxGi=(window.hxGi+d+window.hxGal.length)%window.hxGal.length;
+   document.getElementById("hxslideImg").src=window.hxGal[window.hxGi];document.getElementById("hxslCount").textContent=(window.hxGi+1)+" / "+window.hxGal.length;};
+})();
+</script>
+<div id="hxbar">
+ <span id="hxlabel" style="color:#7dd3fc;font-size:.8rem;font-weight:700;white-space:nowrap"></span>
+ <button class="hb" onclick="hxRate(0.8)">0.8x</button><button class="hb" onclick="hxRate(1)">1x</button><button class="hb" onclick="hxRate(1.25)">1.25x</button><button class="hb" onclick="hxRate(1.5)">1.5x</button><button class="hb" onclick="hxRate(2)">2x</button>
+ <span class="hx-rate" style="color:#bae6fd;font-size:.72rem;font-weight:700;min-width:42px;text-align:center">1.00x</span>
+ <button class="hb" onclick="hxStop();document.getElementById('hxbar').style.display='none';">■ Stop</button>
+</div>
+<div id="hxslide" onclick="if(event.target===this)this.style.display='none'">
+ <img id="hxslideImg" alt="slide">
+ <div id="hxslNav" style="display:none;gap:16px;margin-top:12px;align-items:center">
+  <button onclick="event.stopPropagation();hxGalStep(-1)" style="background:#132132;color:#bae6fd;border:1px solid #38bdf8;border-radius:8px;padding:8px 16px;cursor:pointer">&#8249;</button>
+  <span id="hxslCount" style="color:#bae6fd;font-size:.85rem;font-weight:700"></span>
+  <button onclick="event.stopPropagation();hxGalStep(1)" style="background:#132132;color:#bae6fd;border:1px solid #38bdf8;border-radius:8px;padding:8px 16px;cursor:pointer">&#8250;</button></div>
+ <div style="position:fixed;top:12px;right:18px;color:#fff;font-size:26px;font-weight:800;pointer-events:none">&#215;</div>
+</div>
+<!-- API: hxSay(text,label) speak one · hxSayQA(q,a,label) two-voice · hxSlide(fileOrArray) show slide(s) -->
+<script>window.HX_SLD=["frames/hx/intro_004.jpg","frames/hx/intro_024.jpg","frames/hx/soap_005.jpg","frames/hx/soap_015.jpg","frames/hx/pmh_002.jpg","frames/hx/soap_020.jpg","frames/hx/soap_042.jpg","frames/hx/soap_036.jpg","frames/hx/pmh_004.jpg","frames/hx/pmh_004.jpg","frames/hx/ros_002.jpg","frames/hx/ros_005.jpg","frames/hx/ros_004.jpg","frames/hx/ros_004.jpg","frames/hx/ros_032.jpg","frames/hx/comm_004.jpg","frames/hx/intro_013.jpg","frames/hx/comm_003.jpg","frames/hx/comm_009.jpg","frames/hx/comm_013.jpg","frames/hx/comm_016.jpg","frames/hx/cultural_016.jpg","frames/hx/cultural_012.jpg","frames/hx/cultural_001.jpg","frames/hx/cultural_017.jpg","frames/hx/sexual_024.jpg","frames/hx/sexual_005.jpg","frames/hx/sexual_026.jpg","frames/hx/sexual_027.jpg","frames/hx/sexual_001.jpg","frames/hx/sexual_036.jpg","frames/hx/sexual_019.jpg","frames/hx/soap_019.jpg","frames/hx/intro_008.jpg","frames/hx/pmh_020.jpg","frames/hx/soap_028.jpg","frames/hx/comm_016.jpg",null,"frames/hx/pmh_004.jpg","frames/hx/soap_035.jpg","frames/hx/ros_004.jpg","frames/hx/ros_005.jpg","frames/hx/ros_024.jpg","frames/hx/comm_004.jpg","frames/hx/comm_013.jpg","frames/hx/comm_016.jpg","frames/hx/comm_017.jpg","frames/hx/sexual_032.jpg","frames/hx/ros_002.jpg","frames/hx/sexual_002.jpg","frames/hx/sexual_044.jpg"];</script>
 </body></html>
