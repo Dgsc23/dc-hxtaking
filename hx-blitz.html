@@ -134,7 +134,7 @@ function render(){
     if(active==='__all'){var lab=document.createElement('div');lab.className='seclab';lab.textContent=sec;box.appendChild(lab);}
     items.forEach(function(c){
       var d=document.createElement('div');d.className='c';d.setAttribute('data-s',c.sec);
-      d.innerHTML='<div class="t">'+esc(c.t)+'</div><div class="b">'+esc(c.body)+'</div>';var __ci=CARDS.indexOf(c);d.innerHTML+=hxRow(__ci,'card');
+      d.innerHTML='<div class="t">'+esc(c.t)+'</div><div class="b">'+esc(c.body)+'</div>';var __ci=CARDS.indexOf(c);d.innerHTML+=(window.hxRow?hxRow(__ci,'card'):'');
       box.appendChild(d);
     });
   });
@@ -201,5 +201,6 @@ if(localStorage.getItem('dcDavidView')==='1'){var w=document.querySelector('.wm'
 <script>window.HX_SLD=["frames/hx/intro_030.jpg","frames/hx/cultural_014.jpg","frames/hx/intro_019.jpg","frames/hx/intro_013.jpg","frames/hx/intro_024.jpg","frames/hx/intro_002.jpg","frames/hx/intro_023.jpg","frames/hx/comm_004.jpg","frames/hx/comm_004.jpg","frames/hx/comm_012.jpg","frames/hx/comm_003.jpg","frames/hx/comm_009.jpg","frames/hx/comm_013.jpg","frames/hx/comm_014.jpg","frames/hx/comm_003.jpg","frames/hx/cultural_004.jpg","frames/hx/cultural_002.jpg","frames/hx/cultural_012.jpg","frames/hx/cultural_012.jpg","frames/hx/cultural_016.jpg","frames/hx/cultural_012.jpg","frames/hx/cultural_017.jpg","frames/hx/soap_005.jpg","frames/hx/pmh_002.jpg","frames/hx/pmh_002.jpg","frames/hx/pmh_002.jpg","frames/hx/soap_001.jpg","frames/hx/soap_042.jpg","frames/hx/pmh_002.jpg","frames/hx/soap_009.jpg","frames/hx/pmh_002.jpg","frames/hx/soap_015.jpg","frames/hx/cultural_002.jpg","frames/hx/soap_019.jpg","frames/hx/soap_019.jpg","frames/hx/soap_019.jpg","frames/hx/soap_019.jpg","frames/hx/soap_027.jpg","frames/hx/soap_019.jpg","frames/hx/soap_036.jpg","frames/hx/soap_036.jpg","frames/hx/pmh_002.jpg","frames/hx/pmh_003.jpg","frames/hx/pmh_010.jpg","frames/hx/pmh_004.jpg","frames/hx/pmh_003.jpg","frames/hx/ros_002.jpg","frames/hx/ros_004.jpg","frames/hx/ros_004.jpg","frames/hx/ros_004.jpg","frames/hx/intro_003.jpg","frames/hx/sexual_027.jpg","frames/hx/sexual_002.jpg","frames/hx/sexual_004.jpg","frames/hx/intro_002.jpg","frames/hx/sexual_027.jpg","frames/hx/sexual_032.jpg","frames/hx/sexual_001.jpg","frames/hx/sexual_002.jpg","frames/hx/sexual_036.jpg","frames/hx/sexual_021.jpg"];
 window.hxRow=function(i,kind){var s=window.HX_SLD[i];var h='<div class="hx-mrow">';h+='<button class="hx-mbtn" onclick="hxSayEl(this)">\uD83C\uDFA7 Hear it</button>';if(s)h+='<button class="hx-mbtn sld" onclick="hxSlide(window.HX_SLD['+i+'])">\uD83D\uDDBC\uFE0F Slide</button>';return h+'</div>';};
 window.hxSayEl=function(btn){var card=btn.closest(".c");if(!card)return;var t=(card.querySelector(".t")||{}).textContent||"";var b=(card.querySelector(".b")||{}).textContent||"";hxSay(t+". "+b,t);};
+try{if(typeof render==='function')render();}catch(e){}
 </script>
 </body></html>
