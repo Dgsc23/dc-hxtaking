@@ -79,6 +79,17 @@ tr.jc td.a{color:#fca5a5}
 </ul>
 </div>
 
+<style>
+.viewtog{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 12px}
+.viewtog button{background:#16233c;color:#cbd5e1;border:1px solid #24425c;border-radius:999px;padding:7px 14px;font:700 .78rem inherit;cursor:pointer}
+.viewtog button.on{border-color:#38bdf8;background:rgba(56,189,248,.16);color:#fff}
+body.flat h2.sec{display:none}
+body.flat h2.sec.keep{display:block}
+body.flat .n{display:none}
+body.flat table{margin-top:0;margin-bottom:0}
+</style>
+<div class="viewtog"><span style="font-size:.78rem;color:#9fb0cc">View:</span><button id="vGroup" class="on">Grouped (scannable)</button><button id="vFlat">Exact handout order (flat, like his sheet)</button></div>
+
 <h2 class="sec">&#129333; Demographics &amp; identifiers <span class="n">15 entries</span></h2>
 <table>
 <tr><td class="a">Pt, pt, pt.</td><td class="m">Patient</td></tr>
@@ -98,7 +109,7 @@ tr.jc td.a{color:#fca5a5}
 <tr><td class="a">BCPs</td><td class="m">Birth control pills</td></tr>
 </table>
 
-<h2 class="sec">&#129314; GPA System <span class="n">10 entries</span></h2>
+<h2 class="sec keep">&#129314; GPA System <span class="n">10 entries</span></h2>
 <table>
 <tr><td class="a">G</td><td class="m">Gravidus, L. pregnancy</td></tr>
 <tr><td class="a">P</td><td class="m">Paritus, L. parturition, birth</td></tr>
@@ -202,5 +213,9 @@ tr.jc td.a{color:#fca5a5}
 <div class="wm">DC Study Supply &mdash; Dr. David Gramling, PhD</div>
 <script>
 try{if(localStorage.getItem('dcDavidView')==='1'){var w=document.querySelector('.wm');if(w)w.style.display='none';}}catch(e){}
+(function(){var vg=document.getElementById('vGroup'),vf=document.getElementById('vFlat');if(!vg||!vf)return;
+function setView(f){document.body.classList.toggle('flat',f);vg.classList.toggle('on',!f);vf.classList.toggle('on',f);try{localStorage.setItem('hxabbr_view',f?'flat':'grp');}catch(e){}}
+vg.onclick=function(){setView(false);};vf.onclick=function(){setView(true);};
+try{if(localStorage.getItem('hxabbr_view')==='flat')setView(true);}catch(e){}})();
 </script>
 </body></html>
