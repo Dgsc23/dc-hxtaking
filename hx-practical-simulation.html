@@ -1,5 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="data:,">
 <title>History Taking — Practical Simulation (10-min OSCE rehearsal)</title>
 <style>
 :root{--bg:#0a0e1a;--card:#111a2e;--line:#22304d;--ink:#e6ecf5;--mut:#9fb0cc;--ac:#38bdf8;--gd:#34d399;--am:#fbbf24;--pk:#f472b6;--rd:#f87171}
@@ -42,18 +43,59 @@ h2.sec{font-size:1.02rem;margin:20px 0 10px;color:#bae6fd;border-bottom:1px soli
 .persbar .cc{font-size:.64rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#fbcfe8;margin-bottom:3px}
 .persbar .p{font-weight:800;font-size:.98rem;color:#f5eefb}
 .persbar .o{font-size:.82rem;color:var(--mut);font-style:italic;margin-top:2px}
-/* coaching toggle */
-.ctrls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+/* mode toggle */
+.modebar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.mseg{display:flex;flex:1;min-width:230px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#0d1526}
+.mbtn{flex:1;padding:11px 8px;font:800 .88rem 'Segoe UI',system-ui;background:transparent;color:#7d8db0;border:none;cursor:pointer;transition:all .12s}
+.mbtn.exam.on{color:#fff;background:linear-gradient(135deg,#3a1132,#26102a);box-shadow:inset 0 0 0 1px var(--pk)}
+.mbtn.coachb.on{color:#fff;background:linear-gradient(135deg,#0c2f43,#0e2233);box-shadow:inset 0 0 0 1px var(--ac)}
 .toggle{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:#cbd5e1;cursor:pointer;user-select:none}
 .toggle .sw{width:40px;height:22px;border-radius:999px;background:#2a3a58;position:relative;transition:background .15s;flex:0 0 auto}
 .toggle .sw::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#8ea6cc;transition:transform .15s}
 .toggle.on .sw{background:var(--ac)}
 .toggle.on .sw::after{transform:translateX(18px);background:#fff}
+.modehint{font-size:.76rem;color:var(--mut);margin:0 0 12px;line-height:1.45}
+.modehint b{color:#bae6fd}
 .hintbox{background:#0f1830;border-left:3px solid var(--ac);border-radius:8px;padding:10px 13px;margin-bottom:13px;font-size:.84rem;line-height:1.5;color:#dbeafe}
 .hintbox b{color:#7dd3fc}
 .hintbox .ex{display:block;color:#cbd5e1;font-style:italic;margin-top:5px}
 .hintbox .pa{display:block;color:#a7f3d0;margin-top:5px;font-size:.81rem}
 .ttsbtn{background:#1a2a1e;color:#a7f3d0;border:1px solid var(--gd);border-radius:9px;padding:7px 12px;font:800 .78rem 'Segoe UI',system-ui;cursor:pointer;margin-top:8px}
+/* scratch pad — the sheet of paper */
+.padwrap{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 13px;margin-bottom:12px}
+.padhead{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:800;font-size:.84rem;color:#fde9c8;margin-bottom:8px}
+.padhead .grow{flex:1;min-width:180px}
+.pbtn{background:#16233c;color:#bcd3f0;border:1px solid var(--line);border-radius:8px;padding:5px 10px;font:800 .72rem 'Segoe UI',system-ui;cursor:pointer}
+.pbtn:active{transform:scale(.97)}
+#pad{width:100%;min-height:130px;resize:vertical;border:1px solid #cdbe98;border-radius:8px;background:#f7f1df;background-image:linear-gradient(90deg,transparent 26px,rgba(214,86,74,.45) 26px,rgba(214,86,74,.45) 27px,transparent 27px),repeating-linear-gradient(transparent,transparent 25px,#e0d3b2 26px);color:#2b2410;font:600 1rem/26px 'Segoe Print','Bradley Hand','Comic Sans MS',cursive,system-ui;padding:6px 12px 6px 36px}
+/* encounter transcript */
+.encwrap{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 13px;margin-bottom:12px}
+.enchead{font-weight:800;font-size:.84rem;color:#bae6fd;margin-bottom:8px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.enchead .encsub{font-weight:600;font-size:.72rem;color:var(--mut)}
+.enc{max-height:170px;overflow-y:auto;font-size:.8rem;line-height:1.5;display:flex;flex-direction:column;gap:6px}
+.encempty{color:#5b6f92;font-style:italic}
+.tl{background:#0f1830;border-radius:8px;padding:7px 10px}
+.tl .twho{color:#7fdcc0;font-weight:700}
+.tl .tarr{color:#5b6f92}
+.tl .tpat{color:#dbeafe}
+/* peek (reveal answer key) */
+.peekrow{margin:2px 0 6px}
+.peekbtn{background:#241a08;color:#fcd34d;border:1px solid #6b5310;border-radius:8px;padding:5px 11px;font:800 .74rem 'Segoe UI',system-ui;cursor:pointer}
+.peekbtn:active{transform:scale(.97)}
+.peekbox{background:#0f1830;border-left:3px solid var(--am);border-radius:8px;padding:9px 12px;margin:4px 0 8px;font-size:.8rem;line-height:1.5;color:#dbeafe;max-height:240px;overflow-y:auto}
+.peekbox .pkline{padding:4px 0;border-top:1px solid #1b2740}
+.peekbox .pkline:first-child{border-top:none}
+.peekbox b{color:#7dd3fc}
+.peekbox i{color:var(--mut)}
+.peekbox .try{display:block;color:#cbd5e1;font-style:italic}
+.pkhead{margin-bottom:4px;color:#fcd34d;font-weight:700}
+/* tally counters (exam mode) */
+.cntr{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:6px 0}
+.cbig{font-size:1.9rem;font-weight:900;color:#fff;min-width:34px;text-align:center}
+.clab{flex:1;font-size:.78rem;color:var(--mut);min-width:130px}
+.cadd{background:#164a38;color:#a7f3d0;border:1px solid var(--gd);border-radius:10px;padding:10px 14px;font:800 .82rem 'Segoe UI',system-ui;cursor:pointer}
+.cadd:active{transform:scale(.97)}
+.cundo{background:#16233c;color:#bcd3f0;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:800 .78rem 'Segoe UI',system-ui;cursor:pointer}
 /* sections */
 .step{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:11px;overflow:hidden}
 .step.done{border-color:var(--gd)}
@@ -87,10 +129,13 @@ h2.sec{font-size:1.02rem;margin:20px 0 10px;color:#bae6fd;border-bottom:1px soli
 .rosq.show{display:block}
 .rosq b{color:#7dd3fc}
 /* score screen */
-.scorehead{text-align:center;margin-bottom:16px}
+.scorehead{text-align:center;margin-bottom:12px}
 .bigscore{font-size:2.6rem;font-weight:900;line-height:1}
 .bigscore.pass{color:var(--gd)}.bigscore.fail{color:var(--am)}
 .scoresub{color:var(--mut);font-size:.86rem;margin-top:6px}
+.statrow{text-align:center;font-size:.86rem;color:var(--mut);margin:0 0 14px}
+.statrow b{color:#e6ecf5}
+.badge{display:inline-block;background:#0c2f43;border:1px solid var(--ac);color:#bae6fd;border-radius:999px;padding:3px 10px;font-size:.74rem;font-weight:800;margin-left:6px}
 .scard{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:13px 15px;margin-bottom:10px;display:flex;align-items:center;gap:12px}
 .scard.met{border-color:var(--gd)}
 .scard.miss{border-color:var(--am)}
@@ -103,6 +148,16 @@ h2.sec{font-size:1.02rem;margin:20px 0 10px;color:#bae6fd;border-bottom:1px soli
 .scard.met .val{color:var(--gd)}.scard.miss .val{color:var(--am)}
 .tstat{text-align:center;color:var(--mut);font-size:.85rem;margin:14px 0}
 .tstat b{color:#e6ecf5}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:13px 15px;margin-bottom:12px}
+.panel h3{font-size:.92rem;color:#bae6fd;margin-bottom:8px}
+.panel .note{font-size:.78rem;color:#fde9c8;background:#241a08;border-left:3px solid var(--am);border-radius:7px;padding:8px 11px;margin-bottom:9px;line-height:1.5}
+.scoreenc{max-height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;font-size:.8rem;line-height:1.5}
+#narr{width:100%;min-height:140px;resize:vertical;background:#0f1830;border:1px solid var(--line);border-radius:9px;color:var(--ink);font:500 1rem/1.55 'Segoe UI',system-ui,sans-serif;padding:10px 12px}
+.hwrap{overflow-x:auto}
+.htable{width:100%;border-collapse:collapse;font-size:.76rem;white-space:nowrap}
+.htable th{color:#7dd3fc;text-align:left;padding:5px 6px;border-bottom:1px solid var(--line);font-size:.7rem;text-transform:uppercase;letter-spacing:.04em}
+.htable td{padding:5px 6px;border-bottom:1px solid #1b2740;color:#cbd5e1}
+.hclear{font-size:.74rem;color:#f0a6b8}
 .again{display:block;width:100%;background:linear-gradient(135deg,#3a1132,#26102a);border:1px solid var(--pk);color:#fbcfe8;border-radius:13px;padding:14px;font:800 .95rem 'Segoe UI',system-ui;cursor:pointer;margin-top:16px}
 .again:active{transform:scale(.99)}
 .wm{position:fixed;bottom:6px;right:10px;font-size:9px;color:rgba(255,255,255,.22);pointer-events:none;z-index:50}
@@ -116,6 +171,7 @@ h2.sec{font-size:1.02rem;margin:20px 0 10px;color:#bae6fd;border-bottom:1px soli
   <div class="notice"><b>Practice scenarios for rehearsal only.</b> These personas are generic training cases &mdash; they are <b>not</b> real exam cases and contain no course-specific facts. Use them to drill the flow, wording, and 10-minute pacing.</div>
   <h2 class="sec">&#128100; Pick a case to rehearse</h2>
   <div class="cases" id="caseGrid"></div>
+  <div class="dress">&#127891; <b>Exam Mode is the default:</b> you get the case, the clock, a sheet of paper, and the bare rubric &mdash; just like the real room. Flip to <b>Coach Mode</b> (or tap &#128065; Reveal inside a section) any time you need the answer key. Peeks are counted on your scorecard.</div>
   <div class="dress">&#128084; <b>Reminder (not scored here):</b> the real practical is in person in <b>business-casual dress</b>. Open with a professional intro and build rapport before you dive in.</div>
 </div>
 
@@ -134,15 +190,33 @@ h2.sec{font-size:1.02rem;margin:20px 0 10px;color:#bae6fd;border-bottom:1px soli
     <div class="o" id="pOpener"></div>
   </div>
 
-  <div class="ctrls">
-    <div class="toggle on" id="coachToggle" onclick="toggleCoach()"><span class="sw"></span><span>Coaching prompts</span></div>
+  <div class="modebar">
+    <div class="mseg">
+      <button class="mbtn exam on" id="mExam" onclick="setMode('exam')">&#127891; Exam Mode</button>
+      <button class="mbtn coachb" id="mCoach" onclick="setMode('coach')">&#129489;&#8205;&#127979; Coach Mode</button>
+    </div>
+    <div class="toggle on" id="voiceToggle" onclick="toggleVoice()"><span class="sw"></span><span>&#128266; Patient voice</span></div>
   </div>
+  <div class="modehint" id="modeHint"></div>
 
-  <div class="hintbox" id="hintBox">
+  <div class="hintbox" id="hintBox" style="display:none">
     <b>Next suggested area:</b> <span id="hintArea"></span>
     <span class="ex" id="hintEx"></span>
     <span class="pa" id="hintPa"></span>
     <button class="ttsbtn" onclick="speakHint()">&#127911; Read this prompt aloud</button>
+  </div>
+
+  <div class="padwrap">
+    <div class="padhead"><span class="grow">&#128466;&#65039; Your sheet of paper &mdash; write anything, just like the real room.</span>
+      <button class="pbtn" onclick="stampPad()">&#128203; Stamp LOPQRST + FAOMASH skeleton</button>
+      <button class="pbtn" onclick="clearPad()">&#128465;&#65039; Clear</button>
+    </div>
+    <textarea id="pad" placeholder="Blank on purpose &mdash; jot your skeleton, the patient&rsquo;s answers, anything." spellcheck="false"></textarea>
+  </div>
+
+  <div class="encwrap">
+    <div class="enchead">&#128483;&#65039; Encounter <span class="encsub">the patient answers as you cover each item</span></div>
+    <div class="enc" id="enc"></div>
   </div>
 
   <div id="checklist"></div>
@@ -154,8 +228,19 @@ h2.sec{font-size:1.02rem;margin:20px 0 10px;color:#bae6fd;border-bottom:1px soli
     <div class="bigscore" id="bigScore">0 / 5</div>
     <div class="scoresub" id="scoreSub"></div>
   </div>
+  <div class="statrow" id="peekStat"></div>
   <div id="scoreCards"></div>
   <div class="tstat" id="tstat"></div>
+  <div class="panel"><h3>&#128483;&#65039; Encounter transcript</h3><div class="scoreenc" id="scoreEnc"></div></div>
+  <div class="panel"><h3>&#128221; Narrative practice (for the 8/13 write-up)</h3>
+    <div class="note">A narrative is the patient&rsquo;s history written in paragraph form (not bullet points), logically composed and coherent.</div>
+    <textarea id="narr" spellcheck="false"></textarea>
+    <div style="display:flex;align-items:center;gap:10px;margin-top:8px">
+      <div style="flex:1;font-size:.72rem;color:var(--mut)">Pre-filled with your sheet of paper &mdash; now rewrite it as flowing paragraphs.</div>
+      <button class="pbtn" id="copyBtn" onclick="copyNarr()">&#128203; Copy</button>
+    </div>
+  </div>
+  <div class="panel"><h3>&#128200; Run history</h3><div id="histWrap"></div></div>
   <button class="again" onclick="reset()">&#128260; Run again / new case</button>
 </div>
 
@@ -205,12 +290,73 @@ var FAO=[
  {code:"H",label:"Hospitalizations",ex:"Have you ever been hospitalized for anything?"}
 ];
 
+/* ---------- generic patient replies (fictional practice responses — simple confirmations / pertinent negatives only) ---------- */
+var SOC_REPLY=[
+ "Yes, I feel safe in my relationships.",
+ "I usually take a walk or talk it out with someone close to me.",
+ "Mostly my family and a couple of good friends.",
+ "Spending time with family, and getting outside when I can.",
+ "No, nothing like that — I haven't turned to drugs or alcohol.",
+ "No, never."
+];
+var SEX_REPLY=[
+ "Sure, that's fine — go ahead.",
+ "No, the usual medical terms are fine with me.",
+ "Yes, I'm sexually active.",
+ "Just one partner.",
+ "No — we use barriers consistently.",
+ "No, I've never been diagnosed with one.",
+ "No, there's no chance of pregnancy.",
+ "No, never — and yes, I feel safe at home."
+];
+var ROSNEG=[
+ "No weight changes, fevers, or night sweats — my energy's been fine.",
+ "No rashes, lumps, sores, or skin changes.",
+ "No head or face pain, and no head injuries.",
+ "No changes in my vision, and no eye pain.",
+ "No hearing changes, ringing, or dizziness.",
+ "No congestion, nosebleeds, or sinus trouble.",
+ "No sore throats, mouth sores, or trouble swallowing.",
+ "No neck pain, stiffness, or swollen glands.",
+ "No chest pain, palpitations, or swelling in my ankles.",
+ "No cough, wheezing, or shortness of breath.",
+ "No nausea, vomiting, or diarrhea.",
+ "No burning or pain with urination, and no changes in frequency.",
+ "No, no problems there.",
+ "No muscle, joint, or bone problems.",
+ "No leg cramps when walking, and no swelling in my legs.",
+ "No numbness, tingling, dizziness, or fainting.",
+ "My mood's been fine — no feeling depressed or anxious.",
+ "No heat or cold intolerance, and no unusual thirst or hunger.",
+ "No easy bruising or bleeding, and no blood clots."
+];
+/* per-case overrides where the chief complaint is involved (confirm the story already told — nothing new) */
+var CASE_ROS_OVR=[
+ {13:"Just the low-back pain we've been talking about — no other muscle or joint problems.",
+  15:"No numbness, tingling, or weakness in my legs — the pain stays in my back."},
+ {8:"Just that chest tightness we've been talking about — no palpitations, and no swelling in my ankles.",
+  9:"No cough or wheezing — I only notice the tightness when I exert myself."},
+ {2:"Just the headaches we've been talking about — no head injuries.",
+  3:"Bright screens bother me during a headache, but no vision changes otherwise.",
+  15:"Aside from the headaches, no numbness, tingling, fainting, or seizures."},
+ {5:"That cold cleared up — no congestion or sinus pain now.",
+  9:"Just the cough we've been talking about — a little clear mucus, and I've never coughed up blood."}
+];
+var CLOSE_REPLY="No, I think that's everything — thank you, doctor.";
+var PAD_SKELETON="L:\nO:\nP:\nQ:\nR:\nS:\nT:\n\nF:\nA:\nO:\nM:\nA:\nS:\nH:\n\nSocial(≥3):\nSexual(≥2):\nROS(≥3):";
+
 /* ---------- state ---------- */
-var caseIdx=0,coach=true;
+var caseIdx=0,mode='exam',coachUsed=false,peeks=0;
+var peekOpen={lop:false,fao:false,soc:false,sex:false,ros:false};
 var lopChk=[],faoChk=[],socChk=[],sexChk=[],rosChk=[];
 var secs=600,timer=null,running=false,started=false,finished=false,usedSecs=0;
+var transcript=[];
+var voiceOn=true;try{voiceOn=localStorage.getItem('hxsim_voice')!=='0';}catch(e){}
+var padSaved='';try{padSaved=localStorage.getItem('hxsim_pad')||'';}catch(e){}
+var firstRunAfterLoad=true;
 
 function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function stripQ(s){return String(s==null?'':s).replace(/[“”"]/g,'');}
 
 /* ---------- start screen ---------- */
 function renderCases(){
@@ -230,6 +376,9 @@ function startCase(i){
   sexChk=SS.sexual.map(function(){return false;});
   rosChk=ROS.map(function(){return false;});
   secs=600;running=false;started=false;finished=false;usedSecs=0;
+  mode='exam';coachUsed=false;peeks=0;
+  peekOpen={lop:false,fao:false,soc:false,sex:false,ros:false};
+  transcript=[];
   var c=CASES[i];
   document.getElementById('pCC').textContent=c.cc;
   document.getElementById('pPersona').textContent=c.persona;
@@ -238,10 +387,16 @@ function startCase(i){
   document.getElementById('clock').className='clock';
   document.getElementById('startBtn').innerHTML='&#9654; Start';
   document.getElementById('startBtn').classList.add('go');
+  /* the sheet of paper: restore once after a reload, otherwise start blank */
+  var pad=document.getElementById('pad');
+  if(firstRunAfterLoad&&padSaved){pad.value=padSaved;}
+  else{pad.value='';try{localStorage.removeItem('hxsim_pad');}catch(e){}}
+  firstRunAfterLoad=false;
   document.getElementById('startScreen').classList.add('hidden');
   document.getElementById('scoreScreen').classList.add('hidden');
   document.getElementById('runScreen').classList.remove('hidden');
-  renderChecklist();updProg();updHint();
+  syncModeUI();syncVoiceUI();
+  renderChecklist();updProg();updHint();renderEnc();
   window.scrollTo(0,0);
 }
 
@@ -249,41 +404,61 @@ function startCase(i){
 function renderChecklist(){
   var w=document.getElementById('checklist');w.innerHTML='';
   var c=CASES[caseIdx];
+  var coachOn=(mode==='coach');
 
   // 1. Open + CC (not one of the 5 scored sections, but a rubric reminder)
+  var openSmall=coachOn?'<small>professional, warm opening &mdash; not one of the 5 scored sections, but always do it</small>':'';
   w.appendChild(stepEl(0,'Open + Chief Complaint','',
-    '<div class="req" id="ocReq" onclick="toggleGeneric(this)"><div class="box">&#10003;</div><div class="rt">Greet, introduce yourself, confirm name &amp; wash-in; elicit the Chief Complaint<small>professional, warm opening &mdash; not one of the 5 scored sections, but always do it</small></div></div>'));
+    '<div class="req" id="ocReq" onclick="toggleGeneric(this,\'open\')"><div class="box">&#10003;</div><div class="rt">Greet, introduce yourself, confirm name &amp; wash-in; elicit the Chief Complaint'+openSmall+'</div></div>'));
 
   // 2. LOPQRST
   var lop=LOP.map(function(it,k){
-    var pa=coach?('<small style="color:#7fdcc0">Patient: “'+esc(c.lopqrst[k])+'”</small>'):'';
-    return '<div class="req'+(lopChk[k]?' on':'')+'" onclick="tog(\'lop\','+k+',this)"><div class="box">&#10003;</div><div class="rt"><b>'+it.code+'</b> — '+esc(it.label)+'<small>'+esc(it.q)+'</small>'+pa+'</div></div>';
+    var extra=coachOn?('<small>'+esc(it.q)+'</small><small style="color:#7fdcc0">Patient: “'+esc(c.lopqrst[k])+'”</small>'):'';
+    return '<div class="req'+(lopChk[k]?' on':'')+'" onclick="tog(\'lop\','+k+',this)"><div class="box">&#10003;</div><div class="rt"><b>'+it.code+'</b> — '+esc(it.label)+extra+'</div></div>';
   }).join('');
-  w.appendChild(stepEl(1,'HPI — the story','LOPQRST',lop,'lopqrst'));
+  var lopPeek=coachOn?'':peekUI('lop',LOP.map(function(it){return '<div class="pkline"><b>'+it.code+' — '+esc(it.label)+'</b> <i>('+esc(it.q)+')</i><span class="try">Try: “'+esc(it.ex)+'”</span></div>';}).join(''));
+  w.appendChild(stepEl(1,'HPI — the story','LOPQRST',lopPeek+lop,'lopqrst'));
 
   // 3. FAOMASH
   var fao=FAO.map(function(it,k){
-    var pa=coach?('<small style="color:#7fdcc0">Patient: “'+esc(c.pmh[k])+'”</small>'):'';
-    return '<div class="req'+(faoChk[k]?' on':'')+'" onclick="tog(\'fao\','+k+',this)"><div class="box">&#10003;</div><div class="rt"><b>'+it.code+'</b> — '+esc(it.label)+pa+'</div></div>';
+    var extra=coachOn?('<small style="color:#7fdcc0">Patient: “'+esc(c.pmh[k])+'”</small>'):'';
+    return '<div class="req'+(faoChk[k]?' on':'')+'" onclick="tog(\'fao\','+k+',this)"><div class="box">&#10003;</div><div class="rt"><b>'+it.code+'</b> — '+esc(it.label)+extra+'</div></div>';
   }).join('');
-  w.appendChild(stepEl(2,'Past Medical History','FAOMASH',fao,'faomash'));
+  var faoPeek=coachOn?'':peekUI('fao',FAO.map(function(it){return '<div class="pkline"><b>'+it.code+' — '+esc(it.label)+'</b><span class="try">Try: “'+esc(it.ex)+'”</span></div>';}).join(''));
+  w.appendChild(stepEl(2,'Past Medical History','FAOMASH',faoPeek+fao,'faomash'));
 
   // 4. Social (>=3)
-  var soc=SS.social.map(function(q,k){return '<li class="'+(socChk[k]?'on':'')+'" onclick="togList(\'soc\','+k+',this)">'+esc(q)+'</li>';}).join('');
-  w.appendChild(stepEl(3,'Social History','≥ 3','<div class="cbank" id="socBank"><ul style="margin:0;padding:0">'+soc+'</ul></div>','social'));
+  var socBody;
+  if(coachOn){
+    var soc=SS.social.map(function(q,k){return '<li class="'+(socChk[k]?'on':'')+'" onclick="togList(\'soc\','+k+',this)">'+esc(q)+'</li>';}).join('');
+    socBody='<div class="cbank" id="socBank"><ul style="margin:0;padding:0">'+soc+'</ul></div>';
+  }else{
+    socBody=peekUI('soc','<div class="pkhead">Ask any of these (need &ge;3):</div>'+SS.social.map(function(q){return '<div class="pkline">“'+esc(q)+'”</div>';}).join(''))
+      +'<div class="cntr"><div class="cbig" id="socN">'+count(socChk)+'</div><div class="clab">social-history questions asked &middot; need &ge;3 &middot; tap as you ask out loud</div><button class="cadd" onclick="tallyAdd(\'soc\')">&#10133; I asked one</button><button class="cundo" onclick="tallyUndo(\'soc\')">&#8634; undo</button></div>';
+  }
+  w.appendChild(stepEl(3,'Social History','≥ 3',socBody,'social'));
 
   // 5. Sexual (>=2)
-  var sex=SS.sexual.map(function(q,k){return '<li class="'+(sexChk[k]?'on':'')+'" onclick="togList(\'sex\','+k+',this)">'+esc(q)+'</li>';}).join('');
-  w.appendChild(stepEl(4,'Sexual History','≥ 2','<div class="cbank" id="sexBank"><ul style="margin:0;padding:0">'+sex+'</ul></div>','sexual'));
+  var sexBody;
+  if(coachOn){
+    var sex=SS.sexual.map(function(q,k){return '<li class="'+(sexChk[k]?'on':'')+'" onclick="togList(\'sex\','+k+',this)">'+esc(q)+'</li>';}).join('');
+    sexBody='<div class="cbank" id="sexBank"><ul style="margin:0;padding:0">'+sex+'</ul></div>';
+  }else{
+    sexBody=peekUI('sex','<div class="pkhead">Ask any of these (need &ge;2):</div>'+SS.sexual.map(function(q){return '<div class="pkline">“'+esc(q)+'”</div>';}).join(''))
+      +'<div class="cntr"><div class="cbig" id="sexN">'+count(sexChk)+'</div><div class="clab">sexual-history questions asked &middot; need &ge;2 &middot; tap as you ask out loud</div><button class="cadd" onclick="tallyAdd(\'sex\')">&#10133; I asked one</button><button class="cundo" onclick="tallyUndo(\'sex\')">&#8634; undo</button></div>';
+  }
+  w.appendChild(stepEl(4,'Sexual History','≥ 2',sexBody,'sexual'));
 
   // 6. ROS picker (>=3 systems)
   var chips=ROS.map(function(s,k){return '<span class="chip'+(rosChk[k]?' on':'')+'" onclick="togRos('+k+',this)">'+esc(s.system)+'</span>';}).join('');
-  var rosBody='<div style="font-size:.8rem;color:var(--mut);margin-bottom:8px">Tap each system as you actually screen it out loud. Need &ge;3.</div><div class="roswrap">'+chips+'</div><div class="rosq" id="rosQ"></div>';
+  var rosPeek=coachOn?'':peekUI('ros','<div class="pkhead">Sample screening question per system:</div>'+ROS.map(function(s){return '<div class="pkline"><b>'+esc(s.system)+':</b> “'+esc(s.screening_questions[0])+'”</div>';}).join(''));
+  var rosBody=rosPeek+'<div style="font-size:.8rem;color:var(--mut);margin-bottom:8px">Tap each system as you actually screen it out loud. Need &ge;3.</div><div class="roswrap">'+chips+'</div>'+(coachOn?'<div class="rosq" id="rosQ"></div>':'');
   w.appendChild(stepEl(5,'Review of Systems','≥ 3 systems',rosBody,'ros'));
 
   // 7. Close
+  var closeSmall=coachOn?'<small>not one of the 5 scored sections</small>':'';
   w.appendChild(stepEl(6,'Close','',
-    '<div class="req" id="closeReq" onclick="toggleGeneric(this)"><div class="box">&#10003;</div><div class="rt">Summarize, ask “is there anything else?”, and thank the patient<small>not one of the 5 scored sections</small></div></div>'));
+    '<div class="req" id="closeReq" onclick="toggleGeneric(this,\'close\')"><div class="box">&#10003;</div><div class="rt">Summarize, ask “is there anything else?”, and thank the patient'+closeSmall+'</div></div>'));
 }
 function stepEl(i,title,mn,body,cntKey){
   var d=document.createElement('div');d.className='step open';d.id='step'+i;
@@ -292,23 +467,92 @@ function stepEl(i,title,mn,body,cntKey){
   return d;
 }
 function toggleStep(i){document.getElementById('step'+i).classList.toggle('open');}
-function toggleGeneric(el){el.classList.toggle('on');}
+function toggleGeneric(el,kind){
+  el.classList.toggle('on');
+  if(el.classList.contains('on')){
+    if(kind==='open'){addLine('You opened + elicited the CC',stripQ(CASES[caseIdx].opener));}
+    else if(kind==='close'){addLine('You closed the encounter',CLOSE_REPLY);}
+  }
+}
 
-/* ---------- toggles ---------- */
+/* ---------- peeks (exam-mode reveal of the answer key) ---------- */
+function peekUI(key,html){
+  var open=peekOpen[key];
+  return '<div class="peekrow"><button class="peekbtn" id="pkb-'+key+'" onclick="togglePeek(\''+key+'\')">'+(open?'&#128584; Hide':'&#128065; Reveal')+'</button></div><div class="peekbox'+(open?'':' hidden')+'" id="pk-'+key+'">'+html+'</div>';
+}
+function togglePeek(key){
+  var box=document.getElementById('pk-'+key),btn=document.getElementById('pkb-'+key);
+  if(!box)return;
+  var show=box.classList.contains('hidden');
+  if(show)peeks++;
+  peekOpen[key]=show;
+  box.classList.toggle('hidden',!show);
+  if(btn)btn.innerHTML=show?'&#128584; Hide':'&#128065; Reveal';
+}
+
+/* ---------- toggles (the patient talks back on every tick) ---------- */
 function tog(kind,k,el){
-  var arr=kind==='lop'?lopChk:faoChk;arr[k]=!arr[k];el.classList.toggle('on',arr[k]);updProg();updHint();
+  var arr=kind==='lop'?lopChk:faoChk;arr[k]=!arr[k];el.classList.toggle('on',arr[k]);
+  if(arr[k]){
+    var c=CASES[caseIdx];
+    if(kind==='lop')addLine('You covered '+LOP[k].label,c.lopqrst[k]);
+    else addLine('You covered '+FAO[k].label,c.pmh[k]);
+  }
+  updProg();updHint();
 }
 function togList(kind,k,el){
-  var arr=kind==='soc'?socChk:sexChk;arr[k]=!arr[k];el.classList.toggle('on',arr[k]);updProg();updHint();
+  var arr=kind==='soc'?socChk:sexChk;arr[k]=!arr[k];el.classList.toggle('on',arr[k]);
+  if(arr[k]){
+    if(kind==='soc')addLine('You asked a Social History question',SOC_REPLY[k]);
+    else addLine('You asked a Sexual History question',SEX_REPLY[k]);
+  }
+  updProg();updHint();
 }
 function togRos(k,el){
   rosChk[k]=!rosChk[k];el.classList.toggle('on',rosChk[k]);
-  // show a sample screening question for the tapped system
-  var q=document.getElementById('rosQ');var s=ROS[k];
-  if(rosChk[k]&&s.screening_questions&&s.screening_questions.length){
-    q.innerHTML='<b>'+esc(s.system)+':</b> “'+esc(s.screening_questions[0])+'”';q.classList.add('show');
+  if(rosChk[k]){
+    var s=ROS[k];
+    if(mode==='coach'){
+      var q=document.getElementById('rosQ');
+      if(q&&s.screening_questions&&s.screening_questions.length){q.innerHTML='<b>'+esc(s.system)+':</b> “'+esc(s.screening_questions[0])+'”';q.classList.add('show');}
+    }
+    var ovr=CASE_ROS_OVR[caseIdx]||{};
+    addLine('You screened '+s.system,(ovr[k]||ROSNEG[k]));
   }
   updProg();updHint();
+}
+function tallyAdd(kind){
+  var arr=kind==='soc'?socChk:sexChk;
+  var k=arr.indexOf(false);if(k<0)return;
+  arr[k]=true;
+  if(kind==='soc')addLine('You asked a Social History question',SOC_REPLY[k]);
+  else addLine('You asked a Sexual History question',SEX_REPLY[k]);
+  updProg();updHint();
+}
+function tallyUndo(kind){
+  var arr=kind==='soc'?socChk:sexChk;
+  var k=arr.lastIndexOf(true);if(k<0)return;
+  arr[k]=false;updProg();updHint();
+}
+
+/* ---------- encounter transcript ---------- */
+function tlHTML(t){return '<div class="tl"><span class="twho">'+esc(t.l)+'</span><span class="tarr"> &rarr; </span><span class="tpat">Patient: &ldquo;'+esc(t.p)+'&rdquo;</span></div>';}
+function addLine(label,ptext){
+  transcript.push({l:label,p:ptext});
+  var enc=document.getElementById('enc');
+  if(enc){
+    var em=enc.querySelector('.encempty');if(em)em.parentNode.removeChild(em);
+    var d=document.createElement('div');d.className='tl';
+    d.innerHTML='<span class="twho">'+esc(label)+'</span><span class="tarr"> &rarr; </span><span class="tpat">Patient: &ldquo;'+esc(ptext)+'&rdquo;</span>';
+    enc.appendChild(d);enc.scrollTop=enc.scrollHeight;
+  }
+  speakPatient(ptext);
+}
+function renderEnc(){
+  var enc=document.getElementById('enc');if(!enc)return;
+  if(!transcript.length){enc.innerHTML='<div class="encempty">The patient will answer here as you cover each item&hellip;</div>';return;}
+  enc.innerHTML=transcript.map(tlHTML).join('');
+  enc.scrollTop=enc.scrollHeight;
 }
 
 /* ---------- progress / requirements ---------- */
@@ -335,13 +579,37 @@ function updProg(){
   setCnt('social',count(socChk)+'/3+');setDone(3,m.soc);
   setCnt('sexual',count(sexChk)+'/2+');setDone(4,m.sex);
   setCnt('ros',count(rosChk)+'/3+ systems');setDone(5,m.ros);
+  // exam-mode tally displays
+  var sN=document.getElementById('socN');if(sN)sN.textContent=count(socChk);
+  var xN=document.getElementById('sexN');if(xN)xN.textContent=count(sexChk);
 }
 function setCnt(k,v){var e=document.getElementById('cnt-'+k);if(e)e.textContent=v;}
 function setDone(i,on){var e=document.getElementById('step'+i);if(e)e.classList.toggle('done',on);}
 
-/* ---------- coaching hint (next suggested area) ---------- */
-function toggleCoach(){coach=!coach;document.getElementById('coachToggle').classList.toggle('on',coach);
-  document.getElementById('hintBox').style.display=coach?'block':'none';renderChecklist();updProg();updHint();}
+/* ---------- modes ---------- */
+function setMode(m){
+  if(mode===m)return;
+  mode=m;
+  if(m==='coach')coachUsed=true;
+  syncModeUI();renderChecklist();updProg();updHint();
+}
+function syncModeUI(){
+  document.getElementById('mExam').classList.toggle('on',mode==='exam');
+  document.getElementById('mCoach').classList.toggle('on',mode==='coach');
+  document.getElementById('hintBox').style.display=(mode==='coach')?'block':'none';
+  document.getElementById('modeHint').innerHTML=(mode==='exam')
+    ?'&#127891; <b>Exam Mode</b> — only what you\'ll really have in the room. Need the answer key? Tap <b>&#128065; Reveal</b> in a section (peeks are counted).'
+    :'&#129489;&#8205;&#127979; <b>Coach Mode</b> — full hints, example questions, and read-aloud. Switch back to Exam Mode any time.';
+}
+function toggleVoice(){
+  voiceOn=!voiceOn;
+  try{localStorage.setItem('hxsim_voice',voiceOn?'1':'0');}catch(e){}
+  syncVoiceUI();
+  if(!voiceOn&&('speechSynthesis' in window)){try{speechSynthesis.cancel();}catch(e){}}
+}
+function syncVoiceUI(){var t=document.getElementById('voiceToggle');if(t)t.classList.toggle('on',voiceOn);}
+
+/* ---------- coaching hint (next suggested area — coach mode only) ---------- */
 var curHintText='';
 function updHint(){
   var m=secMet();
@@ -365,12 +633,13 @@ function updHint(){
   }
   document.getElementById('hintArea').textContent=area;
   document.getElementById('hintEx').textContent=ex?('Try: “'+ex+'”'):'';
-  document.getElementById('hintPa').textContent=(coach&&pa)?pa:'';
-  document.getElementById('hintPa').style.display=(coach&&pa)?'block':'none';
+  var showPa=(mode==='coach'&&pa);
+  document.getElementById('hintPa').textContent=showPa?pa:'';
+  document.getElementById('hintPa').style.display=showPa?'block':'none';
   curHintText=(area.replace(/·/g,',')+'. '+(ex||''));
 }
 
-/* ---------- TTS ---------- */
+/* ---------- TTS: coach voice (Ava/Emma) + a DISTINCT patient voice (Andrew/Guy/Ryan) ---------- */
 var voice=null;
 function pickVoice(){
   var vs=speechSynthesis.getVoices()||[];
@@ -380,6 +649,18 @@ function pickVoice(){
   if(vs.length)voice=vs[0];
 }
 if('speechSynthesis' in window){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
+function patientVoice(){
+  var vs=[];
+  try{vs=speechSynthesis.getVoices()||[];}catch(e){return null;}
+  var pref=['Andrew','Guy','Ryan'];
+  for(var p=0;p<pref.length;p++){for(var i=0;i<vs.length;i++){var n=vs[i].name||'';
+    if(n.indexOf(pref[p])>=0&&(vs[i].lang||'').toLowerCase().indexOf('en')===0)return vs[i];}}
+  var cn=voice?voice.name:'';
+  for(var j=0;j<vs.length;j++){var v=vs[j],n2=v.name||'';
+    if((v.lang||'').toLowerCase().indexOf('en')===0&&n2!==cn&&n2.indexOf('Ava')<0&&n2.indexOf('Emma')<0)return v;}
+  for(var k=0;k<vs.length;k++){if(vs[k].name!==cn)return vs[k];}
+  return null;
+}
 function speakHint(){
   if(!('speechSynthesis' in window)){alert('Speech synthesis not supported in this browser.');return;}
   speechSynthesis.cancel();
@@ -387,6 +668,33 @@ function speakHint(){
   if(voice)u.voice=voice;u.rate=1;u.pitch=1;
   speechSynthesis.speak(u);
 }
+function speakPatient(t){
+  if(!voiceOn)return;
+  if(!('speechSynthesis' in window))return;
+  try{
+    speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(t);
+    var v=patientVoice();
+    if(v)u.voice=v;
+    u.rate=1;u.pitch=0.95;
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+/* ---------- scratch pad (localStorage hxsim_pad) ---------- */
+function savePad(){
+  try{
+    var v=document.getElementById('pad').value;
+    if(v==='')localStorage.removeItem('hxsim_pad');
+    else localStorage.setItem('hxsim_pad',v);
+  }catch(e){}
+}
+function stampPad(){
+  var p=document.getElementById('pad');
+  p.value=(p.value.replace(/\s+$/,'')?p.value.replace(/\s+$/,'')+'\n\n':'')+PAD_SKELETON+'\n';
+  savePad();p.focus();
+}
+function clearPad(){var p=document.getElementById('pad');p.value='';savePad();}
 
 /* ---------- timer ---------- */
 function fmt(s){var neg=s<0;s=Math.abs(s);var m=Math.floor(s/60),ss=s%60;return (neg?'-':'')+m+':'+(ss<10?'0':'')+ss;}
@@ -394,6 +702,7 @@ function tick(){
   secs--;usedSecs=600-secs;
   var c=document.getElementById('clock');c.textContent=fmt(secs);
   c.className='clock'+(secs<=0?' over':(secs<=120?' warn':''));
+  if(secs===300)halfChime();
   if(secs<=0){clearInterval(timer);running=false;chime();finish('time');}
 }
 function toggleTimer(){
@@ -413,6 +722,18 @@ function chime(){
       o.connect(g);g.connect(ctx.destination);
       var s=t+i*0.28;g.gain.setValueAtTime(0.0001,s);g.gain.exponentialRampToValueAtTime(0.3,s+0.03);
       g.gain.exponentialRampToValueAtTime(0.0001,s+0.25);o.start(s);o.stop(s+0.26);
+    });
+  }catch(e){}
+}
+function halfChime(){
+  try{
+    var Ctx=window.AudioContext||window.webkitAudioContext;if(!Ctx)return;
+    var ctx=new Ctx();var t=ctx.currentTime;
+    [523.25,659.25].forEach(function(f,i){
+      var o=ctx.createOscillator(),g=ctx.createGain();o.frequency.value=f;o.type='sine';
+      o.connect(g);g.connect(ctx.destination);
+      var s=t+i*0.3;g.gain.setValueAtTime(0.0001,s);g.gain.exponentialRampToValueAtTime(0.12,s+0.04);
+      g.gain.exponentialRampToValueAtTime(0.0001,s+0.28);o.start(s);o.stop(s+0.3);
     });
   }catch(e){}
 }
@@ -436,6 +757,9 @@ function finish(reason){
   big.className='bigscore '+(n===5?'pass':'fail');
   document.getElementById('scoreSub').innerHTML=(n===5?'All required sections covered — clean sweep! &#127881;':'Sections still missing — see below.')+
     '<br>'+(reason==='time'?'&#9200; Time expired at 10:00.':'Finished manually.');
+  var ps='&#128065; Peeks used: <b>'+peeks+'</b> &middot; Mode: <b>'+(coachUsed?'Coach':'Exam')+'</b>';
+  if(peeks===0)ps+='<span class="badge">&#129482; Clean run — no peeks</span>';
+  document.getElementById('peekStat').innerHTML=ps;
   var w=document.getElementById('scoreCards');w.innerHTML='';
   defs.forEach(function(d){
     var el=document.createElement('div');el.className='scard '+(d.ok?'met':'miss');
@@ -444,12 +768,47 @@ function finish(reason){
     w.appendChild(el);
   });
   document.getElementById('tstat').innerHTML='&#9201; Time used: <b>'+fmt(usedSecs)+'</b> of 10:00'+(usedSecs<600?' &middot; finished with <b>'+fmt(600-usedSecs)+'</b> to spare':'');
+  // encounter transcript kept for review
+  document.getElementById('scoreEnc').innerHTML=transcript.length?transcript.map(tlHTML).join(''):'<div class="encempty">No patient interactions recorded this run.</div>';
+  // narrative practice — pre-filled with the sheet of paper
+  document.getElementById('narr').value=document.getElementById('pad').value;
+  // run history (localStorage hxsim_history)
+  var hist=loadHist();
+  hist.unshift({t:new Date().toISOString(),c:CASES[caseIdx].cc,m:coachUsed?'Coach':'Exam',s:n,p:peeks,u:usedSecs});
+  if(hist.length>40)hist.length=40;
+  saveHist(hist);renderHist();
   document.getElementById('runScreen').classList.add('hidden');
   document.getElementById('scoreScreen').classList.remove('hidden');
   window.scrollTo(0,0);
 }
 
+/* ---------- run history ---------- */
+function loadHist(){try{var h=JSON.parse(localStorage.getItem('hxsim_history')||'[]');return Array.isArray(h)?h:[];}catch(e){return [];}}
+function saveHist(h){try{localStorage.setItem('hxsim_history',JSON.stringify(h));}catch(e){}}
+function fmtClock12(d){var h=d.getHours(),mm=d.getMinutes(),ap=h>=12?'PM':'AM';h=h%12;if(h===0)h=12;return h+':'+(mm<10?'0':'')+mm+' '+ap;}
+function renderHist(){
+  var w=document.getElementById('histWrap');if(!w)return;
+  var h=loadHist();
+  if(!h.length){w.innerHTML='<div class="encempty">No runs recorded yet — finish a run and it lands here.</div>';return;}
+  var rows=h.map(function(r){
+    var d=new Date(r.t);var ds=(d.getMonth()+1)+'/'+d.getDate()+' '+fmtClock12(d);
+    return '<tr><td>'+ds+'</td><td>'+esc(r.c)+'</td><td>'+esc(r.m)+'</td><td><b>'+r.s+' / 5</b></td><td>'+r.p+'</td><td>'+fmt(r.u)+'</td></tr>';
+  }).join('');
+  w.innerHTML='<div class="hwrap"><table class="htable"><thead><tr><th>Date</th><th>Case</th><th>Mode</th><th>Score</th><th>Peeks</th><th>Time</th></tr></thead><tbody>'+rows+'</tbody></table></div><div style="text-align:right;margin-top:7px"><a href="#" class="hclear" onclick="clearHist();return false;">&#128465;&#65039; clear history</a></div>';
+}
+function clearHist(){try{localStorage.removeItem('hxsim_history');}catch(e){}renderHist();}
+
+/* ---------- narrative copy ---------- */
+function copyNarr(){
+  var t=document.getElementById('narr'),b=document.getElementById('copyBtn');
+  var done=function(){if(b){b.innerHTML='&#10003; Copied';setTimeout(function(){b.innerHTML='&#128203; Copy';},1500);}};
+  var fallback=function(){try{t.focus();t.select();document.execCommand('copy');done();}catch(e){}};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,fallback);}
+  else fallback();
+}
+
 function reset(){
+  if('speechSynthesis' in window){try{speechSynthesis.cancel();}catch(e){}}
   document.getElementById('scoreScreen').classList.add('hidden');
   document.getElementById('runScreen').classList.add('hidden');
   document.getElementById('startScreen').classList.remove('hidden');
@@ -460,5 +819,7 @@ function reset(){
 if(localStorage.getItem('dcDavidView')==='1'){var wm=document.getElementById('wm');if(wm)wm.style.display='none';}
 
 renderCases();
+syncVoiceUI();
+document.getElementById('pad').addEventListener('input',savePad);
 </script>
 </body></html>
