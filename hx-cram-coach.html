@@ -1,0 +1,262 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Voiced Cram Coach — History Taking (CBS0201)</title>
+<style>
+:root{--bg:#0a0e1a;--card:#111a2e;--line:#22304d;--ink:#e6ecf5;--mut:#9fb0cc;--ac:#38bdf8;--gd:#34d399;--am:#fbbf24;--pk:#f472b6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(1100px 560px at 50% -8%,#132038,#0a0e1a),#0a0e1a;color:var(--ink);
+font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.5;padding:14px 12px 130px;max-width:880px;margin:0 auto}
+.hubbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.hubbtn{display:inline-block;background:#16233c;color:#cbd5e1;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font:800 .78rem 'Segoe UI',system-ui;text-decoration:none}
+.hubbtn:hover{background:#1e2f4d;color:#fff}
+h1{font-size:1.34rem;text-align:center;color:var(--ac);margin-bottom:3px}
+.sub{text-align:center;color:var(--mut);font-size:.83rem;margin-bottom:12px}
+.sub b{color:#7dd3fc}
+/* section filter */
+.filters{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-bottom:12px}
+.filters button{font-size:.74rem;font-weight:700;padding:6px 12px;border-radius:18px;border:1px solid var(--line);background:#131f36;color:#cbd5e1;cursor:pointer;font-family:inherit}
+.filters button:hover{border-color:var(--ac);color:#a5f3fc}
+.filters button.on{background:linear-gradient(135deg,#0c355a,#0a2540);border-color:var(--ac);color:#fff}
+/* top controls */
+.top{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+.count{font-size:.9rem;font-weight:800;color:#bae6fd;min-width:64px;text-align:center;background:#0e1526;border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+.auto{background:linear-gradient(135deg,#06281d,#07130f);border:1px solid var(--gd);color:#6ee7b7;border-radius:10px;padding:8px 16px;font-size:.82rem;font-weight:800;cursor:pointer;font-family:inherit}
+.auto:hover{background:#0a3527;color:#a7f3d0}
+.auto.playing{background:linear-gradient(135deg,#3a0f2e,#26102a);border-color:var(--pk);color:#fbcfe8}
+/* prompt card */
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;min-height:200px}
+.badge{display:inline-block;font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:3px 10px;border-radius:999px;background:rgba(56,189,248,.16);color:#bae6fd;margin-bottom:10px}
+.topic{font-size:1.28rem;font-weight:800;color:#f1f5f9;line-height:1.3;margin-bottom:6px}
+.topic .mn{color:#5eead4;font-weight:900}
+.src{font-size:.72rem;color:#5b7099;font-style:italic;margin-bottom:12px}
+.recall{font-size:.85rem;color:var(--am);margin:10px 0 14px;font-style:italic}
+.reveal-btn{display:block;width:100%;background:linear-gradient(135deg,#0c355a,#0a2540);border:1px solid var(--ac);color:#dbeafe;border-radius:12px;padding:13px;font-size:.95rem;font-weight:800;cursor:pointer;font-family:inherit;margin:6px 0}
+.reveal-btn:hover{background:#0e3d68;color:#fff}
+ul.points{list-style:none;margin:8px 0 4px}
+ul.points li{position:relative;padding:6px 0 6px 20px;font-size:.9rem;color:#dbe4f0;line-height:1.5}
+ul.points li::before{content:"\25B8";position:absolute;left:2px;top:6px;color:#3a4b6b;font-size:.82rem}
+ul.points li b,ul.points li .mn{color:#f1f5f9}
+ul.points li .mn{color:#5eead4;font-weight:800}
+/* per-step media/nav buttons */
+.mrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.mbtn{background:rgba(56,189,248,.15);color:#7dd3fc;border:1px solid #38bdf8;border-radius:10px;padding:9px 14px;font-size:.82rem;font-weight:800;cursor:pointer;font-family:inherit;flex:1;min-width:120px}
+.mbtn:hover{background:rgba(56,189,248,.32);color:#fff}
+.mbtn.sld{background:rgba(52,211,153,.15);color:#6ee7b7;border-color:#10b981}.mbtn.sld:hover{background:rgba(52,211,153,.3);color:#d1fae5}
+.mbtn.nav{background:#16233c;color:#cbd5e1;border-color:var(--line);flex:0 0 auto;min-width:auto}
+.mbtn.nav:hover{background:#1e2f4d;color:#fff}
+.mbtn:disabled{opacity:.4;cursor:not-allowed}
+.note{background:#0e1526;border:1px solid var(--line);border-left:3px solid var(--am);border-radius:10px;padding:11px 14px;margin-top:16px;font-size:.78rem;color:#cbd5e1;line-height:1.6}
+.note b{color:#fde68a}
+.wm{position:fixed;bottom:6px;right:10px;font-size:9px;color:rgba(255,255,255,.22);pointer-events:none;z-index:1400}
+</style></head><body>
+<div class="hubbar"><a class="hubbtn" href="index.html">&larr; History Taking Hub</a><a class="hubbtn" href="hx-written-cram.html">&#9889; Cram Sheet</a><a class="hubbtn" href="hx-concept-drill.html">&#129504; Concept Drill</a></div>
+<h1>&#127908; Voiced Cram Coach</h1>
+<div class="sub">Two voices walk you through every high-yield topic &mdash; <b>Ava</b> names the topic, you recall, then <b>Emma</b> reads the key points. Grounded only in the CBS0201 decks.</div>
+
+<div class="filters" id="filters"></div>
+<div class="top">
+  <button class="mbtn nav" id="prevBtn" onclick="go(-1)">&#9198; Prev</button>
+  <span class="count" id="count">1 / 32</span>
+  <button class="mbtn nav" id="nextBtn" onclick="go(1)">Next &#9197;</button>
+  <button class="auto" id="autoBtn" onclick="toggleAuto()">&#9654; Auto-play all</button>
+</div>
+
+<div class="step" id="step"></div>
+
+<div class="note">&#9989; Every point is verbatim from the lecture decks &mdash; <b>LOPQRST</b>, <b>FAOMASH</b>, the <b>5 Ps / 8 Ps</b>, and <b>ABCDE</b> are fixed as taught. Tap <b>&#127908; Hear this</b> for the two-voice read, or <b>&#127912; See the slide</b> for the source slide. Speed control is in the bar at the bottom while audio plays.</div>
+
+<div class="wm">DC Study Supply &mdash; Dr. David Gramling, PhD</div>
+
+<script>
+var CRAM = [{"topic":"Medical interview - 3 functions","source":"HxTaking_Intro.pdf","points":["The medical interview has 3 main functions (Cole & Bird): (1) Build the relationship, (2) Assess and understand, (3) Collaborate for management.","Build the relationship = develop rapport, establish mutual respect, establish trust, and convey empathy and compassion. Assess and understand = questioning and data gathering. Collaborate for management = patient education.","During the interview and physical exam you gather data to generate a hypothesis for the cause of the problem and collect information to develop a management plan; this helps generate a differential diagnosis (road map to the cause) and the primary diagnosis.","Osler: 'Listen to your patient, they might be telling you their diagnosis.' The SOAP/HPI deck states 80-90% of the diagnosis comes from the history (the Intro deck cites ~80%)."]},{"topic":"Empathy, compassion, sympathy; non-verbal communication","source":"HxTaking_Intro.pdf","points":["Empathy = the ability to understand and share the feelings of another; putting yourself in the other person's shoes. Compassion = 'sympathetic consciousness of others' distress together with a desire to alleviate it.' Sympathy = entering into or sharing another's feelings; feeling pity or sorrow for another's hardships.","The nonverbal behavior of the physician contributes significantly to the overall quality of the doctor-patient relationship.","Quiet, attentive listening conveys interest and builds rapport more powerfully than virtually any other action or utterance the physician can make.","Doctors who establish appropriate eye contact are more likely to detect emotional distress; doctors who lean forward and have an open body posture have more satisfied patients.","From the patient's perspective, listening is a defining feature of a 'good' doctor (enables accurate diagnoses, maintains the relationship, acts as a therapeutic agent); good relationships lead to patients who are more satisfied and more likely to adhere to treatment (Roter & Hall, 2009)."]},{"topic":"SOAP - 4 main sections","source":"SOAP_Notes.pdf","points":["SOAP has 4 sections: Subjective, Objective, Assessment, Plan.","Subjective = the History section (HPI); contains the chief complaint and history of present illness, the patient's perception of the problem, and how the problem has evolved. It also includes past medical history, social history, and sexual history.","Objective = values, Physical Exam (PE), and data gathered (vital signs; status/appearance on presentation; physical exam; laboratory data).","Assessment = diagnoses and differential diagnoses (Dx's). Plan = the action plan."]},{"topic":"Components of a history and the historian","source":"SOAP_Notes.pdf","points":["Under Subjective, the full history includes: Chief Complaint, HPI, Past Medical History, Family History, Social/Lifestyle/Sexual, and Review of Systems.","Documentation should 'paint a picture' - any clinician reading the HPI should have a relatively clear picture of why the patient presented.","The person providing the history is the 'historian.' Consider reliability: a patient historian should be alert, competent, and have intact memory (impaired by medications, substance use, stress, Alzheimer's, or dementia); a non-patient historian (parent, caretaker, translator) should be informed, trustworthy, and reliable."]},{"topic":"Chief Complaint (CC)","source":"SOAP_Notes.pdf","points":["The CC is the patient's response to questions like 'So..., what brings you in today?' Even if the CC is on the intake form, confirm the problem and ask the patient to reiterate it for accuracy. When possible, directly quote the patient's own words (e.g., 'it feels like there is a brick resting on my right upper back and shoulder area').","If a caregiver provides the CC (children or patients unable to respond), document the source of the information (e.g., 'Caregiver (Niece, Doris Jones) reports...')."]},{"topic":"HPI definition and LOPQRST","source":"SOAP_Notes.pdf","points":["The HPI is 'a complete, clear, chronologic description of the problem(s) prompting the patient's visit.'","LOPQRST = 'The How.' L: Location; O: Onset of complaint; P: Prior, Palliative, Provocative, Progression; Q: Quality of pain; R: Radiation; S: Severity; T: Timing. The expanded summary is LOPPPPQRST (priors, palliative, provocative, progression).","Location: ask where and have the patient point to the area (patients may use incorrect anatomical vocabulary). Onset: when it started (day/week/month/year, time) and mode of injury. Progression: since it started, improved, worsened, or stayed the same.","Prior: first time or not; if not, first occurrence, frequency, duration, prior treatments, other doctors seen. Palliative: what has helped and what was most helpful. Provocative: what makes it worse (position, movement, medications, foods, modalities, surgeries, time).","Quality: describe the symptom - pain (sharp/dull/achy/burning; throbbing/pounding/pulsating), paresthesias (numbness/tingling/pins & needles), weakness, fatigue, dizziness.","Radiation = the symptom travels from its point of origin; Referral = the symptom is located in a different place than its actual cause.","Severity: 0-10 Numeric/Visual Analogue Scale (at onset, current, best, worst). Mild = doesn't interfere with ADLs; Moderate = starting to interfere; Severe = severely restricting ADLs. Timing/Temporal: constant or intermittent; if intermittent, note frequency and duration of episodes."]},{"topic":"Narrative, abbreviations, and other subjective components","source":"SOAP_Notes.pdf","points":["A narrative is the patient's history written in paragraph form (not bullet points), logically composed and coherent. Medical abbreviations may be used in SOAP notes or narratives for efficiency.","Bates' basic HPI template: opening statement (CC in clinical context), elaborate description of the CC, accompanying symptomatology, absent pertinent symptomatology, pertinent PMH/FH/social history, and a concluding statement of how the patient got to the care site.","Other subjective components beyond the HPI include allergies, PMH (chronic conditions, trauma, hospitalizations), FHx, SHx (surgical), SoHx (social), sexual history, immunizations, and review of systems."]},{"topic":"Past Medical History components and FAOMASH","source":"PastMedicalHistory.pdf","points":["PMH components on the slides: chronic conditions, allergies, hospitalizations, trauma, medications, FHx (family history), SHx (surgical history), SoHx (social history), sexual history, and review of systems.","The slides DO spell out FAOMASH: F = Family history, A = Allergies, O = Other illness (chronic conditions) and/or other doctors/specialists seen (not necessarily related to the CC), M = Medications, A = Accidents, S = Surgeries, H = Hospitalizations."]},{"topic":"Family history, allergies, chronic illness, medications","source":"PastMedicalHistory.pdf","points":["Family history focuses on immediate family (age and health status of parents, siblings, children; grandparents if known); if deceased, ask the cause of death. Major focus: does anyone have diabetes, heart disease, strokes, cancer, arthritis, or other conditions.","Allergy status should be confirmed for each patient at each visit, and for certain before prescribing any medication; categories include medications, latex, environment, and foods; if allergic, ask the type of reaction (hives, swelling, airway obstruction).","Other chronic illnesses to ask about: hypertension, diabetes, heart disease, COPD, peripheral artery disease, thyroid disorders, GI disorders, mental health conditions, orthopedic conditions, cancer. For medications ask: what is taken, why, dosage (amount and frequency), and how long; list immunizations with date and reaction (or document 'per patient recall')."]},{"topic":"Accidents, surgeries, hospitalizations","source":"PastMedicalHistory.pdf","points":["Accidents: when they occurred, how they happened, the injuries, whether medical care was given, and whether injuries healed or are ongoing. Surgeries: which procedure, when, the reason, results, and complications.","Hospitalizations: when, why (reason/discharge diagnosis), duration, treatment received (procedures/tests/specialty consults), and residual problems. Hospitalizations and surgeries are NOT synonymous - you cannot ask one to cover both."]},{"topic":"ROS - Purpose","source":"ReviewOfSystems.pdf","points":["The Review of Systems is a discussion of the various body organ systems that may uncover problems not already mentioned, or pertinent negatives that support your diagnosis or help streamline your differential diagnoses.","Patients often leave out pertinent facts of their history because they do not realize the connection to a problem; the ROS reveals the presence or absence of common symptoms of major body systems.","The ROS reviews the patient history in another format by asking 'head to toe' related questions."]},{"topic":"ROS - Format","source":"ReviewOfSystems.pdf","points":["It is acceptable to use closed-ended 'yes or no' questions in the ROS.","Questions vary based on the patient's age, complaints, and general state of health, using your clinical judgement.","ROS questions can be asked during the physical exam of that body area (e.g., GI questions during the abdominal exam, musculoskeletal questions during the spine exam).","You may uncover major health events during the ROS that should be added to the History of Present Illness or Past Medical History."]},{"topic":"ROS - Systems list","source":"ReviewOfSystems.pdf","points":["Systems addressed: Constitutional/General, Skin, HEENT (Head, Eyes, Ears, Nose/Sinuses, Mouth/Throat, Neck), Cardiovascular, Respiratory, Gastrointestinal, Genitourinary, Musculoskeletal, Neurologic, Psychiatric, Endocrine, and Hematologic/Lymphatic.","Stay organized and move through your list in an organized fashion; generally, working top down is helpful."]},{"topic":"ROS - Skin ABCDE","source":"ReviewOfSystems.pdf","points":["For skin lesions/moles, use ABCDE: Asymmetry, Borders, Color, Diameter, Evolving (is the lesion changing?).","Skin screening also covers rashes, lumps, sores, itching, dryness, color change (cyanosis, rubor, jaundice), and changes in hair or nails (cracking, spooning, clubbing)."]},{"topic":"ROS - Assessment / clinical reasoning","source":"ReviewOfSystems.pdf","points":["After the history and physical, assessment is where you analyze the data and move from description and observation to analysis and interpretation.","Bates' steps for identifying problems: identify abnormal findings, localize them anatomically, cluster the clinical findings, search for the probable cause, generate hypotheses, then test them to establish a working diagnosis."]},{"topic":"Therapeutic Qualities","source":"Communication_Empathy.pdf","points":["Borrowed from psychologist Carl Rogers, three therapeutic qualities observed in practitioners with good clinical outcomes are Respect, Genuineness, and Empathy.","Respect means accepting your patient as they are, not judging, and separating your personal feelings; Genuineness means being yourself and acknowledging your position as a student or lack of knowledge (e.g., referring out)."]},{"topic":"Empathy vs Sympathy","source":"Communication_Empathy.pdf","points":["Empathy is the ability to understand and share the feelings of another - putting yourself in the other person's shoes - and is compared/contrasted with sympathy.","Brene Brown: 'Rarely does a response make something better. What makes something better is a connection.'"]},{"topic":"4 Qualities of Empathy","source":"Communication_Empathy.pdf","points":["The four qualities of empathy are: Perspective Taking (validate the other's experience; their perspective is their truth), Staying out of Judgement, Recognizing the emotion in the other person, and Communicating the emotion back ('I hear you; I see you; I get it')."]},{"topic":"Empathy improves outcomes","source":"Communication_Empathy.pdf","points":["Patients who received emotional support/education after surgery or MI had fewer complications and were discharged about 2 days earlier than those who did not.","More empathetic/sympathetic practitioners have more satisfied patients, and satisfied patients are more likely to comply; an 8-hour communication training program improved care without lengthening visits."]},{"topic":"Levels of Empathic Response","source":"Communication_Empathy.pdf","points":["Coulehan's levels of response: positive levels are Interchangeable (accurately recognize and assess feelings/symptoms the patient expresses) and Additive (recognize both what the patient expresses and what they feel but do not express).","Negative levels are Ignoring (not responding to the cognitive or emotional content) and Minimizing (responding at a lesser level than the patient's expressed concern)."]},{"topic":"Efficiency & Empathy","source":"Communication_Empathy.pdf","points":["As many as three quarters of all diagnoses can be made by history alone.","A delicate balance of Efficiency, Empathy, and Efficacy: gather enough information in a timely manner, validate the patient's experience, and arrive at a conclusion so the patient leaves satisfied."]},{"topic":"Culture & Intersectionality","source":"CulturalCompetence_Humility.pdf","points":["Culture is the customary beliefs, social forms, and material traits of a racial, religious, or social group, plus shared attitudes, values, goals, and practices; it is affected by politics, class, gender, religion, age, and ethnicity.","Intersectionality describes how race, class, gender, and other characteristics intersect and overlap, creating unique sets of experiences; understanding it helps you understand your patient's experience better."]},{"topic":"Cultural Competence vs Humility","source":"CulturalCompetence_Humility.pdf","points":["Cultural competence (Bates) is a set of attitudes, skills, behaviors, and policies that enable organizations and staff to work effectively in cross-cultural situations; it means being respectful and responsive to the health beliefs, practices, and cultural/linguistic needs of diverse populations.","Cultural humility (Bates) is a process requiring humility as individuals continually engage in self-reflection and self-critique as lifelong learners and reflective practitioners - 'the more you know about a particular culture, the more you realize you don't know.'"]},{"topic":"Cultural Humility requirements","source":"CulturalCompetence_Humility.pdf","points":["Cultural humility requires respect, acknowledging both differences and similarities, dynamic communication, and honest self-assessment; it commits to self-evaluation, fixing power imbalances, and developing partnerships/advocating for others.","The problem with 'competence' is that it suggests culture can be reduced to a technical skill and results in lists of 'do's and don'ts' for treating patients of a given ethnic background."]},{"topic":"Cross-Cultural Approach & Goals","source":"CulturalCompetence_Humility.pdf","points":["A 'Cross Cultural Approach' uses communication skills, awareness of cross-cutting cultural and social issues, and recognizing health beliefs as universal human beliefs, needs, and traits.","The Golden Rule: treat patients as we would want to be treated during periods of vulnerability and fear; patient centeredness is built on respect, sensitivity, composure, partnership, honesty, curiosity, and tolerance."]},{"topic":"Why take a sexual history","source":"Fenway_SexualHx.pdf","points":["Sexual health history is an important part of a routine medical exam for ALL patients, regardless of gender identity or sexual orientation.","Sexual health is integral to general health; it is associated with happiness, well-being, and longevity, and may indicate psychiatric or other medical disorders or the need for primary prevention (immunizations, contraception, PEP, PrEP)."]},{"topic":"Sex vs Gender / SO vs GI","source":"Fenway_SexualHx.pdf","points":["Sex refers to biological differences (anatomy, chromosomes, hormones, genes); gender refers to social and cultural distinctions (gender identity, expression, roles).","Sexual orientation and gender identity are NOT the same; all people have both, and how people identify can change."]},{"topic":"Establishing the relationship","source":"Fenway_SexualHx.pdf","points":["Establish rapport with effective listening and mirroring (names, pronouns, body parts), an individualized/holistic approach, and by asking permission: ask if it is ok to discuss a sexual history and be transparent about why you are asking.","Start all appointments with clothes ON, and approach trauma experiences slowly and at a time when support can be offered."]},{"topic":"Non-judgmental, patient-centered language","source":"Fenway_SexualHx.pdf","points":["Take an anatomic inventory and establish which words you and the patient will use: 'When referring to your genitals, are there specific terms that you use?'","Use open-ended questions to capture diverse sexual behaviors, validate all practices by asking about both high and low risk activities (and pleasures), and avoid assumptions about what kinds of sex someone has."]},{"topic":"CDC 5 Ps and the 8 Ps","source":"Fenway_SexualHx.pdf","points":["The CDC's 5 P's of the sexual history are: Partners, Practices, Protection for STDs, Past history of STDs, and Prevention of pregnancy.","Fenway expands these to 8 P's: Preferences, Partners, Practices, Protection for STIs, Past history of STIs, Pregnancy, Pleasure, and Partner Violence."]},{"topic":"Trauma-informed care","source":"Fenway_SexualHx.pdf","points":["Any exam or procedure has the potential to be traumatizing; before the exam, review prior experiences, explain the purpose, offer to talk through the steps, and remind the patient 'You're in control here. If you want me to stop at any point, please let me know.'","Responding to disclosure: Listen and communicate belief ('That must have been frightening'), validate the decision to disclose, emphasize that violence is unacceptable, be clear the patient is not to blame ('What happened is not your fault'), and make a safety plan / provide resources."]},{"topic":"Ask everyone / reduce stigma","source":"Fenway_SexualHx.pdf","points":["Ask ALL people and make it policy - asking everyone normalizes the questions; nearly 80% of providers believed patients would refuse to disclose orientation, but only about 10% of patients said they would refuse.","Everyone has activities they find 'icky'; we cannot eliminate our bias by pretending not to have any - the guidance is to 'find your Yucks and fix your face.'"]}];
+
+var SLIDE = ["frames/hx/intro_004.jpg","frames/hx/intro_024.jpg","frames/hx/soap_005.jpg","frames/hx/soap_009.jpg","frames/hx/soap_014.jpg","frames/hx/soap_019.jpg","frames/hx/soap_042.jpg","frames/hx/soap_036.jpg","frames/hx/pmh_005.jpg","frames/hx/pmh_013.jpg","frames/hx/ros_004.jpg","frames/hx/ros_005.jpg","frames/hx/ros_007.jpg","frames/hx/ros_010.jpg","frames/hx/ros_032.jpg","frames/hx/comm_004.jpg","frames/hx/intro_013.jpg","frames/hx/comm_011.jpg","frames/hx/comm_010.jpg","frames/hx/comm_014.jpg","frames/hx/comm_017.jpg","frames/hx/cultural_007.jpg","frames/hx/cultural_012.jpg","frames/hx/cultural_015.jpg","frames/hx/cultural_017.jpg","frames/hx/sexual_023.jpg","frames/hx/sexual_003.jpg","frames/hx/sexual_026.jpg","frames/hx/sexual_027.jpg","frames/hx/sexual_032.jpg","frames/hx/sexual_036.jpg","frames/hx/sexual_047.jpg"];
+
+// ---- section inference (same keyword logic as the cram sheet) ----
+var SECTIONS=[
+ {id:"all",icon:"&#128218;",name:"All topics",kw:null},
+ {id:"interview",icon:"&#129309;",name:"Interview & Communication",kw:["interview","empath","sympath","therapeutic","non-verbal","efficiency","levels of"]},
+ {id:"cultural",icon:"&#127757;",name:"Cultural Competence & Humility",kw:["cultur","intersection","cross-cultural"]},
+ {id:"soap",icon:"&#128221;",name:"SOAP & Documentation",kw:["soap","narrative","abbreviation","components of a history"]},
+ {id:"history",icon:"&#127973;",name:"History Components",kw:["chief complaint","hpi","lopqrst","past medical","faomash","family history","allergies","accidents","surgeries","hospital"]},
+ {id:"ros",icon:"&#129658;",name:"ROS",kw:["ros","review of systems","skin abcde"]},
+ {id:"sexual",icon:"&#9877;",name:"Sexual & Social",kw:["sexual","social","gender","5 ps","8 ps","trauma","stigma","non-judgmental","relationship","sex vs"]}
+];
+function sectionFor(topic){
+  var t=(topic||'').toLowerCase();
+  for(var i=1;i<SECTIONS.length;i++){ if(SECTIONS[i].kw.some(function(k){return t.indexOf(k)>=0;})) return SECTIONS[i].id; }
+  return "history";
+}
+// tag each cram item with its original index + section
+CRAM.forEach(function(c,i){c._i=i;c._sec=sectionFor(c.topic);});
+
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function boldMn(s){return esc(s).replace(/\b(LOPQRST|LOPPPPQRST|FAOMASH|SOAP|HPI|CC|PMH|ROS|ABCDE|5 P's|8 P's|HEENT)\b/g,'<span class="mn">$1</span>');}
+
+var filter="all";
+var VIEW=[];      // array of CRAM items in current filter
+var pos=0;        // position within VIEW
+var revealed=false;
+var autoOn=false;
+
+function buildView(){
+  VIEW = (filter==="all") ? CRAM.slice() : CRAM.filter(function(c){return c._sec===filter;});
+  if(pos>=VIEW.length) pos=0;
+}
+
+// ---- filters UI ----
+var fWrap=document.getElementById('filters');
+SECTIONS.forEach(function(s){
+  var b=document.createElement('button');
+  b.innerHTML=s.icon+' '+s.name;
+  if(s.id==="all")b.className="on";
+  b.onclick=function(){
+    stopAuto();
+    filter=s.id; pos=0; revealed=false;
+    Array.prototype.forEach.call(fWrap.children,function(c){c.className="";});
+    b.className="on";
+    buildView(); render();
+  };
+  fWrap.appendChild(b);
+});
+
+// ---- render current step ----
+function secName(id){for(var i=0;i<SECTIONS.length;i++){if(SECTIONS[i].id===id)return SECTIONS[i].name;}return id;}
+function render(){
+  var c=VIEW[pos];
+  document.getElementById('count').textContent=(pos+1)+' / '+VIEW.length;
+  document.getElementById('prevBtn').disabled=(pos<=0);
+  document.getElementById('nextBtn').disabled=(pos>=VIEW.length-1);
+  var h='<span class="badge">'+SECTIONS.filter(function(s){return s.id===c._sec;})[0].icon+' '+esc(secName(c._sec))+'</span>';
+  h+='<div class="topic">'+boldMn(c.topic)+'</div>';
+  h+='<div class="src">'+esc(c.source||'')+'</div>';
+  if(!revealed){
+    h+='<div class="recall">Say the key points out loud from memory&hellip; then reveal.</div>';
+    h+='<button class="reveal-btn" onclick="doReveal()">&#128161; Reveal the key points</button>';
+  }else{
+    h+='<ul class="points">';
+    (c.points||[]).forEach(function(p){h+='<li>'+boldMn(p)+'</li>';});
+    h+='</ul>';
+  }
+  h+='<div class="mrow">'+
+     '<button class="mbtn" onclick="hearThis()">&#127908; Hear this</button>'+
+     '<button class="mbtn sld" onclick="seeSlide()">&#127912; See the slide</button>'+
+     '</div>';
+  document.getElementById('step').innerHTML=h;
+}
+function doReveal(){revealed=true;render();}
+function hearThis(){
+  var c=VIEW[pos];
+  revealed=true;render();
+  hxSayQA(c.topic, c.points.join('. '), c.topic);
+}
+function seeSlide(){
+  var c=VIEW[pos];
+  if(SLIDE[c._i]) hxSlide(SLIDE[c._i]);
+}
+
+// ---- navigation ----
+function go(d){
+  var np=pos+d;
+  if(np<0||np>=VIEW.length)return;
+  pos=np; revealed=false;
+  render();
+}
+
+// ---- auto-play: speak each step, advance when speech ends ----
+function toggleAuto(){ autoOn ? stopAuto() : startAuto(); }
+function startAuto(){
+  autoOn=true;
+  var btn=document.getElementById('autoBtn');
+  btn.classList.add('playing'); btn.innerHTML='&#9209; Stop auto-play';
+  speakAuto();
+}
+function stopAuto(){
+  if(!autoOn && !window.speechSynthesis)return;
+  autoOn=false;
+  if(window.speechSynthesis)speechSynthesis.cancel();
+  var btn=document.getElementById('autoBtn');
+  if(btn){btn.classList.remove('playing'); btn.innerHTML='&#9654; Auto-play all';}
+  var bar=document.getElementById('hxbar'); if(bar)bar.style.display='none';
+}
+function speakAuto(){
+  if(!autoOn)return;
+  var c=VIEW[pos];
+  revealed=true; render();
+  // two-voice read via the shared module (Ava topic -> Emma points)
+  hxSayQA(c.topic, c.points.join('. '), c.topic);
+  // queue a silent marker AFTER the two utterances so we advance only when speech ends
+  if(window.speechSynthesis){
+    var m=new SpeechSynthesisUtterance(' ');
+    m.volume=0; m.rate=1;
+    m.onend=function(){
+      if(!autoOn)return;
+      if(pos>=VIEW.length-1){ stopAuto(); return; }
+      pos++; revealed=false;
+      speakAuto();
+    };
+    speechSynthesis.speak(m);
+  }
+}
+
+// init
+buildView(); render();
+</script>
+
+<!-- ===== HX SHARED MEDIA MODULE (self-contained, global): 🖼️ real slide + 🎧 voiced TTS (Ava/Emma). No recordings exist for HX, so 🎧 speaks the item text. Paste before </body>. ===== -->
+<style>
+#hxbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:1200;background:#0b1220;border-top:2px solid #38bdf8;padding:8px 12px;align-items:center;gap:9px;flex-wrap:wrap}
+#hxbar .hb{background:#132132;color:#bae6fd;border:1px solid #24425c;border-radius:7px;padding:5px 9px;font-size:.72rem;cursor:pointer;font-family:inherit;font-weight:700}
+#hxbar .hb:hover{background:#1c405c;color:#fff}
+.hx-mrow{display:flex;flex-wrap:wrap;gap:7px;margin:9px 0 2px}
+.hx-mbtn{background:rgba(56,189,248,.15);color:#7dd3fc;border:1px solid #38bdf8;border-radius:9px;padding:6px 12px;font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit}
+.hx-mbtn:hover{background:rgba(56,189,248,.32);color:#fff}
+.hx-mbtn.sld{background:rgba(52,211,153,.15);color:#6ee7b7;border-color:#10b981}.hx-mbtn.sld:hover{background:rgba(52,211,153,.3)}
+#hxslide{display:none;position:fixed;inset:0;z-index:1300;background:rgba(0,0,0,.9);align-items:center;justify-content:center;flex-direction:column;padding:14px;cursor:zoom-out}
+#hxslideImg{max-width:100%;max-height:86vh;border-radius:8px;box-shadow:0 12px 44px rgba(0,0,0,.7);background:#fff}
+</style>
+<script id="hx-media-shared">
+(function(){
+ var vl=[],vA=null,vB=null,rate=1.0;
+ function pickA(){return vl.find(function(v){return /microsoft.*ava.*natural/i.test(v.name);})||vl.find(function(v){return /microsoft.*emma.*natural/i.test(v.name);})||vl.find(function(v){return /google us english/i.test(v.name);})||vl.find(function(v){return /en[-_]US/i.test(v.lang);})||vl.find(function(v){return /^en/i.test(v.lang);})||vl[0]||null;}
+ function pickB(){return vl.find(function(v){return /microsoft.*emma.*natural/i.test(v.name);})||vl.find(function(v){return /microsoft.*(aria|jenny).*natural/i.test(v.name);})||vl.find(function(v){return /google uk english female/i.test(v.name);})||vA;}
+ function load(){if(!window.speechSynthesis)return;vl=speechSynthesis.getVoices()||[];vA=pickA();vB=pickB();}
+ if(window.speechSynthesis){load();speechSynthesis.onvoiceschanged=load;var t=0,iv=setInterval(function(){t++;load();if(vA||t>20)clearInterval(iv);},250);}
+ window.hxRate=function(r){rate=r;Array.prototype.forEach.call(document.querySelectorAll(".hx-rate"),function(s){s.textContent=r.toFixed(2)+"x";});};
+ window.hxStop=function(){if(window.speechSynthesis)speechSynthesis.cancel();};
+ window.hxSay=function(text,label){if(!window.speechSynthesis){return;}speechSynthesis.cancel();
+   var bar=document.getElementById("hxbar");if(bar)bar.style.display="flex";
+   var lbl=document.getElementById("hxlabel");if(lbl)lbl.textContent="🎧 "+(label||"Read aloud");
+   var u=new SpeechSynthesisUtterance(String(text).replace(/<[^>]+>/g," ").replace(/\s+/g," "));
+   u.rate=rate;if(vA){u.voice=vA;u.lang=vA.lang||"en-US";}speechSynthesis.speak(u);};
+ window.hxSayQA=function(q,a,label){if(!window.speechSynthesis)return;speechSynthesis.cancel();
+   var bar=document.getElementById("hxbar");if(bar)bar.style.display="flex";
+   var lbl=document.getElementById("hxlabel");if(lbl)lbl.textContent="🎧 "+(label||"Q & A");
+   function strip(x){return String(x).replace(/<[^>]+>/g," ").replace(/\s+/g," ");}
+   var uq=new SpeechSynthesisUtterance(strip(q));uq.rate=rate;if(vA){uq.voice=vA;uq.lang=vA.lang||"en-US";}
+   var ua=new SpeechSynthesisUtterance(strip(a));ua.rate=rate;if(vB){ua.voice=vB;ua.lang=vB.lang||"en-US";}
+   speechSynthesis.speak(uq);speechSynthesis.speak(ua);};
+ window.hxGal=null;window.hxGi=0;
+ window.hxSlide=function(fr){if(!fr)return;var arr=Array.isArray(fr)?fr:[fr];if(!arr.length)return;window.hxGal=arr;window.hxGi=0;
+   document.getElementById("hxslideImg").src=arr[0];document.getElementById("hxslCount").textContent=arr.length>1?("1 / "+arr.length):"";
+   document.getElementById("hxslNav").style.display=arr.length>1?"flex":"none";document.getElementById("hxslide").style.display="flex";};
+ window.hxGalStep=function(d){if(!window.hxGal)return;window.hxGi=(window.hxGi+d+window.hxGal.length)%window.hxGal.length;
+   document.getElementById("hxslideImg").src=window.hxGal[window.hxGi];document.getElementById("hxslCount").textContent=(window.hxGi+1)+" / "+window.hxGal.length;};
+})();
+</script>
+<div id="hxbar">
+ <span id="hxlabel" style="color:#7dd3fc;font-size:.8rem;font-weight:700;white-space:nowrap"></span>
+ <button class="hb" onclick="hxRate(0.8)">0.8x</button><button class="hb" onclick="hxRate(1)">1x</button><button class="hb" onclick="hxRate(1.25)">1.25x</button><button class="hb" onclick="hxRate(1.5)">1.5x</button><button class="hb" onclick="hxRate(2)">2x</button>
+ <span class="hx-rate" style="color:#bae6fd;font-size:.72rem;font-weight:700;min-width:42px;text-align:center">1.00x</span>
+ <button class="hb" onclick="hxStop();document.getElementById('hxbar').style.display='none';">■ Stop</button>
+</div>
+<div id="hxslide" onclick="if(event.target===this)this.style.display='none'">
+ <img id="hxslideImg" alt="slide">
+ <div id="hxslNav" style="display:none;gap:16px;margin-top:12px;align-items:center">
+  <button onclick="event.stopPropagation();hxGalStep(-1)" style="background:#132132;color:#bae6fd;border:1px solid #38bdf8;border-radius:8px;padding:8px 16px;cursor:pointer">&#8249;</button>
+  <span id="hxslCount" style="color:#bae6fd;font-size:.85rem;font-weight:700"></span>
+  <button onclick="event.stopPropagation();hxGalStep(1)" style="background:#132132;color:#bae6fd;border:1px solid #38bdf8;border-radius:8px;padding:8px 16px;cursor:pointer">&#8250;</button></div>
+ <div style="position:fixed;top:12px;right:18px;color:#fff;font-size:26px;font-weight:800;pointer-events:none">&#215;</div>
+</div>
+<!-- API: hxSay(text,label) speak one · hxSayQA(q,a,label) two-voice · hxSlide(fileOrArray) show slide(s) -->
+</body></html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>History Taking — Night-Before Blitz</title>
+<style>
+:root{--bg:#0a0e1a;--card:#111a2e;--line:#22304d;--ink:#e6ecf5;--mut:#9fb0cc;--ac:#38bdf8;--gd:#34d399;--am:#fbbf24;--pk:#f472b6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(1100px 560px at 50% -8%,#132038,#0a0e1a),#0a0e1a;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.5;padding:14px 12px 80px;max-width:900px;margin:0 auto}
+.hubbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.hubbtn{display:inline-block;background:#16233c;color:#cbd5e1;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font:800 .78rem 'Segoe UI',system-ui;text-decoration:none}
+.hubbtn:hover{background:#1e2f4d;color:#fff}
+h1{font-size:1.42rem;text-align:center;color:var(--ac);margin:6px 0 3px}
+.sub{text-align:center;color:var(--mut);font-size:.84rem;margin-bottom:12px}
+.sub b{color:#7dd3fc}
+.filter{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-bottom:14px}
+.fb{background:#16233c;color:#cbd5e1;border:1px solid var(--line);border-radius:999px;padding:6px 13px;font:700 .74rem 'Segoe UI',system-ui;cursor:pointer}
+.fb:hover{border-color:var(--ac);color:#fff}
+.fb.on{background:linear-gradient(135deg,#0c355a,#0a2540);border-color:var(--ac);color:#fff}
+.cnt{text-align:center;color:var(--mut);font-size:.76rem;margin-bottom:12px}
+.seclab{grid-column:1/-1;font-size:.82rem;font-weight:800;color:#bae6fd;text-transform:uppercase;letter-spacing:.05em;margin:8px 2px 2px;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px;align-items:start}
+.c{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--ac);border-radius:12px;padding:11px 13px}
+.c .t{font-weight:800;font-size:.9rem;color:#fff;margin-bottom:4px;line-height:1.3}
+.c .b{font-size:.82rem;color:#cbd5e1;line-height:1.5}
+.c[data-s="Interview & Communication"]{border-left-color:var(--ac)}
+.c[data-s="Cultural Competence & Humility"]{border-left-color:var(--am)}
+.c[data-s="SOAP & Documentation"]{border-left-color:var(--gd)}
+.c[data-s="History Components"]{border-left-color:#a78bfa}
+.c[data-s="ROS"]{border-left-color:#38bdf8}
+.c[data-s="Sexual & Social"]{border-left-color:var(--pk)}
+.wm{position:fixed;bottom:6px;right:10px;font-size:9px;color:rgba(255,255,255,.22);pointer-events:none}
+</style></head><body>
+<div class="hubbar"><a class="hubbtn" href="index.html">&larr; History Taking Hub</a></div>
+<h1>&#9889; History Taking &mdash; Night-Before Blitz</h1>
+<div class="sub">Every high-yield fact from the cram sheet, in scannable cards. <b>Tap a section</b> to filter.</div>
+<div class="filter" id="filter"></div>
+<div class="cnt" id="cnt"></div>
+<div class="cards" id="cards"></div>
+<div class="wm">DC Study Supply &mdash; Dr. David Gramling, PhD</div>
+<script>
+var SECTIONS=["Interview & Communication","Cultural Competence & Humility","SOAP & Documentation","History Components","ROS","Sexual & Social"];
+var CARDS=[
+// ===== Interview & Communication =====
+{sec:"Interview & Communication",t:"3 functions of the medical interview (Cole & Bird)",body:"(1) Build the relationship, (2) Assess and understand, (3) Collaborate for management."},
+{sec:"Interview & Communication",t:"What each function means",body:"Build the relationship = rapport, mutual respect, trust, empathy & compassion. Assess & understand = questioning and data gathering. Collaborate for management = patient education."},
+{sec:"Interview & Communication",t:"History drives the diagnosis (Osler)",body:"'Listen to your patient, they might be telling you their diagnosis.' The SOAP/HPI deck states 80-90% of the diagnosis comes from the history (Intro deck cites ~80%)."},
+{sec:"Interview & Communication",t:"Empathy vs Compassion vs Sympathy",body:"Empathy = understand and share another's feelings (put yourself in their shoes). Compassion = 'sympathetic consciousness of others' distress together with a desire to alleviate it.' Sympathy = sharing another's feelings; feeling pity/sorrow for their hardships."},
+{sec:"Interview & Communication",t:"Quiet, attentive listening",body:"Conveys interest and builds rapport more powerfully than virtually any other action or utterance the physician can make."},
+{sec:"Interview & Communication",t:"Non-verbal communication",body:"Doctors with appropriate eye contact are more likely to detect emotional distress; those who lean forward with open body posture have more satisfied patients."},
+{sec:"Interview & Communication",t:"Why listening matters (Roter & Hall, 2009)",body:"From the patient's view, listening defines a 'good' doctor; good relationships make patients more satisfied and more likely to adhere to treatment."},
+{sec:"Interview & Communication",t:"3 therapeutic qualities (Carl Rogers)",body:"Respect, Genuineness, and Empathy — observed in practitioners with good clinical outcomes."},
+{sec:"Interview & Communication",t:"Respect & Genuineness defined",body:"Respect = accept the patient as they are, don't judge, separate your personal feelings. Genuineness = be yourself and acknowledge your position as a student / lack of knowledge (e.g., referring out)."},
+{sec:"Interview & Communication",t:"Empathy (Brene Brown)",body:"'Rarely does a response make something better. What makes something better is a connection.'"},
+{sec:"Interview & Communication",t:"4 qualities of empathy",body:"Perspective Taking (their perspective is their truth), Staying out of Judgement, Recognizing the emotion in the other person, and Communicating the emotion back ('I hear you; I see you; I get it')."},
+{sec:"Interview & Communication",t:"Empathy improves outcomes",body:"Patients given emotional support/education after surgery or MI had fewer complications and were discharged ~2 days earlier; an 8-hour communication training program improved care without lengthening visits."},
+{sec:"Interview & Communication",t:"Coulehan's levels of response — positive",body:"Interchangeable = accurately recognize the feelings/symptoms the patient expresses. Additive = recognize both what the patient expresses AND what they feel but do not express."},
+{sec:"Interview & Communication",t:"Coulehan's levels of response — negative",body:"Ignoring = not responding to the cognitive or emotional content. Minimizing = responding at a lesser level than the patient's expressed concern."},
+{sec:"Interview & Communication",t:"Efficiency & Empathy",body:"As many as three quarters of all diagnoses can be made by history alone. Balance Efficiency, Empathy, and Efficacy."},
+// ===== Cultural Competence & Humility =====
+{sec:"Cultural Competence & Humility",t:"Culture defined",body:"The customary beliefs, social forms, and material traits of a racial, religious, or social group, plus shared attitudes, values, goals, and practices; affected by politics, class, gender, religion, age, and ethnicity."},
+{sec:"Cultural Competence & Humility",t:"Intersectionality",body:"How race, class, gender, and other characteristics intersect and overlap, creating unique sets of experiences; understanding it helps you understand your patient's experience better."},
+{sec:"Cultural Competence & Humility",t:"Cultural competence (Bates)",body:"A set of attitudes, skills, behaviors, and policies enabling staff to work effectively cross-culturally — being respectful and responsive to the health beliefs, practices, and cultural/linguistic needs of diverse populations."},
+{sec:"Cultural Competence & Humility",t:"Cultural humility (Bates)",body:"A process requiring humility as individuals continually engage in self-reflection and self-critique as lifelong learners — 'the more you know about a particular culture, the more you realize you don't know.'"},
+{sec:"Cultural Competence & Humility",t:"The problem with 'competence'",body:"It suggests culture can be reduced to a technical skill and results in lists of 'do's and don'ts' for treating patients of a given ethnic background."},
+{sec:"Cultural Competence & Humility",t:"Cultural humility requires",body:"Respect, acknowledging both differences and similarities, dynamic communication, and honest self-assessment; commit to self-evaluation, fixing power imbalances, and developing partnerships / advocating for others."},
+{sec:"Cultural Competence & Humility",t:"Cross-Cultural Approach & the Golden Rule",body:"Use communication skills, awareness of cross-cutting cultural/social issues, and recognize health beliefs as universal. Golden Rule: treat patients as we would want to be treated during vulnerability and fear — patient centeredness = respect, sensitivity, composure, partnership, honesty, curiosity, tolerance."},
+// ===== SOAP & Documentation =====
+{sec:"SOAP & Documentation",t:"SOAP = 4 sections",body:"Subjective, Objective, Assessment, Plan."},
+{sec:"SOAP & Documentation",t:"Subjective (S)",body:"The History section (HPI): chief complaint, HPI, the patient's perception of the problem and how it evolved; also past medical, social, and sexual history."},
+{sec:"SOAP & Documentation",t:"Objective (O)",body:"Values, Physical Exam (PE), and data gathered: vital signs, status/appearance on presentation, physical exam, laboratory data."},
+{sec:"SOAP & Documentation",t:"Assessment (A) & Plan (P)",body:"Assessment = diagnoses and differential diagnoses (Dx's). Plan = the action plan."},
+{sec:"SOAP & Documentation",t:"Narrative",body:"The patient's history written in paragraph form (not bullet points), logically composed and coherent. Medical abbreviations may be used in SOAP notes or narratives for efficiency."},
+{sec:"SOAP & Documentation",t:"Bates' basic HPI template",body:"Opening statement (CC in clinical context), elaborate description of the CC, accompanying symptomatology, absent pertinent symptomatology, pertinent PMH/FH/social history, and a concluding statement of how the patient got to the care site."},
+// ===== History Components =====
+{sec:"History Components",t:"Components of a history (Subjective)",body:"Chief Complaint, HPI, Past Medical History, Family History, Social/Lifestyle/Sexual, and Review of Systems. Documentation should 'paint a picture.'"},
+{sec:"History Components",t:"The historian & reliability",body:"The person providing the history is the 'historian.' A patient historian should be alert, competent, with intact memory (impaired by meds, substances, stress, Alzheimer's, dementia); a non-patient historian (parent, caretaker, translator) should be informed, trustworthy, and reliable."},
+{sec:"History Components",t:"Chief Complaint (CC)",body:"The patient's response to 'So... what brings you in today?' Even if on the intake form, confirm and ask the patient to reiterate for accuracy; when possible, directly quote the patient's own words."},
+{sec:"History Components",t:"CC from a caregiver",body:"If a caregiver provides the CC (children or patients unable to respond), document the source (e.g., 'Caregiver (Niece, Doris Jones) reports...')."},
+{sec:"History Components",t:"HPI definition",body:"'A complete, clear, chronologic description of the problem(s) prompting the patient's visit.'"},
+{sec:"History Components",t:"LOPQRST = 'The How'",body:"L: Location; O: Onset; P: Prior, Palliative, Provocative, Progression; Q: Quality of pain; R: Radiation; S: Severity; T: Timing. Expanded summary = LOPPPPQRST."},
+{sec:"History Components",t:"LOPQRST — Location, Onset, Progression",body:"Location: ask where and have the patient point (they may use wrong anatomical vocabulary). Onset: when it started (day/week/month/year, time) + mode of injury. Progression: since it started — improved, worsened, or stayed the same."},
+{sec:"History Components",t:"LOPQRST — Prior, Palliative, Provocative",body:"Prior: first time or not (if not: first occurrence, frequency, duration, prior treatments, other doctors). Palliative: what helped and what was most helpful. Provocative: what makes it worse (position, movement, meds, foods, modalities, surgeries, time)."},
+{sec:"History Components",t:"LOPQRST — Quality",body:"Describe the symptom — pain (sharp/dull/achy/burning; throbbing/pounding/pulsating), paresthesias (numbness/tingling/pins & needles), weakness, fatigue, dizziness."},
+{sec:"History Components",t:"Radiation vs Referral",body:"Radiation = the symptom travels from its point of origin. Referral = the symptom is located in a different place than its actual cause."},
+{sec:"History Components",t:"LOPQRST — Severity & Timing",body:"Severity: 0-10 Numeric/Visual Analogue Scale (onset, current, best, worst). Mild = doesn't interfere with ADLs; Moderate = starting to interfere; Severe = severely restricting ADLs. Timing: constant or intermittent (if intermittent, note frequency and duration)."},
+{sec:"History Components",t:"FAOMASH (PMH mnemonic)",body:"F = Family history, A = Allergies, O = Other illness (chronic conditions / other doctors seen), M = Medications, A = Accidents, S = Surgeries, H = Hospitalizations."},
+{sec:"History Components",t:"PMH components",body:"Chronic conditions, allergies, hospitalizations, trauma, medications, FHx (family), SHx (surgical), SoHx (social), sexual history, and review of systems."},
+{sec:"History Components",t:"Family history",body:"Focus on immediate family (age/health of parents, siblings, children; grandparents if known); if deceased, ask cause of death. Major focus: diabetes, heart disease, strokes, cancer, arthritis, or other conditions."},
+{sec:"History Components",t:"Allergies",body:"Confirm allergy status for each patient at each visit, and certainly before prescribing any medication; categories: medications, latex, environment, foods; if allergic, ask the type of reaction (hives, swelling, airway obstruction)."},
+{sec:"History Components",t:"Medications & immunizations",body:"For medications ask: what is taken, why, dosage (amount and frequency), and how long. List immunizations with date and reaction (or document 'per patient recall')."},
+{sec:"History Components",t:"Accidents & Surgeries",body:"Accidents: when, how, the injuries, whether care was given, whether healed or ongoing. Surgeries: which procedure, when, the reason, results, and complications."},
+{sec:"History Components",t:"Hospitalizations",body:"When, why (reason/discharge diagnosis), duration, treatment received, and residual problems. Hospitalizations and surgeries are NOT synonymous — you cannot ask one to cover both."},
+// ===== ROS =====
+{sec:"ROS",t:"ROS — Purpose",body:"A discussion of the body organ systems that may uncover problems not already mentioned, or pertinent negatives that support your diagnosis / streamline differentials. Patients often leave out facts not realizing the connection."},
+{sec:"ROS",t:"ROS — Format",body:"It is acceptable to use closed-ended 'yes/no' questions. Questions vary by age, complaints, and general health (clinical judgement). ROS can be asked during the physical exam of that body area. You may uncover events to add to HPI or PMH."},
+{sec:"ROS",t:"ROS — Systems list",body:"Constitutional/General, Skin, HEENT (Head, Eyes, Ears, Nose/Sinuses, Mouth/Throat, Neck), Cardiovascular, Respiratory, GI, Genitourinary, Musculoskeletal, Neurologic, Psychiatric, Endocrine, Hematologic/Lymphatic. Work top down."},
+{sec:"ROS",t:"ROS — Skin ABCDE",body:"For lesions/moles: Asymmetry, Borders, Color, Diameter, Evolving. Skin screening also covers rashes, lumps, sores, itching, dryness, color change (cyanosis, rubor, jaundice), and hair/nail changes (cracking, spooning, clubbing)."},
+{sec:"ROS",t:"ROS — Assessment / clinical reasoning",body:"Assessment moves from description and observation to analysis and interpretation. Bates' steps: identify abnormal findings, localize anatomically, cluster the findings, search for the probable cause, generate hypotheses, then test them to establish a working diagnosis."},
+// ===== Sexual & Social =====
+{sec:"Sexual & Social",t:"Why take a sexual history",body:"An important part of a routine exam for ALL patients, regardless of gender identity or sexual orientation. Sexual health is integral to general health — linked to happiness, well-being, longevity — and may indicate psychiatric/medical disorders or the need for prevention (immunizations, contraception, PEP, PrEP)."},
+{sec:"Sexual & Social",t:"Sex vs Gender",body:"Sex = biological differences (anatomy, chromosomes, hormones, genes). Gender = social and cultural distinctions (gender identity, expression, roles)."},
+{sec:"Sexual & Social",t:"Orientation vs Gender identity",body:"Sexual orientation and gender identity are NOT the same; all people have both, and how people identify can change."},
+{sec:"Sexual & Social",t:"Establishing the relationship",body:"Build rapport with effective listening and mirroring (names, pronouns, body parts), an individualized/holistic approach, and by asking permission — ask if it is ok to discuss a sexual history and be transparent about why. Start all appointments with clothes ON; approach trauma slowly when support can be offered."},
+{sec:"Sexual & Social",t:"Patient-centered language / anatomic inventory",body:"Establish which words you and the patient will use: 'When referring to your genitals, are there specific terms that you use?' Use open-ended questions, validate high- and low-risk activities (and pleasures), and avoid assumptions."},
+{sec:"Sexual & Social",t:"CDC 5 P's",body:"Partners, Practices, Protection for STDs, Past history of STDs, and Prevention of pregnancy."},
+{sec:"Sexual & Social",t:"Fenway 8 P's",body:"Preferences, Partners, Practices, Protection for STIs, Past history of STIs, Pregnancy, Pleasure, and Partner Violence."},
+{sec:"Sexual & Social",t:"Trauma-informed care — before the exam",body:"Any exam or procedure can be traumatizing; review prior experiences, explain the purpose, offer to talk through the steps, and remind: 'You're in control here. If you want me to stop at any point, please let me know.'"},
+{sec:"Sexual & Social",t:"Trauma-informed care — responding to disclosure",body:"Listen and communicate belief ('That must have been frightening'), validate the decision to disclose, emphasize that violence is unacceptable, be clear the patient is not to blame ('What happened is not your fault'), and make a safety plan / provide resources."},
+{sec:"Sexual & Social",t:"Ask everyone / reduce stigma",body:"Ask ALL people and make it policy — it normalizes the questions. Nearly 80% of providers believed patients would refuse to disclose orientation, but only about 10% of patients said they would. 'Find your Yucks and fix your face.'"}
+];
+var active="__all";
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function buildFilter(){
+  var f=document.getElementById('filter');
+  var btns='<button class="fb on" data-f="__all">All ('+CARDS.length+')</button>';
+  SECTIONS.forEach(function(s){
+    var n=CARDS.filter(function(c){return c.sec===s;}).length;
+    btns+='<button class="fb" data-f="'+esc(s)+'">'+esc(s)+' ('+n+')</button>';
+  });
+  f.innerHTML=btns;
+  [].forEach.call(f.querySelectorAll('.fb'),function(b){
+    b.onclick=function(){active=b.getAttribute('data-f');
+      [].forEach.call(f.querySelectorAll('.fb'),function(x){x.classList.remove('on');});
+      b.classList.add('on');render();};
+  });
+}
+function render(){
+  var pool=active==='__all'?CARDS:CARDS.filter(function(c){return c.sec===active;});
+  document.getElementById('cnt').textContent=pool.length+' card'+(pool.length===1?'':'s')+' shown';
+  var box=document.getElementById('cards');box.innerHTML='';
+  var order=active==='__all'?SECTIONS:[active];
+  order.forEach(function(sec){
+    var items=pool.filter(function(c){return c.sec===sec;});
+    if(!items.length)return;
+    if(active==='__all'){var lab=document.createElement('div');lab.className='seclab';lab.textContent=sec;box.appendChild(lab);}
+    items.forEach(function(c){
+      var d=document.createElement('div');d.className='c';d.setAttribute('data-s',c.sec);
+      d.innerHTML='<div class="t">'+esc(c.t)+'</div><div class="b">'+esc(c.body)+'</div>';
+      box.appendChild(d);
+    });
+  });
+}
+buildFilter();render();
+if(localStorage.getItem('dcDavidView')==='1'){var w=document.querySelector('.wm');if(w)w.style.display='none';}
+</script>
+</body></html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>History Taking — Answer Sheet (Flashcards)</title>
+<style>
+:root{--bg:#0a0e1a;--card:#111a2e;--line:#22304d;--ink:#e6ecf5;--mut:#9fb0cc;--ac:#38bdf8;--gd:#34d399;--am:#fbbf24;--pk:#f472b6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(1100px 560px at 50% -8%,#132038,#0a0e1a),#0a0e1a;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.5;padding:14px 12px 80px;max-width:780px;margin:0 auto}
+.hubbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.hubbtn{display:inline-block;background:#16233c;color:#cbd5e1;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font:800 .78rem 'Segoe UI',system-ui;text-decoration:none}
+.hubbtn:hover{background:#1e2f4d;color:#fff}
+h1{font-size:1.36rem;text-align:center;color:var(--ac);margin:6px 0 3px}
+.sub{text-align:center;color:var(--mut);font-size:.84rem;margin-bottom:12px}
+.controls{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;align-items:center;margin-bottom:10px}
+.btn{background:#16233c;color:#cbd5e1;border:1px solid var(--line);border-radius:10px;padding:7px 13px;font:700 .78rem 'Segoe UI',system-ui;cursor:pointer}
+.btn:hover{border-color:var(--ac);color:#fff}
+select{background:#131f36;color:#cbd5e1;border:1px solid var(--line);border-radius:10px;padding:7px 11px;font:700 .78rem 'Segoe UI',system-ui}
+.bar{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--mut);margin-bottom:10px;padding:0 4px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 18px;min-height:260px;display:flex;flex-direction:column;cursor:pointer}
+.card:hover{border-color:var(--ac)}
+.tag{font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:#7dd3fc;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.3);border-radius:999px;padding:2px 9px;display:inline-block;margin-bottom:12px;align-self:flex-start}
+.side{font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-bottom:8px}
+.side.a{color:var(--gd)}
+.q{font-size:1.14rem;font-weight:700;color:#fff;line-height:1.4}
+.a{font-size:.96rem;color:#c7f0dd;line-height:1.55}
+.hint{margin-top:auto;padding-top:14px;font-size:.74rem;color:#6b7f9e;font-style:italic}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:8px}
+.nav .btn{flex:0 0 auto}
+.flipbtn{flex:1;background:linear-gradient(135deg,#0c355a,#0a2540);border-color:var(--ac);color:#fff;font-weight:800}
+.wm{position:fixed;bottom:6px;right:10px;font-size:9px;color:rgba(255,255,255,.22);pointer-events:none}
+</style></head><body>
+<div class="hubbar"><a class="hubbtn" href="index.html">&larr; History Taking Hub</a></div>
+<h1>&#128196; History Taking &mdash; Answer Sheet (Flashcards)</h1>
+<div class="sub">Flip a card to reveal the answer. Shuffle, filter by section, and drill the whole deck.</div>
+<div class="controls">
+  <label style="font-size:.78rem;color:#9fb0cc">Section <select id="secSel"></select></label>
+  <button class="btn" id="shuffleBtn">&#128256; Shuffle</button>
+  <button class="btn" id="resetBtn">&#8635; Reset order</button>
+</div>
+<div class="bar"><span id="prog"></span><span id="secLab"></span></div>
+<div class="card" id="card" onclick="flip()">
+  <span class="tag" id="tag"></span>
+  <div class="side" id="side"></div>
+  <div id="face"></div>
+  <div class="hint" id="hint">Tap the card or press Flip to reveal &mdash; then Next.</div>
+</div>
+<div class="nav">
+  <button class="btn" id="prevBtn">&larr; Prev</button>
+  <button class="btn flipbtn" id="flipBtn">&#8635; Flip</button>
+  <button class="btn" id="nextBtn">Next &rarr;</button>
+</div>
+<div class="wm">DC Study Supply &mdash; Dr. David Gramling, PhD</div>
+<script>
+var DATA=[
+// ===== From the cram sheet (topic -> answer) =====
+{sec:"Interview & Communication",q:"What are the 3 main functions of the medical interview (Cole & Bird), and what does each mean?",a:"(1) Build the relationship — develop rapport, mutual respect, trust, and convey empathy/compassion. (2) Assess and understand — questioning and data gathering. (3) Collaborate for management — patient education. Osler: 'Listen to your patient, they might be telling you their diagnosis' — 80-90% of the diagnosis comes from the history."},
+{sec:"Interview & Communication",q:"Define empathy, compassion, and sympathy — and what non-verbal behavior builds rapport most?",a:"Empathy = ability to understand and share another's feelings (put yourself in their shoes). Compassion = sympathetic consciousness of others' distress + desire to alleviate it. Sympathy = sharing another's feelings; pity/sorrow for their hardships. Quiet, attentive listening conveys interest and builds rapport more powerfully than virtually any other action or utterance."},
+{sec:"SOAP & Documentation",q:"What are the 4 sections of a SOAP note, and what goes in each?",a:"Subjective = the History (HPI): chief complaint, HPI, patient's perception and how it evolved; also past medical, social, sexual history. Objective = values, Physical Exam, and data (vitals, appearance, PE, labs). Assessment = diagnoses and differential diagnoses. Plan = the action plan."},
+{sec:"History Components",q:"What are the components of the history, and who is the 'historian'?",a:"Under Subjective: Chief Complaint, HPI, Past Medical History, Family History, Social/Lifestyle/Sexual, and Review of Systems (documentation should 'paint a picture'). The 'historian' is the person providing the history — a patient historian should be alert, competent, with intact memory; a non-patient historian (parent, caretaker, translator) should be informed, trustworthy, and reliable."},
+{sec:"History Components",q:"What is the Chief Complaint (CC) and how should it be documented?",a:"The patient's response to 'What brings you in today?' Even if it's on the intake form, confirm the problem and ask the patient to reiterate it for accuracy; when possible, directly quote the patient's own words. If a caregiver provides it, document the source (e.g., 'Caregiver (Niece, Doris Jones) reports...')."},
+{sec:"History Components",q:"Define the HPI and spell out LOPQRST.",a:"HPI = 'a complete, clear, chronologic description of the problem(s) prompting the patient's visit.' LOPQRST = L Location, O Onset, P Prior/Palliative/Provocative/Progression, Q Quality of pain, R Radiation, S Severity, T Timing. Expanded: LOPPPPQRST."},
+{sec:"History Components",q:"What is a patient 'narrative,' and what is Bates' basic HPI template?",a:"A narrative is the history written in paragraph form (not bullet points), logically composed and coherent; abbreviations may be used. Bates' template: opening statement (CC in clinical context), elaborate description of the CC, accompanying symptomatology, absent pertinent symptomatology, pertinent PMH/FH/social history, and a concluding statement of how the patient got to the care site."},
+{sec:"History Components",q:"List the PMH components and spell out FAOMASH.",a:"PMH: chronic conditions, allergies, hospitalizations, trauma, medications, FHx, SHx (surgical), SoHx (social), sexual history, and ROS. FAOMASH = F Family history, A Allergies, O Other illness (chronic conditions / other doctors), M Medications, A Accidents, S Surgeries, H Hospitalizations."},
+{sec:"History Components",q:"What are the key points for family history, allergies, and medications?",a:"Family history: immediate family's age/health (grandparents if known; cause of death if deceased) — focus on diabetes, heart disease, strokes, cancer, arthritis. Allergies: confirm for each patient at each visit and before prescribing; ask the type of reaction. Medications: what is taken, why, dosage (amount and frequency), and how long."},
+{sec:"History Components",q:"What do you ask about accidents, surgeries, and hospitalizations?",a:"Accidents: when, how, the injuries, whether care was given, healed or ongoing. Surgeries: which procedure, when, reason, results, complications. Hospitalizations: when, why (reason/discharge dx), duration, treatment, residual problems. Hospitalizations and surgeries are NOT synonymous — you cannot ask one to cover both."},
+{sec:"ROS",q:"What is the purpose of the Review of Systems (ROS)?",a:"A discussion of the body organ systems that may uncover problems not already mentioned, or pertinent negatives that support your diagnosis / streamline differentials. Patients often leave out facts not realizing the connection; the ROS reveals presence or absence of common symptoms head to toe."},
+{sec:"ROS",q:"What question format and timing are acceptable for the ROS?",a:"It is acceptable to use closed-ended 'yes/no' questions. Questions vary by age, complaints, and general health using clinical judgement. ROS questions can be asked during the physical exam of that body area (e.g., GI questions during the abdominal exam). You may uncover events to add to the HPI or PMH."},
+{sec:"ROS",q:"Which systems does the ROS address?",a:"Constitutional/General, Skin, HEENT (Head, Eyes, Ears, Nose/Sinuses, Mouth/Throat, Neck), Cardiovascular, Respiratory, Gastrointestinal, Genitourinary, Musculoskeletal, Neurologic, Psychiatric, Endocrine, and Hematologic/Lymphatic. Work in an organized fashion, generally top down."},
+{sec:"ROS",q:"What does ABCDE stand for in the skin ROS?",a:"For skin lesions/moles: Asymmetry, Borders, Color, Diameter, Evolving (is the lesion changing?). Skin screening also covers rashes, lumps, sores, itching, dryness, color change (cyanosis, rubor, jaundice), and hair/nail changes (cracking, spooning, clubbing)."},
+{sec:"ROS",q:"What is the Assessment, and what are Bates' steps for identifying problems?",a:"Assessment is where you analyze the data and move from description/observation to analysis and interpretation. Bates' steps: identify abnormal findings, localize them anatomically, cluster the clinical findings, search for the probable cause, generate hypotheses, then test them to establish a working diagnosis."},
+{sec:"Interview & Communication",q:"What are the 3 therapeutic qualities (Carl Rogers)?",a:"Respect, Genuineness, and Empathy — observed in practitioners with good clinical outcomes. Respect = accept the patient as they are, don't judge, separate personal feelings. Genuineness = be yourself and acknowledge your position as a student / lack of knowledge (e.g., referring out)."},
+{sec:"Interview & Communication",q:"How is empathy defined and contrasted with sympathy?",a:"Empathy is the ability to understand and share the feelings of another — putting yourself in the other person's shoes — contrasted with sympathy. Brene Brown: 'Rarely does a response make something better. What makes something better is a connection.'"},
+{sec:"Interview & Communication",q:"What are the 4 qualities of empathy?",a:"Perspective Taking (validate their experience; their perspective is their truth), Staying out of Judgement, Recognizing the emotion in the other person, and Communicating the emotion back ('I hear you; I see you; I get it')."},
+{sec:"Interview & Communication",q:"What evidence shows empathy improves outcomes?",a:"Patients who received emotional support/education after surgery or MI had fewer complications and were discharged about 2 days earlier. More empathetic/sympathetic practitioners have more satisfied patients (who are more likely to comply), and an 8-hour communication training program improved care without lengthening visits."},
+{sec:"Interview & Communication",q:"What are Coulehan's levels of empathic response?",a:"Positive: Interchangeable (accurately recognize the feelings/symptoms the patient expresses) and Additive (recognize both what the patient expresses AND what they feel but don't express). Negative: Ignoring (not responding to cognitive/emotional content) and Minimizing (responding at a lesser level than the patient's expressed concern)."},
+{sec:"Interview & Communication",q:"What is the 'delicate balance,' and how many diagnoses come from history alone?",a:"As many as three quarters of all diagnoses can be made by history alone. The delicate balance is Efficiency, Empathy, and Efficacy: gather enough information in a timely manner, validate the patient's experience, and arrive at a conclusion so the patient leaves satisfied."},
+{sec:"Cultural Competence & Humility",q:"Define culture and intersectionality.",a:"Culture = the customary beliefs, social forms, and material traits of a racial, religious, or social group, plus shared attitudes, values, goals, and practices; affected by politics, class, gender, religion, age, and ethnicity. Intersectionality = how race, class, gender, and other characteristics intersect and overlap, creating unique sets of experiences."},
+{sec:"Cultural Competence & Humility",q:"Contrast cultural competence and cultural humility (Bates).",a:"Cultural competence = a set of attitudes, skills, behaviors, and policies enabling staff to work effectively cross-culturally — being respectful/responsive to diverse populations' health beliefs, practices, and cultural/linguistic needs. Cultural humility = a process of continual self-reflection and self-critique as lifelong learners — 'the more you know about a culture, the more you realize you don't know.'"},
+{sec:"Cultural Competence & Humility",q:"What does cultural humility require, and what is the problem with 'competence'?",a:"Humility requires respect, acknowledging differences and similarities, dynamic communication, and honest self-assessment; it commits to self-evaluation, fixing power imbalances, and developing partnerships/advocacy. The problem with 'competence' is it suggests culture can be reduced to a technical skill and yields lists of 'do's and don'ts' for treating patients of a given ethnic background."},
+{sec:"Cultural Competence & Humility",q:"What is the Cross-Cultural Approach and the Golden Rule?",a:"A Cross-Cultural Approach uses communication skills, awareness of cross-cutting cultural and social issues, and recognizes health beliefs as universal human beliefs, needs, and traits. The Golden Rule: treat patients as we would want to be treated during periods of vulnerability and fear; patient centeredness = respect, sensitivity, composure, partnership, honesty, curiosity, and tolerance."},
+{sec:"Sexual & Social",q:"Why take a sexual history, and from which patients?",a:"Take it from ALL patients, regardless of gender identity or sexual orientation — it is an important part of a routine exam. Sexual health is integral to general health (associated with happiness, well-being, longevity) and may indicate psychiatric or other medical disorders or the need for primary prevention (immunizations, contraception, PEP, PrEP)."},
+{sec:"Sexual & Social",q:"How do sex, gender, orientation, and gender identity differ?",a:"Sex = biological differences (anatomy, chromosomes, hormones, genes). Gender = social and cultural distinctions (gender identity, expression, roles). Sexual orientation and gender identity are NOT the same; all people have both, and how people identify can change."},
+{sec:"Sexual & Social",q:"How do you establish the relationship before a sexual history?",a:"Build rapport with effective listening and mirroring (names, pronouns, body parts), an individualized/holistic approach, and by asking permission — ask if it's ok to discuss a sexual history and be transparent about why. Start all appointments with clothes ON, and approach trauma experiences slowly and at a time when support can be offered."},
+{sec:"Sexual & Social",q:"How do you use patient-centered language and an anatomic inventory?",a:"Take an anatomic inventory and establish shared words: 'When referring to your genitals, are there specific terms that you use?' Use open-ended questions to capture diverse behaviors, validate both high- and low-risk activities (and pleasures), and avoid assumptions about what kinds of sex someone has."},
+{sec:"Sexual & Social",q:"What are the CDC 5 P's and the Fenway 8 P's?",a:"CDC 5 P's: Partners, Practices, Protection for STDs, Past history of STDs, and Prevention of pregnancy. Fenway 8 P's: Preferences, Partners, Practices, Protection for STIs, Past history of STIs, Pregnancy, Pleasure, and Partner Violence."},
+{sec:"Sexual & Social",q:"What is the trauma-informed approach before an exam and when responding to disclosure?",a:"Before the exam: review prior experiences, explain the purpose, offer to talk through the steps, and remind 'You're in control here. If you want me to stop at any point, please let me know.' Responding to disclosure: communicate belief ('That must have been frightening'), validate the decision to disclose, emphasize violence is unacceptable, be clear it is not their fault, and make a safety plan / provide resources."},
+{sec:"Sexual & Social",q:"Why ask everyone about sexual orientation, and what is the stat?",a:"Ask ALL people and make it policy — asking everyone normalizes the questions and decreases stigma. Nearly 80% of providers believed patients would refuse to disclose orientation, but only about 10% of patients said they would refuse. 'Find your Yucks and fix your face' — we can't eliminate bias by pretending not to have any."},
+// ===== From the concept MC bank (stem -> correct answer + why) =====
+{sec:"History Components",q:"In the LOPQRST mnemonic, what does the 'L' stand for?",a:"Location. (L = Location — ask where, and have the patient point to the area.)"},
+{sec:"History Components",q:"The 'Q' in LOPQRST refers to which of the following?",a:"Quality of pain — describe the symptom (sharp/dull/achy/burning, throbbing/pounding/pulsating, etc.)."},
+{sec:"History Components",q:"A patient says the pain 'travels down my leg from my low back.' Which LOPQRST component is this?",a:"Radiation — the symptom travels from its point of origin."},
+{sec:"History Components",q:"Per the slides, pain that is 'severely restricting ADLs' would be classified as:",a:"Severe. (Mild = doesn't interfere with ADLs; Moderate = starting to interfere; Severe = severely restricting ADLs.)"},
+{sec:"History Components",q:"Which is the correct order of the FAOMASH mnemonic?",a:"Family history, Allergies, Other illness, Medications, Accidents, Surgeries, Hospitalizations."},
+{sec:"History Components",q:"In the FAOMASH mnemonic, the second 'A' stands for:",a:"Accidents. (The first A = Allergies; the second A = Accidents.)"},
+{sec:"History Components",q:"Per the slides, hospitalizations and surgeries are:",a:"NOT synonymous — you cannot ask about one to cover both."},
+{sec:"SOAP & Documentation",q:"Roughly what percentage of the diagnosis comes from the history (SOAP/HPI deck)?",a:"80-90% of the diagnosis comes from the history."},
+{sec:"ROS",q:"The 'ABCDE' mnemonic in the Skin portion of the ROS refers to what?",a:"Asymmetry, Borders, Color, Diameter, Evolving."},
+{sec:"ROS",q:"A patient needs extra pillows to sleep and is short of breath lying flat. Which ROS system?",a:"Cardiovascular — orthopnea (number of pillows) and PND are cardiovascular ROS items."},
+{sec:"ROS",q:"Intermittent claudication and varicose veins are screened under which ROS heading?",a:"Peripheral Vascular — claudication, varicose veins, clots, and swelling."},
+{sec:"Interview & Communication",q:"The three therapeutic qualities of the practitioner (Carl Rogers) are:",a:"Respect, Genuineness, and Empathy."},
+{sec:"Interview & Communication",q:"In Coulehan's levels of response, which is a POSITIVE (helpful) response?",a:"Interchangeable. (Interchangeable and Additive are positive; Ignoring and Minimizing are negative.)"},
+{sec:"Interview & Communication",q:"Roughly what proportion of diagnoses can be made by history alone?",a:"As many as three quarters."},
+{sec:"Interview & Communication",q:"The 'delicate balance' the Communication deck describes is between which three elements?",a:"Efficiency, Empathy, and Efficacy."},
+{sec:"Sexual & Social",q:"The CDC's '5 P's' of the sexual history are:",a:"Partners, Practices, Protection for STDs, Past history of STDs, and Prevention of pregnancy."},
+{sec:"Sexual & Social",q:"Fenway expands the CDC's 5 P's into 8 P's by adding which additional P's?",a:"Preferences, Pleasure, and Partner Violence."},
+{sec:"Sexual & Social",q:"In a trauma-informed exam, which phrase does the Fenway deck recommend?",a:"'You're in control here. If you want me to stop at any point, please let me know.'"},
+{sec:"Sexual & Social",q:"When a patient discloses a history of violence, the clinician should:",a:"Communicate belief, emphasize that violence is unacceptable, and be clear the patient is not to blame."}
+];
+var SECTIONS=["Interview & Communication","Cultural Competence & Humility","SOAP & Documentation","History Components","ROS","Sexual & Social"];
+DATA.forEach(function(d,i){d._i=i;});
+var order=[],idx=0,showAnswer=false,filter="__all";
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function shuffleArr(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function pool(){return filter==='__all'?DATA:DATA.filter(function(d){return d.sec===filter;});}
+function buildSel(){
+  var s=document.getElementById('secSel');
+  var opt='<option value="__all">All sections ('+DATA.length+')</option>';
+  SECTIONS.forEach(function(sec){
+    var n=DATA.filter(function(d){return d.sec===sec;}).length;
+    if(n)opt+='<option value="'+esc(sec)+'">'+esc(sec)+' ('+n+')</option>';
+  });
+  s.innerHTML=opt;
+  s.onchange=function(){filter=s.value;buildOrder(false);};
+}
+function buildOrder(shuf){
+  var p=pool().map(function(d){return d._i;});
+  order=shuf?shuffleArr(p):p;
+  idx=0;showAnswer=false;render();
+}
+function render(){
+  if(!order.length)return;
+  var d=DATA[order[idx]];
+  document.getElementById('tag').textContent=d.sec;
+  document.getElementById('prog').textContent='Card '+(idx+1)+' of '+order.length;
+  document.getElementById('secLab').textContent=filter==='__all'?'All sections':filter;
+  var side=document.getElementById('side');
+  var face=document.getElementById('face');
+  if(showAnswer){
+    side.textContent='Answer';side.className='side a';
+    face.className='a';face.innerHTML=esc(d.a);
+    document.getElementById('hint').textContent='Next for a new card, or Prev to go back.';
+  }else{
+    side.textContent='Prompt';side.className='side';
+    face.className='q';face.innerHTML=esc(d.q);
+    document.getElementById('hint').textContent='Tap the card or press Flip to reveal the answer.';
+  }
+}
+function flip(){showAnswer=!showAnswer;render();}
+function next(){idx=(idx+1)%order.length;showAnswer=false;render();}
+function prev(){idx=(idx-1+order.length)%order.length;showAnswer=false;render();}
+document.getElementById('flipBtn').onclick=flip;
+document.getElementById('nextBtn').onclick=next;
+document.getElementById('prevBtn').onclick=prev;
+document.getElementById('shuffleBtn').onclick=function(){buildOrder(true);};
+document.getElementById('resetBtn').onclick=function(){buildOrder(false);};
+document.addEventListener('keydown',function(e){
+  if(e.key===' '||e.key==='Enter'){e.preventDefault();flip();}
+  else if(e.key==='ArrowRight')next();
+  else if(e.key==='ArrowLeft')prev();
+});
+buildSel();buildOrder(false);
+if(localStorage.getItem('dcDavidView')==='1'){var w=document.querySelector('.wm');if(w)w.style.display='none';}
+</script>
+</body></html>

@@ -1,0 +1,1175 @@
+{
+ "cram": [
+  {
+   "topic": "Medical interview - 3 functions",
+   "points": [
+    "The medical interview has 3 main functions (Cole & Bird): (1) Build the relationship, (2) Assess and understand, (3) Collaborate for management.",
+    "Build the relationship = develop rapport, establish mutual respect, establish trust, and convey empathy and compassion. Assess and understand = questioning and data gathering. Collaborate for management = patient education.",
+    "During the interview and physical exam you gather data to generate a hypothesis for the cause of the problem and collect information to develop a management plan; this helps generate a differential diagnosis (road map to the cause) and the primary diagnosis.",
+    "Osler: 'Listen to your patient, they might be telling you their diagnosis.' The SOAP/HPI deck states 80-90% of the diagnosis comes from the history (the Intro deck cites ~80%)."
+   ],
+   "source": "HxTaking_Intro.pdf"
+  },
+  {
+   "topic": "Empathy, compassion, sympathy; non-verbal communication",
+   "points": [
+    "Empathy = the ability to understand and share the feelings of another; putting yourself in the other person's shoes. Compassion = 'sympathetic consciousness of others' distress together with a desire to alleviate it.' Sympathy = entering into or sharing another's feelings; feeling pity or sorrow for another's hardships.",
+    "The nonverbal behavior of the physician contributes significantly to the overall quality of the doctor-patient relationship.",
+    "Quiet, attentive listening conveys interest and builds rapport more powerfully than virtually any other action or utterance the physician can make.",
+    "Doctors who establish appropriate eye contact are more likely to detect emotional distress; doctors who lean forward and have an open body posture have more satisfied patients.",
+    "From the patient's perspective, listening is a defining feature of a 'good' doctor (enables accurate diagnoses, maintains the relationship, acts as a therapeutic agent); good relationships lead to patients who are more satisfied and more likely to adhere to treatment (Roter & Hall, 2009)."
+   ],
+   "source": "HxTaking_Intro.pdf"
+  },
+  {
+   "topic": "SOAP - 4 main sections",
+   "points": [
+    "SOAP has 4 sections: Subjective, Objective, Assessment, Plan.",
+    "Subjective = the History section (HPI); contains the chief complaint and history of present illness, the patient's perception of the problem, and how the problem has evolved. It also includes past medical history, social history, and sexual history.",
+    "Objective = values, Physical Exam (PE), and data gathered (vital signs; status/appearance on presentation; physical exam; laboratory data).",
+    "Assessment = diagnoses and differential diagnoses (Dx's). Plan = the action plan."
+   ],
+   "source": "SOAP_Notes.pdf"
+  },
+  {
+   "topic": "Components of a history and the historian",
+   "points": [
+    "Under Subjective, the full history includes: Chief Complaint, HPI, Past Medical History, Family History, Social/Lifestyle/Sexual, and Review of Systems.",
+    "Documentation should 'paint a picture' - any clinician reading the HPI should have a relatively clear picture of why the patient presented.",
+    "The person providing the history is the 'historian.' Consider reliability: a patient historian should be alert, competent, and have intact memory (impaired by medications, substance use, stress, Alzheimer's, or dementia); a non-patient historian (parent, caretaker, translator) should be informed, trustworthy, and reliable."
+   ],
+   "source": "SOAP_Notes.pdf"
+  },
+  {
+   "topic": "Chief Complaint (CC)",
+   "points": [
+    "The CC is the patient's response to questions like 'So..., what brings you in today?' Even if the CC is on the intake form, confirm the problem and ask the patient to reiterate it for accuracy. When possible, directly quote the patient's own words (e.g., 'it feels like there is a brick resting on my right upper back and shoulder area').",
+    "If a caregiver provides the CC (children or patients unable to respond), document the source of the information (e.g., 'Caregiver (Niece, Doris Jones) reports...')."
+   ],
+   "source": "SOAP_Notes.pdf"
+  },
+  {
+   "topic": "HPI definition and LOPQRST",
+   "points": [
+    "The HPI is 'a complete, clear, chronologic description of the problem(s) prompting the patient's visit.'",
+    "LOPQRST = 'The How.' L: Location; O: Onset of complaint; P: Prior, Palliative, Provocative, Progression; Q: Quality of pain; R: Radiation; S: Severity; T: Timing. The expanded summary is LOPPPPQRST (priors, palliative, provocative, progression).",
+    "Location: ask where and have the patient point to the area (patients may use incorrect anatomical vocabulary). Onset: when it started (day/week/month/year, time) and mode of injury. Progression: since it started, improved, worsened, or stayed the same.",
+    "Prior: first time or not; if not, first occurrence, frequency, duration, prior treatments, other doctors seen. Palliative: what has helped and what was most helpful. Provocative: what makes it worse (position, movement, medications, foods, modalities, surgeries, time).",
+    "Quality: describe the symptom - pain (sharp/dull/achy/burning; throbbing/pounding/pulsating), paresthesias (numbness/tingling/pins & needles), weakness, fatigue, dizziness.",
+    "Radiation = the symptom travels from its point of origin; Referral = the symptom is located in a different place than its actual cause.",
+    "Severity: 0-10 Numeric/Visual Analogue Scale (at onset, current, best, worst). Mild = doesn't interfere with ADLs; Moderate = starting to interfere; Severe = severely restricting ADLs. Timing/Temporal: constant or intermittent; if intermittent, note frequency and duration of episodes."
+   ],
+   "source": "SOAP_Notes.pdf"
+  },
+  {
+   "topic": "Narrative, abbreviations, and other subjective components",
+   "points": [
+    "A narrative is the patient's history written in paragraph form (not bullet points), logically composed and coherent. Medical abbreviations may be used in SOAP notes or narratives for efficiency.",
+    "Bates' basic HPI template: opening statement (CC in clinical context), elaborate description of the CC, accompanying symptomatology, absent pertinent symptomatology, pertinent PMH/FH/social history, and a concluding statement of how the patient got to the care site.",
+    "Other subjective components beyond the HPI include allergies, PMH (chronic conditions, trauma, hospitalizations), FHx, SHx (surgical), SoHx (social), sexual history, immunizations, and review of systems."
+   ],
+   "source": "SOAP_Notes.pdf"
+  },
+  {
+   "topic": "Past Medical History components and FAOMASH",
+   "points": [
+    "PMH components on the slides: chronic conditions, allergies, hospitalizations, trauma, medications, FHx (family history), SHx (surgical history), SoHx (social history), sexual history, and review of systems.",
+    "The slides DO spell out FAOMASH: F = Family history, A = Allergies, O = Other illness (chronic conditions) and/or other doctors/specialists seen (not necessarily related to the CC), M = Medications, A = Accidents, S = Surgeries, H = Hospitalizations."
+   ],
+   "source": "PastMedicalHistory.pdf"
+  },
+  {
+   "topic": "Family history, allergies, chronic illness, medications",
+   "points": [
+    "Family history focuses on immediate family (age and health status of parents, siblings, children; grandparents if known); if deceased, ask the cause of death. Major focus: does anyone have diabetes, heart disease, strokes, cancer, arthritis, or other conditions.",
+    "Allergy status should be confirmed for each patient at each visit, and for certain before prescribing any medication; categories include medications, latex, environment, and foods; if allergic, ask the type of reaction (hives, swelling, airway obstruction).",
+    "Other chronic illnesses to ask about: hypertension, diabetes, heart disease, COPD, peripheral artery disease, thyroid disorders, GI disorders, mental health conditions, orthopedic conditions, cancer. For medications ask: what is taken, why, dosage (amount and frequency), and how long; list immunizations with date and reaction (or document 'per patient recall')."
+   ],
+   "source": "PastMedicalHistory.pdf"
+  },
+  {
+   "topic": "Accidents, surgeries, hospitalizations",
+   "points": [
+    "Accidents: when they occurred, how they happened, the injuries, whether medical care was given, and whether injuries healed or are ongoing. Surgeries: which procedure, when, the reason, results, and complications.",
+    "Hospitalizations: when, why (reason/discharge diagnosis), duration, treatment received (procedures/tests/specialty consults), and residual problems. Hospitalizations and surgeries are NOT synonymous - you cannot ask one to cover both."
+   ],
+   "source": "PastMedicalHistory.pdf"
+  },
+  {
+   "topic": "ROS - Purpose",
+   "source": "ReviewOfSystems.pdf",
+   "points": [
+    "The Review of Systems is a discussion of the various body organ systems that may uncover problems not already mentioned, or pertinent negatives that support your diagnosis or help streamline your differential diagnoses.",
+    "Patients often leave out pertinent facts of their history because they do not realize the connection to a problem; the ROS reveals the presence or absence of common symptoms of major body systems.",
+    "The ROS reviews the patient history in another format by asking 'head to toe' related questions."
+   ]
+  },
+  {
+   "topic": "ROS - Format",
+   "source": "ReviewOfSystems.pdf",
+   "points": [
+    "It is acceptable to use closed-ended 'yes or no' questions in the ROS.",
+    "Questions vary based on the patient's age, complaints, and general state of health, using your clinical judgement.",
+    "ROS questions can be asked during the physical exam of that body area (e.g., GI questions during the abdominal exam, musculoskeletal questions during the spine exam).",
+    "You may uncover major health events during the ROS that should be added to the History of Present Illness or Past Medical History."
+   ]
+  },
+  {
+   "topic": "ROS - Systems list",
+   "source": "ReviewOfSystems.pdf",
+   "points": [
+    "Systems addressed: Constitutional/General, Skin, HEENT (Head, Eyes, Ears, Nose/Sinuses, Mouth/Throat, Neck), Cardiovascular, Respiratory, Gastrointestinal, Genitourinary, Musculoskeletal, Neurologic, Psychiatric, Endocrine, and Hematologic/Lymphatic.",
+    "Stay organized and move through your list in an organized fashion; generally, working top down is helpful."
+   ]
+  },
+  {
+   "topic": "ROS - Skin ABCDE",
+   "source": "ReviewOfSystems.pdf",
+   "points": [
+    "For skin lesions/moles, use ABCDE: Asymmetry, Borders, Color, Diameter, Evolving (is the lesion changing?).",
+    "Skin screening also covers rashes, lumps, sores, itching, dryness, color change (cyanosis, rubor, jaundice), and changes in hair or nails (cracking, spooning, clubbing)."
+   ]
+  },
+  {
+   "topic": "ROS - Assessment / clinical reasoning",
+   "source": "ReviewOfSystems.pdf",
+   "points": [
+    "After the history and physical, assessment is where you analyze the data and move from description and observation to analysis and interpretation.",
+    "Bates' steps for identifying problems: identify abnormal findings, localize them anatomically, cluster the clinical findings, search for the probable cause, generate hypotheses, then test them to establish a working diagnosis."
+   ]
+  },
+  {
+   "topic": "Therapeutic Qualities",
+   "source": "Communication_Empathy.pdf",
+   "points": [
+    "Borrowed from psychologist Carl Rogers, three therapeutic qualities observed in practitioners with good clinical outcomes are Respect, Genuineness, and Empathy.",
+    "Respect means accepting your patient as they are, not judging, and separating your personal feelings; Genuineness means being yourself and acknowledging your position as a student or lack of knowledge (e.g., referring out)."
+   ]
+  },
+  {
+   "topic": "Empathy vs Sympathy",
+   "source": "Communication_Empathy.pdf",
+   "points": [
+    "Empathy is the ability to understand and share the feelings of another - putting yourself in the other person's shoes - and is compared/contrasted with sympathy.",
+    "Brene Brown: 'Rarely does a response make something better. What makes something better is a connection.'"
+   ]
+  },
+  {
+   "topic": "4 Qualities of Empathy",
+   "source": "Communication_Empathy.pdf",
+   "points": [
+    "The four qualities of empathy are: Perspective Taking (validate the other's experience; their perspective is their truth), Staying out of Judgement, Recognizing the emotion in the other person, and Communicating the emotion back ('I hear you; I see you; I get it')."
+   ]
+  },
+  {
+   "topic": "Empathy improves outcomes",
+   "source": "Communication_Empathy.pdf",
+   "points": [
+    "Patients who received emotional support/education after surgery or MI had fewer complications and were discharged about 2 days earlier than those who did not.",
+    "More empathetic/sympathetic practitioners have more satisfied patients, and satisfied patients are more likely to comply; an 8-hour communication training program improved care without lengthening visits."
+   ]
+  },
+  {
+   "topic": "Levels of Empathic Response",
+   "source": "Communication_Empathy.pdf",
+   "points": [
+    "Coulehan's levels of response: positive levels are Interchangeable (accurately recognize and assess feelings/symptoms the patient expresses) and Additive (recognize both what the patient expresses and what they feel but do not express).",
+    "Negative levels are Ignoring (not responding to the cognitive or emotional content) and Minimizing (responding at a lesser level than the patient's expressed concern)."
+   ]
+  },
+  {
+   "topic": "Efficiency & Empathy",
+   "source": "Communication_Empathy.pdf",
+   "points": [
+    "As many as three quarters of all diagnoses can be made by history alone.",
+    "A delicate balance of Efficiency, Empathy, and Efficacy: gather enough information in a timely manner, validate the patient's experience, and arrive at a conclusion so the patient leaves satisfied."
+   ]
+  },
+  {
+   "topic": "Culture & Intersectionality",
+   "source": "CulturalCompetence_Humility.pdf",
+   "points": [
+    "Culture is the customary beliefs, social forms, and material traits of a racial, religious, or social group, plus shared attitudes, values, goals, and practices; it is affected by politics, class, gender, religion, age, and ethnicity.",
+    "Intersectionality describes how race, class, gender, and other characteristics intersect and overlap, creating unique sets of experiences; understanding it helps you understand your patient's experience better."
+   ]
+  },
+  {
+   "topic": "Cultural Competence vs Humility",
+   "source": "CulturalCompetence_Humility.pdf",
+   "points": [
+    "Cultural competence (Bates) is a set of attitudes, skills, behaviors, and policies that enable organizations and staff to work effectively in cross-cultural situations; it means being respectful and responsive to the health beliefs, practices, and cultural/linguistic needs of diverse populations.",
+    "Cultural humility (Bates) is a process requiring humility as individuals continually engage in self-reflection and self-critique as lifelong learners and reflective practitioners - 'the more you know about a particular culture, the more you realize you don't know.'"
+   ]
+  },
+  {
+   "topic": "Cultural Humility requirements",
+   "source": "CulturalCompetence_Humility.pdf",
+   "points": [
+    "Cultural humility requires respect, acknowledging both differences and similarities, dynamic communication, and honest self-assessment; it commits to self-evaluation, fixing power imbalances, and developing partnerships/advocating for others.",
+    "The problem with 'competence' is that it suggests culture can be reduced to a technical skill and results in lists of 'do's and don'ts' for treating patients of a given ethnic background."
+   ]
+  },
+  {
+   "topic": "Cross-Cultural Approach & Goals",
+   "source": "CulturalCompetence_Humility.pdf",
+   "points": [
+    "A 'Cross Cultural Approach' uses communication skills, awareness of cross-cutting cultural and social issues, and recognizing health beliefs as universal human beliefs, needs, and traits.",
+    "The Golden Rule: treat patients as we would want to be treated during periods of vulnerability and fear; patient centeredness is built on respect, sensitivity, composure, partnership, honesty, curiosity, and tolerance."
+   ]
+  },
+  {
+   "topic": "Why take a sexual history",
+   "source": "Fenway_SexualHx.pdf",
+   "points": [
+    "Sexual health history is an important part of a routine medical exam for ALL patients, regardless of gender identity or sexual orientation.",
+    "Sexual health is integral to general health; it is associated with happiness, well-being, and longevity, and may indicate psychiatric or other medical disorders or the need for primary prevention (immunizations, contraception, PEP, PrEP)."
+   ]
+  },
+  {
+   "topic": "Sex vs Gender / SO vs GI",
+   "source": "Fenway_SexualHx.pdf",
+   "points": [
+    "Sex refers to biological differences (anatomy, chromosomes, hormones, genes); gender refers to social and cultural distinctions (gender identity, expression, roles).",
+    "Sexual orientation and gender identity are NOT the same; all people have both, and how people identify can change."
+   ]
+  },
+  {
+   "topic": "Establishing the relationship",
+   "source": "Fenway_SexualHx.pdf",
+   "points": [
+    "Establish rapport with effective listening and mirroring (names, pronouns, body parts), an individualized/holistic approach, and by asking permission: ask if it is ok to discuss a sexual history and be transparent about why you are asking.",
+    "Start all appointments with clothes ON, and approach trauma experiences slowly and at a time when support can be offered."
+   ]
+  },
+  {
+   "topic": "Non-judgmental, patient-centered language",
+   "source": "Fenway_SexualHx.pdf",
+   "points": [
+    "Take an anatomic inventory and establish which words you and the patient will use: 'When referring to your genitals, are there specific terms that you use?'",
+    "Use open-ended questions to capture diverse sexual behaviors, validate all practices by asking about both high and low risk activities (and pleasures), and avoid assumptions about what kinds of sex someone has."
+   ]
+  },
+  {
+   "topic": "CDC 5 Ps and the 8 Ps",
+   "source": "Fenway_SexualHx.pdf",
+   "points": [
+    "The CDC's 5 P's of the sexual history are: Partners, Practices, Protection for STDs, Past history of STDs, and Prevention of pregnancy.",
+    "Fenway expands these to 8 P's: Preferences, Partners, Practices, Protection for STIs, Past history of STIs, Pregnancy, Pleasure, and Partner Violence."
+   ]
+  },
+  {
+   "topic": "Trauma-informed care",
+   "source": "Fenway_SexualHx.pdf",
+   "points": [
+    "Any exam or procedure has the potential to be traumatizing; before the exam, review prior experiences, explain the purpose, offer to talk through the steps, and remind the patient 'You're in control here. If you want me to stop at any point, please let me know.'",
+    "Responding to disclosure: Listen and communicate belief ('That must have been frightening'), validate the decision to disclose, emphasize that violence is unacceptable, be clear the patient is not to blame ('What happened is not your fault'), and make a safety plan / provide resources."
+   ]
+  },
+  {
+   "topic": "Ask everyone / reduce stigma",
+   "source": "Fenway_SexualHx.pdf",
+   "points": [
+    "Ask ALL people and make it policy - asking everyone normalizes the questions; nearly 80% of providers believed patients would refuse to disclose orientation, but only about 10% of patients said they would refuse.",
+    "Everyone has activities they find 'icky'; we cannot eliminate our bias by pretending not to have any - the guidance is to 'find your Yucks and fix your face.'"
+   ]
+  }
+ ],
+ "mc": [
+  {
+   "q": "According to the slides, which of the following is part of the Subjective section of a SOAP note?",
+   "choices": [
+    "A. Vital signs",
+    "B. History of Present Illness (HPI)",
+    "C. Physical exam findings",
+    "D. Laboratory data"
+   ],
+   "answer": "B",
+   "why": "Subjective is the History section and contains the chief complaint and HPI; vitals, PE, and labs are Objective.",
+   "src": "SOAP_Notes.pdf slide 'SOAP - 4 Main Sections'"
+  },
+  {
+   "q": "In a SOAP note, physical exam findings, vital signs, and laboratory data belong to which section?",
+   "choices": [
+    "A. Subjective",
+    "B. Objective",
+    "C. Assessment",
+    "D. Plan"
+   ],
+   "answer": "B",
+   "why": "Objective = values, Physical Exam (PE), and data gathered.",
+   "src": "SOAP_Notes.pdf slide 'Objective'"
+  },
+  {
+   "q": "Which SOAP section contains the diagnoses and differential diagnoses?",
+   "choices": [
+    "A. Subjective",
+    "B. Objective",
+    "C. Assessment",
+    "D. Plan"
+   ],
+   "answer": "C",
+   "why": "Assessment = Diagnoses, Differential Dx's.",
+   "src": "SOAP_Notes.pdf slide 'SOAP - 4 Main Sections'"
+  },
+  {
+   "q": "In the SOAP note, the 'action plan' is documented under which section?",
+   "choices": [
+    "A. Subjective",
+    "B. Objective",
+    "C. Assessment",
+    "D. Plan"
+   ],
+   "answer": "D",
+   "why": "Plan = Action plan.",
+   "src": "SOAP_Notes.pdf slide 'SOAP - 4 Main Sections'"
+  },
+  {
+   "q": "A patient's own description of how a problem has evolved is best classified as which type of data?",
+   "choices": [
+    "A. Objective",
+    "B. Subjective",
+    "C. Assessment",
+    "D. Plan"
+   ],
+   "answer": "B",
+   "why": "Subjective contains the patient's perception of the problem and description of how the problem has evolved.",
+   "src": "SOAP_Notes.pdf slide 'The History Section'"
+  },
+  {
+   "q": "In the LOPQRST mnemonic, what does the 'L' stand for?",
+   "choices": [
+    "A. Location",
+    "B. Level",
+    "C. Length",
+    "D. Laterality"
+   ],
+   "answer": "A",
+   "why": "L = Location.",
+   "src": "SOAP_Notes.pdf slide 'LOPQRST = The How'"
+  },
+  {
+   "q": "According to the slides, the 'Q' in LOPQRST refers to which of the following?",
+   "choices": [
+    "A. Quantity of medication",
+    "B. Quality of pain",
+    "C. Questions asked",
+    "D. Quickness of onset"
+   ],
+   "answer": "B",
+   "why": "Q = Quality of pain (describe the symptom: sharp/dull/achy/burning, etc.).",
+   "src": "SOAP_Notes.pdf slide 'LOPQRST - Quality'"
+  },
+  {
+   "q": "In LOPQRST, which letter covers Prior, Palliative, Provocative, and Progression?",
+   "choices": [
+    "A. O",
+    "B. P",
+    "C. Q",
+    "D. R"
+   ],
+   "answer": "B",
+   "why": "P = Prior, Palliative, Provocative, Progression (expanded as LOPPPPQRST).",
+   "src": "SOAP_Notes.pdf slides 'LOPQRST' and 'Summary LOPPPPQRST'"
+  },
+  {
+   "q": "A patient states the pain 'travels down my leg from my low back.' Which LOPQRST component does this describe?",
+   "choices": [
+    "A. Severity",
+    "B. Onset",
+    "C. Radiation",
+    "D. Quality"
+   ],
+   "answer": "C",
+   "why": "Radiation = does the symptom travel from the point of origin.",
+   "src": "SOAP_Notes.pdf slide 'HPI - Radiation/Referral'"
+  },
+  {
+   "q": "The slides describe rating pain 0-10 at onset, current, best, and worst. Which LOPQRST component is this?",
+   "choices": [
+    "A. Timing",
+    "B. Quality",
+    "C. Onset",
+    "D. Severity"
+   ],
+   "answer": "D",
+   "why": "Severity uses the 0-10 Numeric/Visual Analogue Scale.",
+   "src": "SOAP_Notes.pdf slide 'HPI - Severity'"
+  },
+  {
+   "q": "Per the slides, pain that is 'severely restricting ADLs' would be classified as:",
+   "choices": [
+    "A. Mild",
+    "B. Moderate",
+    "C. Severe",
+    "D. Referred"
+   ],
+   "answer": "C",
+   "why": "Severe = severely restricting ADLs (Mild = doesn't interfere; Moderate = starting to interfere).",
+   "src": "SOAP_Notes.pdf slide 'HPI - Severity'"
+  },
+  {
+   "q": "'What makes the symptoms worse?' (position, movement, foods, modalities) is which LOPQRST element?",
+   "choices": [
+    "A. Palliative",
+    "B. Provocative",
+    "C. Progression",
+    "D. Prior"
+   ],
+   "answer": "B",
+   "why": "Provocative = what makes the symptoms worse.",
+   "src": "SOAP_Notes.pdf slide 'HPI - Provocative'"
+  },
+  {
+   "q": "Asking 'What have you tried that helped the symptoms?' addresses which LOPQRST element?",
+   "choices": [
+    "A. Provocative",
+    "B. Progression",
+    "C. Palliative",
+    "D. Quality"
+   ],
+   "answer": "C",
+   "why": "Palliative = what have you tried to help the symptoms; what was most helpful.",
+   "src": "SOAP_Notes.pdf slide 'HPI - Palliative'"
+  },
+  {
+   "q": "According to the slides, how is the HPI defined?",
+   "choices": [
+    "A. A list of the patient's medications",
+    "B. A complete, clear, chronologic description of the problem(s) prompting the patient's visit",
+    "C. The physical exam findings",
+    "D. The differential diagnosis"
+   ],
+   "answer": "B",
+   "why": "The HPI is defined as a complete, clear, chronologic description of the problem(s) prompting the visit.",
+   "src": "SOAP_Notes.pdf slide 'History of Present Illness (HPI)'"
+  },
+  {
+   "q": "The person providing the patient's history is referred to as the:",
+   "choices": [
+    "A. Informant",
+    "B. Reporter",
+    "C. Historian",
+    "D. Narrator"
+   ],
+   "answer": "C",
+   "why": "The slides state the person providing the history is the 'historian.'",
+   "src": "SOAP_Notes.pdf slide 'Chief Complaint'"
+  },
+  {
+   "q": "Even when the chief complaint is listed on the intake form, the clinician should:",
+   "choices": [
+    "A. Confirm the problem and ask the patient to reiterate it for accuracy",
+    "B. Skip re-asking to save time",
+    "C. Only document the form verbatim",
+    "D. Refer to a specialist"
+   ],
+   "answer": "A",
+   "why": "The slide says confirm the problem; ask the patient to reiterate the complaint for accuracy.",
+   "src": "SOAP_Notes.pdf slide 'Chief Complaint'"
+  },
+  {
+   "q": "Which is the correct order of the FAOMASH mnemonic as spelled out in the slides?",
+   "choices": [
+    "A. Family, Age, Onset, Meds, Allergies, Surgeries, History",
+    "B. Family history, Allergies, Other illness, Medications, Accidents, Surgeries, Hospitalizations",
+    "C. Fever, Allergies, Onset, Meds, Accidents, Surgery, HPI",
+    "D. Family, Allergies, Onset, Meds, Age, Sex, Habits"
+   ],
+   "answer": "B",
+   "why": "FAOMASH = Family history, Allergies, Other illness, Medications, Accidents, Surgeries, Hospitalizations.",
+   "src": "PastMedicalHistory.pdf slide 'FAOMASH'"
+  },
+  {
+   "q": "In the FAOMASH mnemonic, the second 'A' stands for:",
+   "choices": [
+    "A. Allergies",
+    "B. Age",
+    "C. Accidents",
+    "D. Assessment"
+   ],
+   "answer": "C",
+   "why": "The first A = Allergies; the second A = Accidents.",
+   "src": "PastMedicalHistory.pdf slide 'FAOMASH'"
+  },
+  {
+   "q": "Which of the following is NOT listed on the slides as a Past Medical History component?",
+   "choices": [
+    "A. Chronic conditions",
+    "B. Allergies",
+    "C. Hospitalizations",
+    "D. Vital signs"
+   ],
+   "answer": "D",
+   "why": "PMH includes chronic conditions, allergies, hospitalizations, trauma, medications, FHx, SHx, SoHx, sexual history, ROS; vital signs are Objective.",
+   "src": "PastMedicalHistory.pdf slide 'Past Medical History'"
+  },
+  {
+   "q": "According to the slides, what is the major focus of family history questions?",
+   "choices": [
+    "A. Only the patient's own past surgeries",
+    "B. The family's insurance coverage",
+    "C. Whether anyone in the family has diabetes, heart disease, strokes, cancer, arthritis, or other disease",
+    "D. The patient's occupation"
+   ],
+   "answer": "C",
+   "why": "Major focus: does anyone in your family have a history of diabetes, heart disease, strokes, cancer, arthritis, or any other condition.",
+   "src": "PastMedicalHistory.pdf slide 'Family History'"
+  },
+  {
+   "q": "Per the slides, hospitalizations and surgeries are:",
+   "choices": [
+    "A. Synonymous, so one question covers both",
+    "B. Not synonymous; you cannot ask about one to cover both",
+    "C. Only relevant for pediatric patients",
+    "D. Part of the Objective section"
+   ],
+   "answer": "B",
+   "why": "The slide explicitly states hospitalizations and surgeries are not synonymous; you cannot ask one to cover both.",
+   "src": "PastMedicalHistory.pdf slide 'Hospitalizations'"
+  },
+  {
+   "q": "According to the slides, allergy status should be confirmed:",
+   "choices": [
+    "A. Only at the first visit",
+    "B. Only if the patient mentions an allergy",
+    "C. Once per year",
+    "D. For each patient at each visit, and for certain before prescribing any medication"
+   ],
+   "answer": "D",
+   "why": "Allergy status should be confirmed for each patient at each visit, and certainly before prescribing medication.",
+   "src": "PastMedicalHistory.pdf slide 'Allergies'"
+  },
+  {
+   "q": "What are the 3 main functions of the medical interview per the slides (Cole & Bird)?",
+   "choices": [
+    "A. Diagnose, treat, bill",
+    "B. Build the relationship; assess and understand; collaborate for management",
+    "C. Observe, palpate, auscultate",
+    "D. Subjective, objective, plan"
+   ],
+   "answer": "B",
+   "why": "The 3 functions are: build the relationship, assess and understand, and collaborate for management.",
+   "src": "HxTaking_Intro.pdf slide '3 Main Functions of the medical interview'"
+  },
+  {
+   "q": "Per the slides, which nonverbal behavior 'conveys interest and builds rapport more powerfully than virtually any other action'?",
+   "choices": [
+    "A. Quiet, attentive listening",
+    "B. Rapid note-taking",
+    "C. Standing over the patient",
+    "D. Frequent interrupting"
+   ],
+   "answer": "A",
+   "why": "The slide states quiet, attentive listening builds rapport more powerfully than any other action or utterance.",
+   "src": "HxTaking_Intro.pdf slide 'Non-verbal Communication'"
+  },
+  {
+   "q": "According to the slides, how is empathy defined?",
+   "choices": [
+    "A. Feeling pity for another's hardships",
+    "B. The ability to understand and share the feelings of another; putting yourself in their shoes",
+    "C. A desire to alleviate distress only",
+    "D. Sharing insurance information"
+   ],
+   "answer": "B",
+   "why": "Empathy = ability to understand and share another's feelings; putting yourself in their shoes.",
+   "src": "HxTaking_Intro.pdf slide 'Empathy/Compassion/Sympathy'"
+  },
+  {
+   "q": "Which definition matches 'compassion' per the slides?",
+   "choices": [
+    "A. Sharing another's interests or feelings",
+    "B. Understanding and sharing another's feelings",
+    "C. Sympathetic consciousness of others' distress together with a desire to alleviate it",
+    "D. Feeling pity for another's hardships"
+   ],
+   "answer": "C",
+   "why": "Compassion is defined as 'sympathetic consciousness of others' distress together with a desire to alleviate it.'",
+   "src": "HxTaking_Intro.pdf slide 'Empathy/Compassion/Sympathy'"
+  },
+  {
+   "q": "The SOAP/HPI deck states that roughly what percentage of the diagnosis comes from the history?",
+   "choices": [
+    "A. 20-30%",
+    "B. 50%",
+    "C. 80-90%",
+    "D. 100%"
+   ],
+   "answer": "C",
+   "why": "The deck states 80-90% of the diagnosis comes from the history (Intro deck cites ~80%).",
+   "src": "SOAP_Notes.pdf slide 'Remember...'"
+  },
+  {
+   "q": "For medications, which set of details does the slide say to obtain?",
+   "choices": [
+    "A. Only the drug name",
+    "B. Only the prescribing doctor",
+    "C. Only the pharmacy location",
+    "D. What is taken, why, dosage (amount and frequency), and how long"
+   ],
+   "answer": "D",
+   "why": "Medications: what is taken, why it is used, dosage (amount and frequency), and how long.",
+   "src": "PastMedicalHistory.pdf slide 'Medications'"
+  },
+  {
+   "q": "According to the slides, a patient 'narrative' is:",
+   "choices": [
+    "A. A bulleted problem list",
+    "B. The patient's history written in paragraph form, logically composed and coherent",
+    "C. The physical exam section",
+    "D. The billing summary"
+   ],
+   "answer": "B",
+   "why": "A narrative is the patient's history written in paragraph form (not bullet points), logically composed and coherent.",
+   "src": "SOAP_Notes.pdf slide 'Putting it all together'"
+  },
+  {
+   "q": "A patient reports back pain that has 'stayed the same' since it began. Which LOPQRST element does this answer?",
+   "choices": [
+    "A. Progression",
+    "B. Palliative",
+    "C. Severity",
+    "D. Radiation"
+   ],
+   "answer": "A",
+   "why": "Progression asks whether, since it started, the problem has improved, worsened, or stayed the same.",
+   "src": "SOAP_Notes.pdf slide 'HPI - Progression'"
+  },
+  {
+   "q": "What is the primary purpose of performing a Review of Systems (ROS)?",
+   "choices": [
+    "A. To uncover problems not already mentioned and reveal the presence or absence of common symptoms of major body systems",
+    "B. To replace the physical examination",
+    "C. To bill for additional services",
+    "D. To confirm the patient's insurance status"
+   ],
+   "answer": "A",
+   "why": "The ROS reveals presence/absence of common symptoms and uncovers problems or pertinent negatives.",
+   "src": "ReviewOfSystems.pdf - ROS Why ask"
+  },
+  {
+   "q": "Which question format does the ROS deck say is acceptable to use during the Review of Systems?",
+   "choices": [
+    "A. Only open-ended questions",
+    "B. Closed-ended 'yes or no' questions",
+    "C. Leading questions only",
+    "D. Multiple-choice questions"
+   ],
+   "answer": "B",
+   "why": "The slide states it is acceptable to use closed-ended yes/no questions.",
+   "src": "ReviewOfSystems.pdf - Format"
+  },
+  {
+   "q": "According to the deck, when may ROS questions be appropriately asked?",
+   "choices": [
+    "A. Only after the patient leaves",
+    "B. Only before the chief complaint",
+    "C. During the physical exam of that body area, e.g., GI questions during the abdominal exam",
+    "D. Only by telephone"
+   ],
+   "answer": "C",
+   "why": "ROS questions can be asked during the physical exam of that body area.",
+   "src": "ReviewOfSystems.pdf - Format"
+  },
+  {
+   "q": "The 'ABCDE' mnemonic taught in the Skin portion of the ROS refers to what?",
+   "choices": [
+    "A. Airway, Breathing, Circulation, Disability, Exposure",
+    "B. Age, Baseline, Cause, Duration, Effect",
+    "C. Assess, Bandage, Clean, Dress, Evaluate",
+    "D. Asymmetry, Borders, Color, Diameter, Evolving"
+   ],
+   "answer": "D",
+   "why": "For moles/lesions: Asymmetry, Borders, Color, Diameter, Evolving.",
+   "src": "ReviewOfSystems.pdf - Skin"
+  },
+  {
+   "q": "A patient reports needing extra pillows to sleep and shortness of breath when lying flat. In which ROS system are these screening findings addressed?",
+   "choices": [
+    "A. Cardiovascular",
+    "B. Endocrine",
+    "C. Skin",
+    "D. Psychiatric"
+   ],
+   "answer": "A",
+   "why": "Orthopnea (number of pillows) and PND are cardiovascular ROS items.",
+   "src": "ReviewOfSystems.pdf - Cardiovascular"
+  },
+  {
+   "q": "Which set of symptoms belongs to the Constitutional/General portion of the ROS?",
+   "choices": [
+    "A. Tinnitus and vertigo",
+    "B. Unintentional weight change, weakness, fatigue, fever, and night sweats",
+    "C. Dysuria and hematuria",
+    "D. Varicose veins and leg cramps"
+   ],
+   "answer": "B",
+   "why": "General ROS covers weight change, weakness, fatigue, fever, night sweats, sleep changes.",
+   "src": "ReviewOfSystems.pdf - General"
+  },
+  {
+   "q": "Intermittent claudication and varicose veins are screening items under which ROS heading?",
+   "choices": [
+    "A. Neurologic",
+    "B. Gastrointestinal",
+    "C. Peripheral Vascular",
+    "D. Hematologic"
+   ],
+   "answer": "C",
+   "why": "The Peripheral Vascular slide asks about claudication, varicose veins, clots, and swelling.",
+   "src": "ReviewOfSystems.pdf - Peripheral Vascular"
+  },
+  {
+   "q": "According to the Assessment portion, what are the first steps in Bates' process for identifying problems?",
+   "choices": [
+    "A. Order every possible lab test",
+    "B. Prescribe treatment immediately",
+    "C. Refer the patient out",
+    "D. Identify abnormal findings and localize them anatomically"
+   ],
+   "answer": "D",
+   "why": "Bates' steps begin with identifying abnormal findings and localizing anatomically.",
+   "src": "ReviewOfSystems.pdf - Steps for Identifying Problems"
+  },
+  {
+   "q": "The three therapeutic qualities of the practitioner, borrowed from Carl Rogers, are:",
+   "choices": [
+    "A. Respect, Genuineness, and Empathy",
+    "B. Speed, accuracy, and documentation",
+    "C. Authority, distance, and objectivity",
+    "D. Sympathy, pity, and reassurance"
+   ],
+   "answer": "A",
+   "why": "Carl Rogers' qualities: Respect, Genuineness, Empathy.",
+   "src": "Communication_Empathy.pdf - Therapeutic Qualities"
+  },
+  {
+   "q": "How does the deck define empathy?",
+   "choices": [
+    "A. Feeling sorry for the patient",
+    "B. The ability to understand and share the feelings of another - putting yourself in their shoes",
+    "C. Agreeing with everything the patient says",
+    "D. Remaining emotionally detached"
+   ],
+   "answer": "B",
+   "why": "Empathy is defined as understanding and sharing another's feelings.",
+   "src": "Communication_Empathy.pdf - What is Empathy"
+  },
+  {
+   "q": "Which is one of the four qualities of empathy taught in the deck?",
+   "choices": [
+    "A. Correcting the patient's beliefs",
+    "B. Offering advice quickly",
+    "C. Perspective taking - understanding that someone's perspective is their truth",
+    "D. Minimizing the patient's concern"
+   ],
+   "answer": "C",
+   "why": "Perspective taking (their perspective is their truth) is one of the 4 qualities.",
+   "src": "Communication_Empathy.pdf - 4 Qualities of Empathy"
+  },
+  {
+   "q": "In Coulehan's levels of response, which is a POSITIVE (helpful) response?",
+   "choices": [
+    "A. Ignoring",
+    "B. Minimizing",
+    "C. Dismissing",
+    "D. Interchangeable"
+   ],
+   "answer": "D",
+   "why": "Interchangeable and Additive are positive; Ignoring and Minimizing are negative.",
+   "src": "Communication_Empathy.pdf - Levels of Response"
+  },
+  {
+   "q": "A clinician who responds to a patient's feelings at a lesser level than the patient's expressed concern is demonstrating which response level?",
+   "choices": [
+    "A. Minimizing",
+    "B. Additive",
+    "C. Interchangeable",
+    "D. Perspective taking"
+   ],
+   "answer": "A",
+   "why": "Minimizing = responding at a lesser level than the patient's expressed concern.",
+   "src": "Communication_Empathy.pdf - Levels of Response"
+  },
+  {
+   "q": "According to the deck, roughly what proportion of diagnoses can be made by history alone?",
+   "choices": [
+    "A. About one quarter",
+    "B. As many as three quarters",
+    "C. About one tenth",
+    "D. Nearly all"
+   ],
+   "answer": "B",
+   "why": "Studies confirm as many as three quarters of diagnoses can be made by history alone.",
+   "src": "Communication_Empathy.pdf - What about efficiency"
+  },
+  {
+   "q": "The 'delicate balance' the Communication deck describes is between which three elements?",
+   "choices": [
+    "A. Speed, cost, and volume",
+    "B. Authority, distance, and control",
+    "C. Efficiency, Empathy, and Efficacy",
+    "D. Diagnosis, treatment, and billing"
+   ],
+   "answer": "C",
+   "why": "The delicate balance is Efficiency, Empathy, and Efficacy.",
+   "src": "Communication_Empathy.pdf - A Delicate Balance"
+  },
+  {
+   "q": "How does the deck define intersectionality?",
+   "choices": [
+    "A. The point where two hospital hallways meet",
+    "B. A billing code category",
+    "C. A type of physical exam maneuver",
+    "D. How race, class, gender, and other characteristics intersect and overlap to create unique experiences"
+   ],
+   "answer": "D",
+   "why": "Intersectionality: overlapping identities create unique sets of experiences.",
+   "src": "CulturalCompetence_Humility.pdf - Intersectionality"
+  },
+  {
+   "q": "Per Bates as cited in the deck, cultural humility is best described as:",
+   "choices": [
+    "A. A process requiring ongoing self-reflection and self-critique as lifelong learners",
+    "B. A checklist of do's and don'ts for each ethnic group",
+    "C. A one-time training certificate",
+    "D. Memorizing facts about every culture"
+   ],
+   "answer": "A",
+   "why": "Bates: humility is a process of continual self-reflection and self-critique.",
+   "src": "CulturalCompetence_Humility.pdf - Competence vs Humility"
+  },
+  {
+   "q": "What does the deck identify as 'the problem with cultural competence'?",
+   "choices": [
+    "A. It takes too long to teach",
+    "B. It suggests culture can be reduced to a technical skill and produces lists of 'do's and don'ts'",
+    "C. It is illegal",
+    "D. It only applies to physicians"
+   ],
+   "answer": "B",
+   "why": "Competence implies culture is a technical skill and yields do/don't lists.",
+   "src": "CulturalCompetence_Humility.pdf - The Problem with Cultural Competence"
+  },
+  {
+   "q": "Which statement reflects the spirit of cultural humility as the deck frames it?",
+   "choices": [
+    "A. 'Once trained, you are an expert in a culture'",
+    "B. 'Treat all patients identically regardless of background'",
+    "C. 'The more you know about a particular culture, the more you realize you don't know'",
+    "D. 'Cultural concepts equal race'"
+   ],
+   "answer": "C",
+   "why": "Humility slide: the more you know, the more you realize you don't know.",
+   "src": "CulturalCompetence_Humility.pdf - Competence vs Humility"
+  },
+  {
+   "q": "The 'Golden Rule' the Cultural deck closes with states that patient-centeredness is built on:",
+   "choices": [
+    "A. Speed and efficiency alone",
+    "B. Authority and expertise",
+    "C. Documentation and billing accuracy",
+    "D. Respect, sensitivity, composure, partnership, honesty, curiosity, and tolerance"
+   ],
+   "answer": "D",
+   "why": "Patient centeredness = respect, sensitivity, composure, partnership, honesty, curiosity, tolerance.",
+   "src": "CulturalCompetence_Humility.pdf - The Golden Rule"
+  },
+  {
+   "q": "According to the Fenway presentation, sexual health history should be taken from which patients?",
+   "choices": [
+    "A. ALL patients, regardless of gender identity or sexual orientation",
+    "B. Only patients who appear to be LGBT",
+    "C. Only patients over 40",
+    "D. Only patients presenting with a genitourinary complaint"
+   ],
+   "answer": "A",
+   "why": "Sexual health history is important for ALL patients regardless of gender identity/orientation.",
+   "src": "Fenway_SexualHx.pdf - Sexual History"
+  },
+  {
+   "q": "How does the Fenway deck distinguish sex from gender?",
+   "choices": [
+    "A. They are identical terms",
+    "B. Sex refers to biological differences; gender refers to social and cultural distinctions",
+    "C. Sex is chosen; gender is assigned",
+    "D. Both are determined solely by chromosomes"
+   ],
+   "answer": "B",
+   "why": "Sex = biological differences; gender = social/cultural distinctions.",
+   "src": "Fenway_SexualHx.pdf - Sex and Gender"
+  },
+  {
+   "q": "The CDC's '5 P's' of the sexual history, per the Fenway deck, are:",
+   "choices": [
+    "A. Preferences, Pleasure, Partners, Practices, and Protection",
+    "B. Pain, Pregnancy, Partners, Protection, and Prevention",
+    "C. Partners, Practices, Protection for STDs, Past history of STDs, and Prevention of pregnancy",
+    "D. Partners, Pleasure, Pregnancy, Protection, and Partner violence"
+   ],
+   "answer": "C",
+   "why": "CDC 5 P's: Partners, Practices, Protection for STDs, Past history of STDs, Prevention of pregnancy.",
+   "src": "Fenway_SexualHx.pdf - The 8 Ps"
+  },
+  {
+   "q": "Fenway expands the CDC's 5 P's into '8 P's' by adding which additional P's?",
+   "choices": [
+    "A. Pain, Prognosis, and Prescription",
+    "B. Payment, Privacy, and Policy",
+    "C. Position, Procedure, and Prevention",
+    "D. Preferences, Pleasure, and Partner Violence"
+   ],
+   "answer": "D",
+   "why": "The 8 P's add Preferences, Pleasure, and Partner Violence.",
+   "src": "Fenway_SexualHx.pdf - The 8 Ps"
+  },
+  {
+   "q": "Before beginning a sexual history, the Fenway deck recommends the clinician:",
+   "choices": [
+    "A. Ask if it is ok to discuss a sexual history and be transparent about why you are asking",
+    "B. Assume the patient's orientation from their appearance",
+    "C. Have the patient undress first",
+    "D. Skip the topic unless the patient raises it"
+   ],
+   "answer": "A",
+   "why": "Ask permission and explain why; start appointments with clothes on.",
+   "src": "Fenway_SexualHx.pdf - Establishing a Relationship"
+  },
+  {
+   "q": "Which is an example of taking an 'anatomic inventory' with patient-centered language?",
+   "choices": [
+    "A. 'You look like you've had surgery'",
+    "B. 'When referring to your genitals, are there specific terms that you use?'",
+    "C. 'I'll use whatever terms I prefer'",
+    "D. 'We don't need to discuss body parts'"
+   ],
+   "answer": "B",
+   "why": "Establish shared terms: ask what words the patient uses for their genitals.",
+   "src": "Fenway_SexualHx.pdf - Talking About Sex"
+  },
+  {
+   "q": "Why does the Fenway deck recommend asking sexual orientation/gender questions of EVERYONE?",
+   "choices": [
+    "A. To fill a quota",
+    "B. Because insurance requires it",
+    "C. Asking everyone normalizes the questions and reduces stigma and assumptions",
+    "D. To identify who to refer out"
+   ],
+   "answer": "C",
+   "why": "Ask all people and make it policy - it normalizes questions and decreases stigma.",
+   "src": "Fenway_SexualHx.pdf - Collecting Data / Just Ask"
+  },
+  {
+   "q": "In a trauma-informed exam, which phrase does the Fenway deck recommend?",
+   "choices": [
+    "A. 'Don't be scared, everything will be fine'",
+    "B. 'Hold still and relax your hands'",
+    "C. 'Scoot down until your bottom touches my hand'",
+    "D. 'You're in control here. If you want me to stop at any point, please let me know.'"
+   ],
+   "answer": "D",
+   "why": "Trauma-informed: emphasize patient control and the ability to stop.",
+   "src": "Fenway_SexualHx.pdf - Before the Exam"
+  },
+  {
+   "q": "When a patient discloses a history of violence, the Fenway trauma-informed approach advises the clinician to:",
+   "choices": [
+    "A. Communicate belief, emphasize that violence is unacceptable, and be clear the patient is not to blame",
+    "B. Bombard the patient with detailed questions",
+    "C. Tell the patient it was partly their responsibility",
+    "D. Change the subject immediately"
+   ],
+   "answer": "A",
+   "why": "Responding to disclosure: believe, validate, state violence is unacceptable, not their fault.",
+   "src": "Fenway_SexualHx.pdf - Trauma-Informed Approach"
+  }
+ ],
+ "ros_systems": [
+  {
+   "system": "Constitutional / General",
+   "screening_questions": [
+    "Have you had any unintentional weight loss or weight gain recently?",
+    "Have you noticed any weakness or fatigue?",
+    "Any fevers or night sweats?",
+    "Have you had any change in your sleep patterns?"
+   ]
+  },
+  {
+   "system": "Skin / Integumentary",
+   "screening_questions": [
+    "Have you noticed any rashes, lumps, sores, itching, or dryness of your skin?",
+    "Any change in the color of your skin, or any new moles or lesions?",
+    "For any mole, have you noticed changes in its asymmetry, borders, color, diameter, or is it evolving (ABCDE)?",
+    "Any changes in your hair (growth or loss) or your nails (cracking, spooning, clubbing, color)?"
+   ]
+  },
+  {
+   "system": "HEENT - Head",
+   "screening_questions": [
+    "Do you have any head or face pain?",
+    "Have you had any head injuries?"
+   ]
+  },
+  {
+   "system": "HEENT - Eyes",
+   "screening_questions": [
+    "Do you wear corrective lenses - glasses, reading glasses, or contacts?",
+    "Any visual changes such as blurry vision, floaters, halos, double vision, or light sensitivity?",
+    "Any eye pain, redness, tearing, dryness, or discharge?",
+    "When was your last eye exam?"
+   ]
+  },
+  {
+   "system": "HEENT - Ears",
+   "screening_questions": [
+    "Do you use hearing aids, or have you noticed any changes in your hearing?",
+    "Any ringing in your ears (tinnitus) or dizziness/vertigo?",
+    "Any ear pain, discharge, itchiness, or history of ear infections?"
+   ]
+  },
+  {
+   "system": "HEENT - Nose & Sinuses",
+   "screening_questions": [
+    "Do you get frequent colds or sinus infections?",
+    "Any runny nose, congestion, pain, itchiness, or nosebleeds?",
+    "Have you noticed any change in your sense of smell?"
+   ]
+  },
+  {
+   "system": "HEENT - Mouth & Throat",
+   "screening_questions": [
+    "Any bleeding or irritation of your gums, or difficulty chewing or swallowing?",
+    "Do you have frequent sore throats, hoarseness, or dry mouth?",
+    "Any change or loss of taste?",
+    "When was your last dental appointment?"
+   ]
+  },
+  {
+   "system": "HEENT - Neck",
+   "screening_questions": [
+    "Any swollen glands or lymph nodes in your neck?",
+    "Any neck pain, stiffness, or lumps?",
+    "Any history of thyroid problems or goiter?"
+   ]
+  },
+  {
+   "system": "Cardiovascular",
+   "screening_questions": [
+    "Do you have any history of heart trouble - murmurs, high blood pressure, heart failure, heart attack, or atrial fibrillation?",
+    "Any chest pain, palpitations, or shortness of breath with exertion?",
+    "Do you get short of breath when lying flat, or need extra pillows to sleep?",
+    "Any swelling in your hands, ankles, or feet?"
+   ]
+  },
+  {
+   "system": "Respiratory",
+   "screening_questions": [
+    "Do you have a cough? If so, do you bring up any sputum, and what color?",
+    "Have you ever coughed up blood?",
+    "Any shortness of breath or wheezing?",
+    "Any history of asthma, COPD, pneumonia, or TB?"
+   ]
+  },
+  {
+   "system": "Gastrointestinal",
+   "screening_questions": [
+    "Any difficulty swallowing, heartburn, nausea, or regurgitation?",
+    "Any change in your appetite, belching, gas, or abdominal pain?",
+    "Any change in your stool color, size, or consistency, or constipation or diarrhea?",
+    "Have you seen any blood in your stool? When was your last colonoscopy?"
+   ]
+  },
+  {
+   "system": "Genitourinary - Urinary",
+   "screening_questions": [
+    "How often are you urinating - any increased frequency or getting up at night to urinate?",
+    "Any painful or difficult urination (dysuria)?",
+    "Any decreased strength of your urine stream, dribbling, or hesitancy?",
+    "Any blood in your urine, or flank or lower-belly pain?"
+   ]
+  },
+  {
+   "system": "Genitourinary - Genital",
+   "screening_questions": [
+    "Any history of sexually transmitted infections?",
+    "Any genital lesions, ulcerations, discharge, or pain?",
+    "(For patients who menstruate) At what age did your periods start, and are they regular in frequency and duration? Any bleeding between periods?",
+    "(For patients who menstruate) When was your last Pap, and have you had any pregnancies?"
+   ]
+  },
+  {
+   "system": "Musculoskeletal",
+   "screening_questions": [
+    "Any muscle, joint, or bone pain, stiffness, weakness, or instability?",
+    "Any neck or back pain, or recent injury?",
+    "Any restricted range of motion - do you use a cane, walker, wheelchair, or prosthetic?",
+    "Any joint pain with systemic symptoms like fever, chills, rash, or weight loss?"
+   ]
+  },
+  {
+   "system": "Peripheral Vascular",
+   "screening_questions": [
+    "Any muscle pain or leg cramps when you walk (intermittent claudication)?",
+    "Any varicose veins, or have you ever had clots in your veins?",
+    "Any swelling in your calves, legs, or feet?",
+    "Any change in the color of your fingertips or toes in cold weather?"
+   ]
+  },
+  {
+   "system": "Neurologic",
+   "screening_questions": [
+    "Any changes in your mental status?",
+    "Any fainting, lightheadedness, or recurrent falls?",
+    "Any headaches, dizziness, numbness, or 'pins and needles' (paresthesia)?",
+    "Any tremors, involuntary movements, or seizures?"
+   ]
+  },
+  {
+   "system": "Psychiatric",
+   "screening_questions": [
+    "Any changes in your mood - feeling depressed, anxious, or tense?",
+    "Any difficulty concentrating or memory changes?",
+    "Any insomnia or sleep disturbances?",
+    "Have you had any thoughts of suicide, a plan, or previous attempts?"
+   ]
+  },
+  {
+   "system": "Endocrine",
+   "screening_questions": [
+    "Any intolerance to heat or cold?",
+    "Any excessive sweating, unusual hunger, or thirst?",
+    "Any unexplained weight changes or changes in your energy level?",
+    "Any change in your face or body hair or fat distribution?"
+   ]
+  },
+  {
+   "system": "Hematologic / Lymphatic",
+   "screening_questions": [
+    "Have you ever been told you have anemia?",
+    "Do you bruise or bleed easily?",
+    "Any history of blood clots?",
+    "Are you on a blood thinner (anticoagulation therapy)? If so, why - a clot, atrial fibrillation, or stroke?"
+   ]
+  }
+ ],
+ "sexual_social": {
+  "social": [
+   "Do you feel safe in your current relationships?",
+   "How do you cope with stressful experiences or the fact that life can be unfair?",
+   "Who do you turn to when you need support - family, friends, or the community?",
+   "What brings you joy?",
+   "Sometimes people are deeply affected by stressful experiences and may feel depressed, anxious, or use drugs or alcohol to feel better. Has this ever happened to you?",
+   "Are you engaging in sex for money, housing, drugs, or any other service?"
+  ],
+  "sexual": [
+   "Would it be okay if I asked you some questions about your sexual health? I ask all my patients so I can take the best care of you.",
+   "Do you have preferred language that you use to refer to your body, such as your genitals?",
+   "Are you currently sexually active, and what kinds of sex do you engage in?",
+   "Are you sexually active with one partner or more than one? How would your partners identify themselves in terms of gender?",
+   "Are there some kinds of sex where you do not use barriers? If so, why?",
+   "Have you ever been diagnosed with a sexually transmitted infection? If so, do you remember the site?",
+   "When you are having sex, is there any exposure to sperm or chance of pregnancy?",
+   "Has anyone ever forced or compelled you to do anything sexually that you did not want to do? Do you feel safe at home?"
+  ]
+ }
+}

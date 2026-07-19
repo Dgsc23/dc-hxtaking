@@ -1,0 +1,319 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mnemonics &amp; Memory Hooks — History Taking (CBS0201)</title>
+<style>
+:root{--bg:#0a0e1a;--card:#111a2e;--line:#22304d;--ink:#e6ecf5;--mut:#9fb0cc;--ac:#38bdf8;--gd:#34d399;--am:#fbbf24;--pk:#f472b6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(1100px 560px at 50% -8%,#132038,#0a0e1a),#0a0e1a;color:var(--ink);
+font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.55;padding:16px 13px 90px}
+.wrap{max-width:900px;margin:0 auto}
+.back{display:inline-block;background:#16233c;color:#cbd5e1;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font:800 .78rem 'Segoe UI',system-ui;text-decoration:none;margin-bottom:12px}
+.back:hover{background:#1e2f4d;color:#fff}
+h1{font-size:1.5rem;text-align:center;margin:6px 0 3px;line-height:1.2}
+.sub{text-align:center;color:var(--mut);font-size:.9rem;margin-bottom:4px}
+.sub b{color:#7dd3fc}
+.who{text-align:center;color:var(--am);font-size:.8rem;margin-bottom:16px;font-weight:600}
+.banner{background:linear-gradient(135deg,#0c355a,#0a2540);border:1px solid var(--ac);border-radius:14px;padding:13px 16px;margin:0 0 20px;font-size:.86rem;line-height:1.55;color:#dbeafe}
+.banner b{color:#fff}
+h3.sec{font-size:1.02rem;margin:26px 0 12px;color:#bae6fd;border-bottom:1px solid var(--line);padding-bottom:6px}
+/* hook cards */
+.hook{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin-bottom:13px}
+.hook .mn{font-size:1.12rem;font-weight:900;letter-spacing:.02em;color:#5eead4;font-family:'Segoe UI',system-ui;display:block;margin-bottom:2px}
+.hook .lead{font-size:.78rem;color:var(--mut);margin-bottom:10px}
+.hook .exp{font-size:.9rem;color:#dbe4f0;line-height:1.6}
+.hook .exp b{color:#fff}
+.hook ul{list-style:none;margin:8px 0 0;padding:0}
+.hook li{font-size:.88rem;color:#dbe4f0;line-height:1.5;padding:5px 0 5px 0;border-top:1px solid #1a2740}
+.hook li:first-child{border-top:none}
+.hook li .k{display:inline-block;min-width:1.6em;font-weight:900;color:#7dd3fc}
+.hage{display:block;margin-top:11px;background:#0e1c14;border-left:3px solid var(--gd);border-radius:9px;padding:9px 12px;font-size:.83rem;color:#c7f0dd;line-height:1.55}
+.hage b{color:#6ee7b7}
+.hage .tag{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#6ee7b7;display:block;margin-bottom:3px}
+.note{background:#0e1526;border:1px solid var(--line);border-left:3px solid var(--am);border-radius:10px;padding:12px 15px;margin:8px 0 4px;font-size:.84rem;color:#cbd5e1;line-height:1.6}
+.note b{color:#fde68a}
+.note .mono{font-family:'Courier New',monospace;letter-spacing:.15em;color:#fde68a;font-weight:700}
+.pillrow{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 2px}
+.pill{background:#0f1a30;border:1px solid var(--line);border-radius:999px;padding:4px 11px;font-size:.8rem;color:#cbd5e1}
+.wm{position:fixed;bottom:6px;right:10px;font-size:9px;color:rgba(255,255,255,.22);pointer-events:none}
+</style></head><body>
+<div class="wrap">
+<a class="back" href="index.html">&larr; History Taking Hub</a>
+<h1>&#129504; Mnemonics &amp; Memory Hooks</h1>
+<div class="sub">CBS0201 &middot; the letter-strings, lists, and models the <b>written final</b> and <b>practical</b> live on</div>
+<div class="who">Every letter, term, and number below is verbatim from the CBS0201 decks &mdash; the analogies are just glue to make them stick.</div>
+
+<div class="banner">
+<b>How to use this.</b> The mnemonic and its expansion are exactly as the slides give them &mdash; never change a letter.
+The green &ldquo;memory hook&rdquo; under each is an optional analogy to anchor it. Drill the letters first; lean on the hook only if a
+letter won't stay put.
+</div>
+
+<h3 class="sec">&#128300; The HPI &mdash; how the pain behaves</h3>
+
+<div class="hook">
+<span class="mn">LOPQRST</span><div class="hx-mrow"><button class="hx-mbtn" onclick="hxSay(HXSAY[0],HXNAME[0])">🎧 Hear it</button><button class="hx-mbtn sld" onclick="hxSlide(HXSLD[0])">🖼️ Slide</button></div>
+<div class="lead">The &ldquo;How&rdquo; of the HPI &mdash; SOAP_Notes.pdf</div>
+<ul>
+<li><span class="k">L</span> <b>Location</b> &mdash; where is it?</li>
+<li><span class="k">O</span> <b>Onset</b> &mdash; when/how did it start?</li>
+<li><span class="k">P</span> <b>Prior / Palliative / Provocative / Progression</b> &mdash; the four P's (has it happened before, what helps, what makes it worse, is it better/worse/same?)</li>
+<li><span class="k">Q</span> <b>Quality</b> &mdash; sharp, dull, achy, burning?</li>
+<li><span class="k">R</span> <b>Radiation</b> &mdash; does it travel?</li>
+<li><span class="k">S</span> <b>Severity</b> &mdash; 0&ndash;10 scale</li>
+<li><span class="k">T</span> <b>Timing</b> &mdash; constant, intermittent, time of day?</li>
+</ul>
+<div class="hage"><span class="tag">Memory hook</span>Read it as <b>&ldquo;LOP-QRST&rdquo;</b> &mdash; the &ldquo;QRST&rdquo; tail is the same run of letters as an <b>EKG wave (Q-R-S-T)</b>, so if you can trace a heartbeat you can trace a pain history. The lone <b>P</b> is the multitasker &mdash; picture a &ldquo;P for Plenty,&rdquo; because it alone carries all <b>four</b> P's (Prior, Palliative, Provocative, Progression).</div>
+</div>
+
+<h3 class="sec">&#128203; Past Medical History</h3>
+
+<div class="hook">
+<span class="mn">FAOMASH</span><div class="hx-mrow"><button class="hx-mbtn" onclick="hxSay(HXSAY[1],HXNAME[1])">🎧 Hear it</button><button class="hx-mbtn sld" onclick="hxSlide(HXSLD[1])">🖼️ Slide</button></div>
+<div class="lead">Past Medical History &mdash; PastMedicalHistory.pdf</div>
+<ul>
+<li><span class="k">F</span> <b>Family history</b></li>
+<li><span class="k">A</span> <b>Allergies</b></li>
+<li><span class="k">O</span> <b>Other illness</b> &mdash; chronic conditions / other doctors seen</li>
+<li><span class="k">M</span> <b>Medications</b></li>
+<li><span class="k">A</span> <b>Accidents</b></li>
+<li><span class="k">S</span> <b>Surgeries</b></li>
+<li><span class="k">H</span> <b>Hospitalizations</b></li>
+</ul>
+<div class="hage"><span class="tag">Memory hook</span>Say it out loud &mdash; <b>&ldquo;FAH-oh-mash&rdquo;</b> &mdash; like mashing the patient's whole past into one word. Watch the <b>two A's</b>: the first is <b>Allergies</b> (near the front, the thing you confirm every visit), the second is <b>Accidents</b> (later, tucked between Meds and Surgeries).</div>
+</div>
+
+<div class="note">
+&#9989; <b>FAOMASH note.</b> On the actual PMH slide the letters are printed <b>spaced out</b> as
+<span class="mono">F A O M A S H</span> &mdash; so if you search (Ctrl-F / grep) the deck for the word &ldquo;FAOMASH,&rdquo; you get <b>zero hits and think it isn't there.</b> It is. Look for the spaced letters, not the closed-up word.
+</div>
+
+<h3 class="sec">&#129505; Review of Systems &mdash; the 19 systems</h3>
+
+<div class="hook">
+<span class="mn">The 19 systems of the ROS</span><div class="hx-mrow"><button class="hx-mbtn" onclick="hxSay(HXSAY[2],HXNAME[2])">🎧 Hear it</button><button class="hx-mbtn sld" onclick="hxSlide(HXSLD[2])">🖼️ Slide</button></div>
+<div class="lead">ReviewOfSystems.pdf &mdash; screen head-to-toe so nothing is missed</div>
+<div class="pillrow">
+<span class="pill">1. Constitutional / General</span>
+<span class="pill">2. Skin / Integumentary</span>
+<span class="pill">3. Head</span>
+<span class="pill">4. Eyes</span>
+<span class="pill">5. Ears</span>
+<span class="pill">6. Nose &amp; Sinuses</span>
+<span class="pill">7. Mouth &amp; Throat</span>
+<span class="pill">8. Neck</span>
+<span class="pill">9. Cardiovascular</span>
+<span class="pill">10. Respiratory</span>
+<span class="pill">11. GI</span>
+<span class="pill">12. GU (Urinary + Genital)</span>
+<span class="pill">13. Musculoskeletal</span>
+<span class="pill">14. Peripheral Vascular</span>
+<span class="pill">15. Neurologic</span>
+<span class="pill">16. Psychiatric</span>
+<span class="pill">17. Endocrine</span>
+<span class="pill">18. Hematologic / Lymphatic</span>
+</div>
+<div class="exp" style="margin-top:8px"><b>Count check:</b> the deck lists <b>19 systems</b>. The 18 pills above are the distinct headings; the 19th falls out when you split <b>GU into its two parts &mdash; Urinary and Genital</b> &mdash; which the slide names together but screens separately.</div>
+<div class="hage"><span class="tag">Memory hook</span>Walk it <b>top-to-bottom like getting dressed for the day, then check the wiring</b>: start at the outside and the head (General, Skin, then Head&rarr;Eyes&rarr;Ears&rarr;Nose&rarr;Mouth&rarr;Neck), drop into the chest and belly (Cardio, Respiratory, GI, GU), swing out to the frame and limbs (Musculoskeletal, Peripheral Vascular), then finish with the <b>&ldquo;control systems&rdquo;</b> &mdash; Neuro, Psych, Endocrine, Heme/Lymph. Nose-to-toes, then the wiring.</div>
+</div>
+
+<div class="hook">
+<span class="mn">ABCDE</span><div class="hx-mrow"><button class="hx-mbtn" onclick="hxSay(HXSAY[3],HXNAME[3])">🎧 Hear it</button><button class="hx-mbtn sld" onclick="hxSlide(HXSLD[3])">🖼️ Slide</button></div>
+<div class="lead">The skin/lesion check inside the ROS &mdash; ReviewOfSystems.pdf</div>
+<ul>
+<li><span class="k">A</span> <b>Asymmetry</b></li>
+<li><span class="k">B</span> <b>Border</b></li>
+<li><span class="k">C</span> <b>Color</b></li>
+<li><span class="k">D</span> <b>Diameter</b></li>
+<li><span class="k">E</span> <b>Evolving</b></li>
+</ul>
+<div class="hage"><span class="tag">Memory hook</span>It's literally the <b>first five letters of the alphabet</b> &mdash; a mole that is &ldquo;out of order&rdquo; on any of the ABC's is the one to worry about. <b>E for Evolving</b> is the one people forget: a spot that <b>changes over time</b> is the biggest red flag.</div>
+</div>
+
+<h3 class="sec">&#128104;&#8205;&#10084;&#65039;&#8205;&#128104; Sexual history</h3>
+
+<div class="hook">
+<span class="mn">CDC &mdash; the 5 P's</span><div class="hx-mrow"><button class="hx-mbtn" onclick="hxSay(HXSAY[4],HXNAME[4])">🎧 Hear it</button><button class="hx-mbtn sld" onclick="hxSlide(HXSLD[4])">🖼️ Slide</button></div>
+<div class="lead">Sexual history &mdash; CDC framework</div>
+<ul>
+<li><span class="k">P</span> <b>Partners</b></li>
+<li><span class="k">P</span> <b>Practices</b></li>
+<li><span class="k">P</span> <b>Protection for STDs</b></li>
+<li><span class="k">P</span> <b>Past history of STDs</b></li>
+<li><span class="k">P</span> <b>Prevention of pregnancy</b></li>
+</ul>
+<div class="hage"><span class="tag">Memory hook</span>Five P's, and they run in a natural story order: <b>who</b> (Partners), <b>what</b> (Practices), <b>how you stay safe</b> (Protection), <b>what's happened before</b> (Past STDs), <b>and babies</b> (Prevention of pregnancy). Who &rarr; what &rarr; safety &rarr; history &rarr; pregnancy.</div>
+</div>
+
+<div class="hook">
+<span class="mn">Fenway &mdash; the 8 P's</span><div class="hx-mrow"><button class="hx-mbtn" onclick="hxSay(HXSAY[5],HXNAME[5])">🎧 Hear it</button><button class="hx-mbtn sld" onclick="hxSlide(HXSLD[5])">🖼️ Slide</button></div>
+<div class="lead">Sexual history, expanded &mdash; Fenway framework</div>
+<ul>
+<li><span class="k">P</span> <b>Preferences</b></li>
+<li><span class="k">P</span> <b>Partners</b></li>
+<li><span class="k">P</span> <b>Practices</b></li>
+<li><span class="k">P</span> <b>Protection for STIs</b></li>
+<li><span class="k">P</span> <b>Past history of STIs</b></li>
+<li><span class="k">P</span> <b>Pregnancy</b></li>
+<li><span class="k">P</span> <b>Pleasure</b></li>
+<li><span class="k">P</span> <b>Partner Violence</b></li>
+</ul>
+<div class="hage"><span class="tag">Memory hook</span>Fenway takes the CDC 5 and <b>adds 3 more P's on top &mdash; Preferences, Pleasure, Partner Violence</b> &mdash; the three that make it patient-centered rather than just infection-focused. Remember it as <b>&ldquo;the CDC 5, plus the 3 the CDC left out&rdquo;</b>: it opens with <b>Preferences</b> (identity first) and closes with <b>Pleasure &amp; Partner Violence</b> (wellbeing &amp; safety).</div>
+</div>
+
+<h3 class="sec">&#129329; Obstetric history</h3>
+
+<div class="hook">
+<span class="mn">GPA</span><div class="hx-mrow"><button class="hx-mbtn" onclick="hxSay(HXSAY[6],HXNAME[6])">🎧 Hear it</button><button class="hx-mbtn sld" onclick="hxSlide(HXSLD[6])">🖼️ Slide</button></div>
+<div class="lead">Obstetric shorthand &mdash; e.g. G4P3A1</div>
+<ul>
+<li><span class="k">G</span> <b>Gravida</b> &mdash; number of pregnancies</li>
+<li><span class="k">P</span> <b>Para</b> &mdash; number of births</li>
+<li><span class="k">A</span> <b>Abortus</b> &mdash; number of losses</li>
+</ul>
+<div class="hage"><span class="tag">Memory hook</span><b>G&rarr;P&rarr;A</b> tracks a pregnancy from start to outcome: <b>G</b>ravida is every time she <b>got</b> pregnant, <b>P</b>ara is every pregnancy that was <b>produced</b> (a birth), <b>A</b>bortus is the ones <b>absent</b> (losses). In <b>G4P3A1</b>, the 3 births + 1 loss add up to the 4 pregnancies.</div>
+</div>
+
+<h3 class="sec">&#128221; The note &amp; the interview structure</h3>
+
+<div class="hook">
+<span class="mn">SOAP</span><div class="hx-mrow"><button class="hx-mbtn" onclick="hxSay(HXSAY[7],HXNAME[7])">🎧 Hear it</button><button class="hx-mbtn sld" onclick="hxSlide(HXSLD[7])">🖼️ Slide</button></div>
+<div class="lead">The 4 sections of the note &mdash; know what goes in each</div>
+<ul>
+<li><span class="k">S</span> <b>Subjective</b> &mdash; what the patient tells you: chief complaint, <b>HPI / history</b></li>
+<li><span class="k">O</span> <b>Objective</b> &mdash; what you measure: <b>vitals, physical exam</b>, labs/data</li>
+<li><span class="k">A</span> <b>Assessment</b> &mdash; diagnoses &amp; differential</li>
+<li><span class="k">P</span> <b>Plan</b> &mdash; the action plan</li>
+</ul>
+<div class="hage"><span class="tag">Memory hook</span>The split that's tested most is <b>S vs O</b>: <b>Subjective = what they SAY</b> (history/HPI &mdash; you take it on their word), <b>Objective = what you can OBSERVE or measure</b> (vitals, exam &mdash; a machine or your hands could confirm it). If a number or finding would still be true with the patient silent, it's <b>Objective</b>.</div>
+</div>
+
+<div class="hook">
+<span class="mn">The 3 Functions of the Medical Interview</span><div class="hx-mrow"><button class="hx-mbtn" onclick="hxSay(HXSAY[8],HXNAME[8])">🎧 Hear it</button><button class="hx-mbtn sld" onclick="hxSlide(HXSLD[8])">🖼️ Slide</button></div>
+<div class="lead">Cole &amp; Bird &mdash; HxTaking_Intro.pdf</div>
+<ul>
+<li><span class="k">1</span> <b>Build the relationship</b></li>
+<li><span class="k">2</span> <b>Assess / understand the problem</b></li>
+<li><span class="k">3</span> <b>Manage / collaborate on the plan</b></li>
+</ul>
+<div class="hage"><span class="tag">Memory hook</span>Think <b>&ldquo;Connect &rarr; Collect &rarr; Collaborate&rdquo;</b> (three C's for the three functions). You can't <b>collect</b> a good story until you <b>connect</b>, and you can't <b>collaborate</b> on a plan until you've collected the problem &mdash; they run in order.</div>
+</div>
+
+<h3 class="sec">&#128149; Empathy &amp; communication models</h3>
+
+<div class="hook">
+<span class="mn">Empathy vs Sympathy vs Compassion</span><div class="hx-mrow"><button class="hx-mbtn" onclick="hxSay(HXSAY[9],HXNAME[9])">🎧 Hear it</button><button class="hx-mbtn sld" onclick="hxSlide(HXSLD[9])">🖼️ Slide</button></div>
+<div class="lead">Three often-confused terms &mdash; HxTaking_Intro / Communication_Empathy</div>
+<ul>
+<li><span class="k">E</span> <b>Empathy</b> &mdash; understand and <b>share</b> another's feelings; put yourself in their shoes</li>
+<li><span class="k">S</span> <b>Sympathy</b> &mdash; feeling <b>for</b> someone (pity/sharing feelings from the outside)</li>
+<li><span class="k">C</span> <b>Compassion</b> &mdash; awareness of distress <b>plus a desire to alleviate it</b> (adds action)</li>
+</ul>
+<div class="hage"><span class="tag">Memory hook</span>Ladder of closeness and action: <b>Sympathy</b> feels <b>for</b> you from across the room, <b>Empathy</b> feels <b>with</b> you (in your shoes), and <b>Compassion adds the hand that helps you up</b> &mdash; it's the only one with a &ldquo;do something about it&rdquo; built in.</div>
+</div>
+
+<div class="hook">
+<span class="mn">Carl Rogers' 3 Qualities</span><div class="hx-mrow"><button class="hx-mbtn" onclick="hxSay(HXSAY[10],HXNAME[10])">🎧 Hear it</button><button class="hx-mbtn sld" onclick="hxSlide(HXSLD[10])">🖼️ Slide</button></div>
+<div class="lead">The therapeutic qualities of the practitioner</div>
+<ul>
+<li><span class="k">1</span> <b>Congruence / genuineness</b></li>
+<li><span class="k">2</span> <b>Unconditional positive regard</b></li>
+<li><span class="k">3</span> <b>Empathic understanding</b></li>
+</ul>
+<div class="hage"><span class="tag">Memory hook</span>Rogers wants you to be <b>Real, Warm, and Understanding</b> &mdash; <b>genuine</b> (no fake bedside act), <b>accepting</b> no matter what they disclose (unconditional positive regard), and <b>tuned in</b> to what they feel (empathic understanding). Real &rarr; Warm &rarr; Tuned-in.</div>
+</div>
+
+<div class="hook">
+<span class="mn">Coulehan's Levels of Empathic Response</span><div class="hx-mrow"><button class="hx-mbtn" onclick="hxSay(HXSAY[11],HXNAME[11])">🎧 Hear it</button><button class="hx-mbtn sld" onclick="hxSlide(HXSLD[11])">🖼️ Slide</button></div>
+<div class="lead">Communication_Empathy.pdf &mdash; two helpful, two harmful</div>
+<ul>
+<li><span class="k">+</span> <b>Interchangeable</b> &mdash; matches the patient's expressed feeling (positive)</li>
+<li><span class="k">+</span> <b>Additive</b> &mdash; goes one step deeper than what was said (positive)</li>
+<li><span class="k">&minus;</span> <b>Ignoring</b> &mdash; skips the feeling entirely (negative)</li>
+<li><span class="k">&minus;</span> <b>Minimizing</b> &mdash; responds at a <b>lesser</b> level than the concern (negative)</li>
+</ul>
+<div class="hage"><span class="tag">Memory hook</span>Line them up as a thermometer against the patient's feeling: <b>Additive is above, Interchangeable is right at it</b> (both good), while <b>Minimizing lands below and Ignoring is off the scale</b> (both bad). The two that start with vowels-ish &ldquo;good&rdquo; energy meet the patient; the two that start with <b>I/M</b> fall short.</div>
+</div>
+
+<div class="hook">
+<span class="mn">Cultural Competence vs Cultural Humility</span><div class="hx-mrow"><button class="hx-mbtn" onclick="hxSay(HXSAY[12],HXNAME[12])">🎧 Hear it</button><button class="hx-mbtn sld" onclick="hxSlide(HXSLD[12])">🖼️ Slide</button></div>
+<div class="lead">Bates vs Coulehan framing &mdash; CulturalCompetence_Humility.pdf</div>
+<ul>
+<li><span class="k">C</span> <b>Competence</b> &mdash; knowledge &amp; skills; risks becoming a &ldquo;list of do's and don'ts&rdquo;</li>
+<li><span class="k">H</span> <b>Humility</b> &mdash; <b>lifelong self-reflection &amp; self-critique</b>, and addressing the power imbalance</li>
+</ul>
+<div class="hage"><span class="tag">Memory hook</span><b>Competence sounds like a finish line</b> (&ldquo;I'm certified, I know this culture&rdquo;), <b>Humility is a road with no end</b> (&ldquo;the more I learn, the more I realize I don't know&rdquo;). Competence = a <b>closed</b> checklist; Humility = an <b>open</b> mirror you keep looking into. If the answer implies &ldquo;done&rdquo;, it's Competence; if it implies &ldquo;ongoing&rdquo;, it's Humility.</div>
+</div>
+
+<h3 class="sec">&#128218; The number that anchors the whole course</h3>
+
+<div class="hook">
+<span class="mn">80&ndash;90%</span><div class="hx-mrow"><button class="hx-mbtn" onclick="hxSay(HXSAY[13],HXNAME[13])">🎧 Hear it</button><button class="hx-mbtn sld" onclick="hxSlide(HXSLD[13])">🖼️ Slide</button></div>
+<div class="lead">The share of the diagnosis that comes from the history</div>
+<div class="exp">Roughly <b>80&ndash;90% of the diagnosis comes from the history</b> &mdash; before a single lab or exam maneuver. It's the reason this entire course exists.</div>
+<div class="hage"><span class="tag">Memory hook</span>Think <b>&ldquo;the history is an A-minus of the whole diagnosis&rdquo;</b> &mdash; roughly 8 or 9 out of every 10 answers are already in the patient's story if you take it well. Exam and labs are just confirming the last <b>10&ndash;20%</b>.</div>
+</div>
+
+</div>
+<div class="wm">DC Study Supply &mdash; Dr. David Gramling, PhD</div>
+<script>
+// Hide viewport watermark on David's own view.
+try{if(localStorage.getItem('dcDavidView')==='1'){var w=document.querySelector('.wm');if(w)w.style.display='none';}}catch(e){}
+</script>
+<!-- ===== HX SHARED MEDIA MODULE (self-contained, global): 🖼️ real slide + 🎧 voiced TTS (Ava/Emma). No recordings exist for HX, so 🎧 speaks the item text. Paste before </body>. ===== -->
+<style>
+#hxbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:1200;background:#0b1220;border-top:2px solid #38bdf8;padding:8px 12px;align-items:center;gap:9px;flex-wrap:wrap}
+#hxbar .hb{background:#132132;color:#bae6fd;border:1px solid #24425c;border-radius:7px;padding:5px 9px;font-size:.72rem;cursor:pointer;font-family:inherit;font-weight:700}
+#hxbar .hb:hover{background:#1c405c;color:#fff}
+.hx-mrow{display:flex;flex-wrap:wrap;gap:7px;margin:9px 0 2px}
+.hx-mbtn{background:rgba(56,189,248,.15);color:#7dd3fc;border:1px solid #38bdf8;border-radius:9px;padding:6px 12px;font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit}
+.hx-mbtn:hover{background:rgba(56,189,248,.32);color:#fff}
+.hx-mbtn.sld{background:rgba(52,211,153,.15);color:#6ee7b7;border-color:#10b981}.hx-mbtn.sld:hover{background:rgba(52,211,153,.3)}
+#hxslide{display:none;position:fixed;inset:0;z-index:1300;background:rgba(0,0,0,.9);align-items:center;justify-content:center;flex-direction:column;padding:14px;cursor:zoom-out}
+#hxslideImg{max-width:100%;max-height:86vh;border-radius:8px;box-shadow:0 12px 44px rgba(0,0,0,.7);background:#fff}
+</style>
+<script id="hx-media-shared">
+(function(){
+ var vl=[],vA=null,vB=null,rate=1.0;
+ function pickA(){return vl.find(function(v){return /microsoft.*ava.*natural/i.test(v.name);})||vl.find(function(v){return /microsoft.*emma.*natural/i.test(v.name);})||vl.find(function(v){return /google us english/i.test(v.name);})||vl.find(function(v){return /en[-_]US/i.test(v.lang);})||vl.find(function(v){return /^en/i.test(v.lang);})||vl[0]||null;}
+ function pickB(){return vl.find(function(v){return /microsoft.*emma.*natural/i.test(v.name);})||vl.find(function(v){return /microsoft.*(aria|jenny).*natural/i.test(v.name);})||vl.find(function(v){return /google uk english female/i.test(v.name);})||vA;}
+ function load(){if(!window.speechSynthesis)return;vl=speechSynthesis.getVoices()||[];vA=pickA();vB=pickB();}
+ if(window.speechSynthesis){load();speechSynthesis.onvoiceschanged=load;var t=0,iv=setInterval(function(){t++;load();if(vA||t>20)clearInterval(iv);},250);}
+ window.hxRate=function(r){rate=r;Array.prototype.forEach.call(document.querySelectorAll(".hx-rate"),function(s){s.textContent=r.toFixed(2)+"x";});};
+ window.hxStop=function(){if(window.speechSynthesis)speechSynthesis.cancel();};
+ window.hxSay=function(text,label){if(!window.speechSynthesis){return;}speechSynthesis.cancel();
+   var bar=document.getElementById("hxbar");if(bar)bar.style.display="flex";
+   var lbl=document.getElementById("hxlabel");if(lbl)lbl.textContent="🎧 "+(label||"Read aloud");
+   var u=new SpeechSynthesisUtterance(String(text).replace(/<[^>]+>/g," ").replace(/\s+/g," "));
+   u.rate=rate;if(vA){u.voice=vA;u.lang=vA.lang||"en-US";}speechSynthesis.speak(u);};
+ window.hxSayQA=function(q,a,label){if(!window.speechSynthesis)return;speechSynthesis.cancel();
+   var bar=document.getElementById("hxbar");if(bar)bar.style.display="flex";
+   var lbl=document.getElementById("hxlabel");if(lbl)lbl.textContent="🎧 "+(label||"Q & A");
+   function strip(x){return String(x).replace(/<[^>]+>/g," ").replace(/\s+/g," ");}
+   var uq=new SpeechSynthesisUtterance(strip(q));uq.rate=rate;if(vA){uq.voice=vA;uq.lang=vA.lang||"en-US";}
+   var ua=new SpeechSynthesisUtterance(strip(a));ua.rate=rate;if(vB){ua.voice=vB;ua.lang=vB.lang||"en-US";}
+   speechSynthesis.speak(uq);speechSynthesis.speak(ua);};
+ window.hxGal=null;window.hxGi=0;
+ window.hxSlide=function(fr){if(!fr)return;var arr=Array.isArray(fr)?fr:[fr];if(!arr.length)return;window.hxGal=arr;window.hxGi=0;
+   document.getElementById("hxslideImg").src=arr[0];document.getElementById("hxslCount").textContent=arr.length>1?("1 / "+arr.length):"";
+   document.getElementById("hxslNav").style.display=arr.length>1?"flex":"none";document.getElementById("hxslide").style.display="flex";};
+ window.hxGalStep=function(d){if(!window.hxGal)return;window.hxGi=(window.hxGi+d+window.hxGal.length)%window.hxGal.length;
+   document.getElementById("hxslideImg").src=window.hxGal[window.hxGi];document.getElementById("hxslCount").textContent=(window.hxGi+1)+" / "+window.hxGal.length;};
+})();
+</script>
+<div id="hxbar">
+ <span id="hxlabel" style="color:#7dd3fc;font-size:.8rem;font-weight:700;white-space:nowrap"></span>
+ <button class="hb" onclick="hxRate(0.8)">0.8x</button><button class="hb" onclick="hxRate(1)">1x</button><button class="hb" onclick="hxRate(1.25)">1.25x</button><button class="hb" onclick="hxRate(1.5)">1.5x</button><button class="hb" onclick="hxRate(2)">2x</button>
+ <span class="hx-rate" style="color:#bae6fd;font-size:.72rem;font-weight:700;min-width:42px;text-align:center">1.00x</span>
+ <button class="hb" onclick="hxStop();document.getElementById('hxbar').style.display='none';">■ Stop</button>
+</div>
+<div id="hxslide" onclick="if(event.target===this)this.style.display='none'">
+ <img id="hxslideImg" alt="slide">
+ <div id="hxslNav" style="display:none;gap:16px;margin-top:12px;align-items:center">
+  <button onclick="event.stopPropagation();hxGalStep(-1)" style="background:#132132;color:#bae6fd;border:1px solid #38bdf8;border-radius:8px;padding:8px 16px;cursor:pointer">&#8249;</button>
+  <span id="hxslCount" style="color:#bae6fd;font-size:.85rem;font-weight:700"></span>
+  <button onclick="event.stopPropagation();hxGalStep(1)" style="background:#132132;color:#bae6fd;border:1px solid #38bdf8;border-radius:8px;padding:8px 16px;cursor:pointer">&#8250;</button></div>
+ <div style="position:fixed;top:12px;right:18px;color:#fff;font-size:26px;font-weight:800;pointer-events:none">&#215;</div>
+</div>
+<!-- API: hxSay(text,label) speak one · hxSayQA(q,a,label) two-voice · hxSlide(fileOrArray) show slide(s) -->
+<script>window.HXSAY=["LOPQRST The &ldquo;How&rdquo; of the HPI &mdash; SOAP_Notes.pdf L Location &mdash; where is it? O Onset &mdash; when/how did it start? P Prior / Palliative / Provocative / Progression &mdash; the four P's (has it happened before, what helps, what makes it worse, is it better/worse/same?) Q Quality &mdash; sharp, dull, achy, burning? R Radiation &mdash; does it travel? S Severity &mdash; 0&ndash;10 scale T Timing &mdash; constant, intermittent, time of day? Memory hook Read it as &ldquo;LOP-QRST&rdquo; &mdash; the &","FAOMASH Past Medical History &mdash; PastMedicalHistory.pdf F Family history A Allergies O Other illness &mdash; chronic conditions / other doctors seen M Medications A Accidents S Surgeries H Hospitalizations Memory hook Say it out loud &mdash; &ldquo;FAH-oh-mash&rdquo; &mdash; like mashing the patient's whole past into one word. Watch the two A's : the first is Allergies (near the front, the thing you confirm every visit), the second is Accidents (later, tucked between Meds and Surgeries). &#9989; FAOMASH note. O","The 19 systems of the ROS ReviewOfSystems.pdf &mdash; screen head-to-toe so nothing is missed 1. Constitutional / General 2. Skin / Integumentary 3. Head 4. Eyes 5. Ears 6. Nose &amp; Sinuses 7. Mouth &amp; Throat 8. Neck 9. Cardiovascular 10. Respiratory 11. GI 12. GU (Urinary + Genital) 13. Musculoskeletal 14. Peripheral Vascular 15. Neurologic 16. Psychiatric 17. Endocrine 18. Hematologic / Lymphatic Count check: the deck lists 19 systems . The 18 pills above are the distinct headings; the 19th falls out when yo","ABCDE The skin/lesion check inside the ROS &mdash; ReviewOfSystems.pdf A Asymmetry B Border C Color D Diameter E Evolving Memory hook It's literally the first five letters of the alphabet &mdash; a mole that is &ldquo;out of order&rdquo; on any of the ABC's is the one to worry about. E for Evolving is the one people forget: a spot that changes over time is the biggest red flag. &#128104;&#8205;&#10084;&#65039;&#8205;&#128104; Sexual history","CDC &mdash; the 5 P's Sexual history &mdash; CDC framework P Partners P Practices P Protection for STDs P Past history of STDs P Prevention of pregnancy Memory hook Five P's, and they run in a natural story order: who (Partners), what (Practices), how you stay safe (Protection), what's happened before (Past STDs), and babies (Prevention of pregnancy). Who &rarr; what &rarr; safety &rarr; history &rarr; pregnancy.","Fenway &mdash; the 8 P's Sexual history, expanded &mdash; Fenway framework P Preferences P Partners P Practices P Protection for STIs P Past history of STIs P Pregnancy P Pleasure P Partner Violence Memory hook Fenway takes the CDC 5 and adds 3 more P's on top &mdash; Preferences, Pleasure, Partner Violence &mdash; the three that make it patient-centered rather than just infection-focused. Remember it as &ldquo;the CDC 5, plus the 3 the CDC left out&rdquo; : it opens with Preferences (identity first) and closes wit","GPA Obstetric shorthand &mdash; e.g. G4P3A1 G Gravida &mdash; number of pregnancies P Para &mdash; number of births A Abortus &mdash; number of losses Memory hook G&rarr;P&rarr;A tracks a pregnancy from start to outcome: G ravida is every time she got pregnant, P ara is every pregnancy that was produced (a birth), A bortus is the ones absent (losses). In G4P3A1 , the 3 births + 1 loss add up to the 4 pregnancies. &#128221; The note &amp; the interview structure","SOAP The 4 sections of the note &mdash; know what goes in each S Subjective &mdash; what the patient tells you: chief complaint, HPI / history O Objective &mdash; what you measure: vitals, physical exam , labs/data A Assessment &mdash; diagnoses &amp; differential P Plan &mdash; the action plan Memory hook The split that's tested most is S vs O : Subjective = what they SAY (history/HPI &mdash; you take it on their word), Objective = what you can OBSERVE or measure (vitals, exam &mdash; a machine or your hands could","The 3 Functions of the Medical Interview Cole &amp; Bird &mdash; HxTaking_Intro.pdf 1 Build the relationship 2 Assess / understand the problem 3 Manage / collaborate on the plan Memory hook Think &ldquo;Connect &rarr; Collect &rarr; Collaborate&rdquo; (three C's for the three functions). You can't collect a good story until you connect , and you can't collaborate on a plan until you've collected the problem &mdash; they run in order. &#128149; Empathy &amp; communication models","Empathy vs Sympathy vs Compassion Three often-confused terms &mdash; HxTaking_Intro / Communication_Empathy E Empathy &mdash; understand and share another's feelings; put yourself in their shoes S Sympathy &mdash; feeling for someone (pity/sharing feelings from the outside) C Compassion &mdash; awareness of distress plus a desire to alleviate it (adds action) Memory hook Ladder of closeness and action: Sympathy feels for you from across the room, Empathy feels with you (in your shoes), and Compassion adds the hand ","Carl Rogers' 3 Qualities The therapeutic qualities of the practitioner 1 Congruence / genuineness 2 Unconditional positive regard 3 Empathic understanding Memory hook Rogers wants you to be Real, Warm, and Understanding &mdash; genuine (no fake bedside act), accepting no matter what they disclose (unconditional positive regard), and tuned in to what they feel (empathic understanding). Real &rarr; Warm &rarr; Tuned-in.","Coulehan's Levels of Empathic Response Communication_Empathy.pdf &mdash; two helpful, two harmful + Interchangeable &mdash; matches the patient's expressed feeling (positive) + Additive &mdash; goes one step deeper than what was said (positive) &minus; Ignoring &mdash; skips the feeling entirely (negative) &minus; Minimizing &mdash; responds at a lesser level than the concern (negative) Memory hook Line them up as a thermometer against the patient's feeling: Additive is above, Interchangeable is right at it (both g","Cultural Competence vs Cultural Humility Bates vs Coulehan framing &mdash; CulturalCompetence_Humility.pdf C Competence &mdash; knowledge &amp; skills; risks becoming a &ldquo;list of do's and don'ts&rdquo; H Humility &mdash; lifelong self-reflection &amp; self-critique , and addressing the power imbalance Memory hook Competence sounds like a finish line (&ldquo;I'm certified, I know this culture&rdquo;), Humility is a road with no end (&ldquo;the more I learn, the more I realize I don't know&rdquo;). Competence = ","80&ndash;90% The share of the diagnosis that comes from the history Roughly 80&ndash;90% of the diagnosis comes from the history &mdash; before a single lab or exam maneuver. It's the reason this entire course exists. Memory hook Think &ldquo;the history is an A-minus of the whole diagnosis&rdquo; &mdash; roughly 8 or 9 out of every 10 answers are already in the patient's story if you take it well. Exam and labs are just confirming the last 10&ndash;20% . DC Study Supply &mdash; Dr. David Gramling, PhD // Hide view"];window.HXNAME=["LOPQRST","FAOMASH","The 19 systems of the ROS","ABCDE","CDC &mdash; the 5 P's","Fenway &mdash; the 8 P's","GPA","SOAP","The 3 Functions of the Medical Interview","Empathy vs Sympathy vs Compassion","Carl Rogers' 3 Qualities","Coulehan's Levels of Empathic Response","Cultural Competence vs Cultural Humility","80&ndash;90%"];window.HXSLD=["frames/hx/soap_019.jpg","frames/hx/pmh_004.jpg","frames/hx/ros_007.jpg","frames/hx/ros_010.jpg","frames/hx/sexual_032.jpg","frames/hx/sexual_032.jpg","frames/hx/abbrev_001.jpg","frames/hx/soap_005.jpg","frames/hx/intro_004.jpg","frames/hx/intro_013.jpg","frames/hx/comm_004.jpg","frames/hx/comm_014.jpg","frames/hx/cultural_012.jpg","frames/hx/abbrev_002.jpg"];</script>
+</body></html>
