@@ -34,7 +34,17 @@ select{background:#131f36;color:#cbd5e1;border:1px solid var(--line);border-radi
 <div class="controls">
   <label style="font-size:.78rem;color:#9fb0cc">Section <select id="catSel"></select></label>
   <button class="btn" id="testBtn" title="Hide the answer until you Reveal">&#128065; Test mode: OFF</button>
+  <button class="btn" id="jumpToggle" title="Jump straight to any topic">&#128209; Jump to a topic</button>
 </div>
+<style>
+#jumpbox{display:none;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px;background:#0d1526;border:1px solid #24425c;border-radius:12px;padding:12px;margin:0 0 12px}
+#jumpbox.open{display:grid}
+.jsec{grid-column:1/-1;color:#7dd3fc;font-weight:800;font-size:.7rem;margin:8px 0 2px;text-transform:uppercase;letter-spacing:.5px}
+.jtopic{text-align:left;background:#16233c;color:#cbd5e1;border:1px solid #24425c;border-radius:8px;padding:7px 10px;font:600 .76rem inherit;cursor:pointer}
+.jtopic:hover{border-color:#38bdf8;color:#fff}
+.jtopic.cur{border-color:#38bdf8;background:rgba(56,189,248,.18);color:#fff}
+</style>
+<div id="jumpbox"></div>
 <div class="bar"><span id="prog"></span><span id="secLab"></span></div>
 <div class="qcard" id="qcard">
   <span class="qtag" id="qtag"></span>
@@ -120,6 +130,11 @@ document.getElementById('prevBtn').onclick=function(){if(!order.length)return;id
 var testBtn=document.getElementById('testBtn');
 testBtn.onclick=function(){testMode=!testMode;testBtn.textContent=(testMode?'\u{1F441} Test mode: ON':'\u{1F441} Test mode: OFF');testBtn.classList.toggle('on',testMode);render();};
 catSel.onchange=function(){filter=catSel.value;build();};
+function buildJumpList(){var jb=document.getElementById('jumpbox');var html='';SECTIONS.forEach(function(sec){var items=DATA.filter(function(d){return d.cat===sec;});if(!items.length)return;html+='<div class="jsec">'+esc(sec)+'</div>';items.forEach(function(d){html+='<button class="jtopic" data-i="'+d._i+'">'+esc(d.title)+'</button>';});});jb.innerHTML=html;Array.prototype.forEach.call(jb.querySelectorAll('.jtopic'),function(b){b.onclick=function(){jumpTo(+b.getAttribute('data-i'));};});}
+function jumpTo(oi){if(order.indexOf(oi)<0){filter='__all';catSel.value='__all';order=DATA.filter(inFilter).map(function(d){return d._i;});}idx=order.indexOf(oi);if(idx<0)idx=0;render();document.getElementById('jumpbox').classList.remove('open');document.getElementById('qcard').scrollIntoView({behavior:'smooth',block:'start'});}
+document.getElementById('jumpToggle').onclick=function(){document.getElementById('jumpbox').classList.toggle('open');};
+var _origRender=render;render=function(){_origRender();try{var oi=order[idx];var jb=document.getElementById('jumpbox');if(jb)Array.prototype.forEach.call(jb.querySelectorAll('.jtopic'),function(b){b.classList.toggle('cur',+b.getAttribute('data-i')===oi);});}catch(e){}};
+buildJumpList();
 build();
 </script>
 <!-- ===== HX SHARED MEDIA MODULE (self-contained, global): 🖼️ real slide + 🎧 voiced TTS (Ava/Emma). No recordings exist for HX, so 🎧 speaks the item text. Paste before </body>. ===== -->
